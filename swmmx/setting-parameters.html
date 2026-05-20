@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setting Parameters | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="active" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Setting Parameters</h1>
+<p>Setter paths follow <code>m.set.&lt;main_category&gt;.&lt;sub_category&gt;(value, ids=None)</code>. They edit writable model inputs in memory and mark results stale when a model already has output loaded.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.conduit.roughness(0.013)
+m.set.conduit.roughness([0.013, 0.014], ids=[&quot;P001&quot;, &quot;P005&quot;])
+m.set.node.tag(&quot;inspection-needed&quot;, ids=[&quot;J1&quot;, &quot;J2&quot;])</code></pre>
+<h2>Behavior</h2>
+<table><thead><tr><th>Input</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Scalar</td><td>Broadcast across selected IDs.</td></tr>
+<tr><td>List/array</td><td>Length must match selected objects.</td></tr>
+<tr><td>pandas Series/DataFrame</td><td>Accepted for supported structured fields such as point or sequence data.</td></tr>
+<tr><td>Read-only field</td><td>Derived and result variables raise <code>ReadOnlyParameterError</code>.</td></tr>
+<tr><td>Invalid reference</td><td>Reference setters validate target IDs where the schema defines a relationship.</td></tr>
+</tbody></table>
+<aside class="callout info"><strong>Stale results</strong><p>After changing model inputs, re-run the model before reading result variables or result-driven plots.</p></aside></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Importing Data | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="active" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Importing Data</h1>
+<p>Python reserves the word <code>import</code>, so swmmx exposes imports as <code>m.import_csv</code> and <code>m.import_gis</code>.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.import_csv.node.junction(&quot;junctions.csv&quot;)
+m.import_csv.node.outfall(&quot;outfalls.csv&quot;)
+m.import_csv.link.conduit(&quot;conduits.csv&quot;)
+m.import_csv.hydrology.subcatchment(&quot;subcatchments.csv&quot;)
+
+m.import_gis.node.junction(&quot;junctions.shp&quot;)
+m.import_gis.link.conduit(&quot;pipes.geojson&quot;)
+m.import_gis.hydrology.subcatchment(&quot;subcatchments.gpkg&quot;, layer=&quot;subcatchments&quot;)</code></pre>
+<h2>Field Mapping</h2>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">result = m.import_csv.link.conduit(
+    &quot;pipes.csv&quot;,
+    field_map={
+        &quot;id&quot;: &quot;PipeID&quot;,
+        &quot;from_node&quot;: &quot;FromNode&quot;,
+        &quot;to_node&quot;: &quot;ToNode&quot;,
+        &quot;length&quot;: &quot;Length&quot;,
+        &quot;roughness&quot;: &quot;ManningN&quot;,
+        &quot;diameter&quot;: &quot;Diameter&quot;,
+    },
+)
+
+print(result.summary())
+print(result.to_frame())</code></pre>
+<h2>Options</h2>
+<table><thead><tr><th>Option</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>mode="add" | "update" | "upsert"</code></td><td>Choose whether rows add new objects, update existing objects, or do both.</td></tr>
+<tr><td><code>dry_run=True</code></td><td>Validate rows without modifying the model.</td></tr>
+<tr><td><code>on_missing_required</code></td><td><code>"error"</code> or <code>"skip"</code>.</td></tr>
+<tr><td><code>on_unknown_fields</code></td><td><code>"ignore"</code>, <code>"warn"</code>, or <code>"error"</code>.</td></tr>
+<tr><td><code>on_error</code></td><td><code>"raise"</code>, <code>"skip"</code>, or <code>"collect"</code>.</td></tr>
+</tbody></table>
+<p>Group-level shortcuts dispatch nodes and links by a <code>type</code> column: <code>m.import_csv.node("nodes.csv", default_type="junction")</code> and <code>m.import_csv.link("links.csv", default_type="conduit")</code>.</p>
+<aside class="callout info"><strong>Round trip</strong><p>CSV files created by m.export.csv() are designed to import back cleanly. Exact SWMM input columns take priority over result or derived columns with similar names.</p></aside></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

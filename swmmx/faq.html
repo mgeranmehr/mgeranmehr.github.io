@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="active" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>FAQ</h1>
+<details open><summary>What is EPA SWMM?</summary><p>EPA SWMM is the Storm Water Management Model used to simulate hydrology, hydraulics, water quality, and drainage network behavior.</p></details>
+<details><summary>Is swmmx a replacement for SWMM?</summary><p>No. swmmx is a Python toolkit around EPA SWMM models and engines.</p></details>
+<details><summary>Does swmmx include the SWMM engine?</summary><p>It bundles Windows 64-bit and Linux 64-bit native engines and supports custom engine paths.</p></details>
+<details><summary>Why does macOS require a custom engine path?</summary><p>The package currently reserves the macOS path but requires users to provide an engine until a bundled build is available.</p></details>
+<details><summary>Why are GIS dependencies optional?</summary><p>GeoPandas and Shapely are substantial dependencies. swmmx loads them only when GIS import/export is used.</p></details>
+<details><summary>Why use m.import_csv instead of m.import?</summary><p><code>import</code> is a Python keyword, so it cannot be used as an attribute-style API name.</p></details>
+<details><summary>Can I create a model from scratch?</summary><p>Yes. Use <code>swmm(new="SI")</code> or <code>swmm(new="US")</code>, then add objects with <code>m.add.*</code>.</p></details>
+<details><summary>Can I edit an existing .inp file without losing comments?</summary><p>swmmx preserves comments, unknown sections, and section order where possible.</p></details>
+<details><summary>Can I run simulations step by step?</summary><p>Yes. Use <code>m.runs()</code> to iterate over simulation steps.</p></details>
+<details><summary>Can I use results in plots?</summary><p>Yes, after <code>m.run()</code> or a completed <code>m.runs()</code>. Result-driven plots require non-stale results.</p></details>
+<details><summary>Can I import GIS data?</summary><p>Yes, with optional <code>geopandas</code> and <code>shapely</code> installed.</p></details>
+<details><summary>Can exported CSV files be imported again?</summary><p>Yes. Exported CSV tables are designed to round-trip where supported.</p></details>
+<details><summary>Is swmmx suitable for engineering design?</summary><p>It can support engineering workflows, but domain knowledge, validation, and independent checks are required.</p></details>
+<details><summary>What does beta/development notice mean?</summary><p>The project is actively tested and maintained, but bugs may remain. Use current releases and verify critical outputs.</p></details>
+</main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

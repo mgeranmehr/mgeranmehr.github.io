@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exporting Data | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="active" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Exporting Data</h1>
+<p>Exports write model tables and, when available, selected result snapshots to GIS, CSV, or Excel formats.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.export.gis()
+
+m.export.gis(
+    path=&quot;exports/gis&quot;,
+    elements=[&quot;nodes&quot;, &quot;links&quot;, &quot;subcatchments&quot;],
+)
+
+m.export.csv(
+    path=&quot;exports/csv&quot;,
+    elements=&quot;all&quot;,
+    time_step=-1,
+)
+
+m.export.excel(
+    path=&quot;exports&quot;,
+    file_name=&quot;model_export.xlsx&quot;,
+)</code></pre>
+<h2>Common Options</h2>
+<table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>path</code></td><td>Output folder. If omitted, exports go beside the model file or into the current working directory.</td></tr>
+<tr><td><code>elements</code></td><td>Named tables, groups such as hydrology/quality, or <code>"all"</code>.</td></tr>
+<tr><td><code>file_name</code></td><td>Workbook name or prefix for multi-file exports.</td></tr>
+<tr><td><code>time_step</code></td><td>Attach result values for a selected output period, commonly <code>-1</code> for the last step.</td></tr>
+<tr><td><code>strict_results</code></td><td>Treat missing results as an error instead of exporting parameter-only tables.</td></tr>
+<tr><td><code>overwrite</code></td><td>Replace existing outputs when supported.</td></tr>
+</tbody></table>
+<p>Coordinate fields are included where geometry is available: point objects use <code>[x, y]</code>, links use the full coordinate chain, and subcatchments use polygon coordinates when available. Point tables also include plain <code>x</code> and <code>y</code> fields.</p>
+</main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

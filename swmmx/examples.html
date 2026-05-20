@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examples Gallery | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="active" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Examples Gallery</h1>
+<p>The repository includes simple teaching scripts, fuller standard examples, and generated API notebooks. Run scripts from the repository root so they can find <code>examples/example.inp</code>.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-bash">python examples/01_open_validate_run.py
+python examples/standard/01_open_validate_run.py
+jupyter notebook examples/11_all_get_functions.ipynb</code></pre><div class='card-grid'><article class='card'><h3>Open, validate, and run</h3><p>Open an INP file, validate it, run the engine, and inspect the log.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/01_open_validate_run.py'>View 01_open_validate_run.py</a></article>
+<article class='card'><h3>Modify conduit diameters and compare</h3><p>Clone and edit conduit geometry for scenario comparison.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/02_modify_conduit_diameters_compare.py'>View 02_modify_conduit_diameters_compare.py</a></article>
+<article class='card'><h3>Step-by-step runs</h3><p>Use the step iterator to monitor simulation progress.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/03_step_by_step_runs_dynamic_control.py'>View 03_step_by_step_runs_dynamic_control.py</a></article>
+<article class='card'><h3>Layout plots</h3><p>Render network maps with static and data-driven styles.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/04_plot_layout_examples.py'>View 04_plot_layout_examples.py</a></article>
+<article class='card'><h3>Time-series plots</h3><p>Plot node, link, and system result variables.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/05_plot_timeseries_examples.py'>View 05_plot_timeseries_examples.py</a></article>
+<article class='card'><h3>Profile plots</h3><p>Draw longitudinal paths with optional HGL overlays.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/06_plot_profile_examples.py'>View 06_plot_profile_examples.py</a></article>
+<article class='card'><h3>GIS/CSV/Excel export</h3><p>Export model and result tables to external formats.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/07_export_examples.py'>View 07_export_examples.py</a></article>
+<article class='card'><h3>Time and count helpers</h3><p>Use pre-run and post-run time vectors plus object counts.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/08_time_and_count_functions.py'>View 08_time_and_count_functions.py</a></article>
+<article class='card'><h3>Get/set patterns</h3><p>Inspect and edit parameters through the dotted API.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/09_get_set_examples.py'>View 09_get_set_examples.py</a></article>
+<article class='card'><h3>Build model from scratch</h3><p>Create nodes, links, rainfall data, and subcatchments.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/10_create_model_from_scratch_add_remove.py'>View 10_create_model_from_scratch_add_remove.py</a></article>
+<article class='card'><h3>All get functions</h3><p>Reference notebook generated from the package API surface.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/11_all_get_functions.ipynb'>Open notebook</a></article>
+<article class='card'><h3>All set functions</h3><p>Reference notebook generated from the package API surface.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/12_all_set_functions.ipynb'>Open notebook</a></article>
+<article class='card'><h3>All add functions</h3><p>Reference notebook generated from the package API surface.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/13_all_add_functions.ipynb'>Open notebook</a></article>
+<article class='card'><h3>All remove functions</h3><p>Reference notebook generated from the package API surface.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/14_all_remove_functions.ipynb'>Open notebook</a></article>
+<article class='card'><h3>All plot functions</h3><p>Reference notebook generated from the package API surface.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/15_all_plot_functions.ipynb'>Open notebook</a></article>
+<article class='card'><h3>All import/export functions</h3><p>Reference notebook generated from the package API surface.</p><a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/16_all_import_export_functions.ipynb'>Open notebook</a></article></div></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

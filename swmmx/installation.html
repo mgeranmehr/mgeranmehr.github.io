@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Installation | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="active" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Installation</h1>
+<p>Install <code>swmmx</code> from PyPI, then install the scientific packages used by the workflows you plan to run. The package intentionally keeps third-party scientific dependencies lightweight so it does not unexpectedly reshape an existing engineering Python environment.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-bash">python -m pip install swmmx</code></pre>
+<h2>Runtime Scientific Dependencies</h2>
+<pre><button class="copy" type="button">Copy</button><code class="language-bash">python -m pip install numpy pandas matplotlib networkx</code></pre>
+<h2>Optional GIS Dependencies</h2>
+<p>GIS import and export lazily require GeoPandas and Shapely.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-bash">python -m pip install geopandas shapely</code></pre>
+<h2>Optional Excel Dependency</h2>
+<pre><button class="copy" type="button">Copy</button><code class="language-bash">python -m pip install openpyxl</code></pre>
+<h2>Native SWMM Engines</h2>
+<table><thead><tr><th>Platform</th><th>Engine behavior</th></tr></thead><tbody>
+<tr><td>Windows 64-bit</td><td>Bundled <code>swmm5.dll</code>.</td></tr>
+<tr><td>Linux 64-bit</td><td>Bundled <code>libswmm5.so</code>.</td></tr>
+<tr><td>macOS</td><td>Provide a custom engine path until a bundled macOS build is available.</td></tr>
+</tbody></table>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">from swmmx import swmm
+
+m = swmm(&quot;model.inp&quot;, custom_dll_path=&quot;/path/to/swmm5&quot;)
+m.run()</code></pre>
+<h2>Troubleshooting</h2>
+<table><thead><tr><th>Symptom</th><th>Likely fix</th></tr></thead><tbody>
+<tr><td>Missing NumPy, pandas, matplotlib, or NetworkX</td><td>Install the runtime dependencies above in the active environment.</td></tr>
+<tr><td>SWMM engine not found</td><td>Use a supported bundled platform or pass <code>custom_dll_path</code>.</td></tr>
+<tr><td>GIS import/export dependency error</td><td>Install <code>geopandas</code> and <code>shapely</code>.</td></tr>
+<tr><td>Excel export dependency error</td><td>Install <code>openpyxl</code>.</td></tr>
+<tr><td>Plot window does not appear</td><td>Check the matplotlib backend, or call plotting functions with <code>show=False</code> and <code>save_path=...</code>.</td></tr>
+</tbody></table>
+</main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

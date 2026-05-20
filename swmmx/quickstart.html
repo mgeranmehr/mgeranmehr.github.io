@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick Start | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="active" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Quick Start</h1>
+<p>This workflow opens an existing model, validates it, plots the layout, runs SWMM, plots link flow, and saves a modified model.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">from swmmx import swmm
+
+m = swmm(&quot;examples/example.inp&quot;)
+m.validate()
+m.plot_layout()
+m.run()
+m.plot_timeseries.link.flow()
+m.save(&quot;modified_model.inp&quot;)</code></pre>
+<h2>Line by Line</h2>
+<table><thead><tr><th>Line</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>swmm("examples/example.inp")</code></td><td>Parse an existing EPA SWMM input file into a model object.</td></tr>
+<tr><td><code>m.validate()</code></td><td>Check common structural and reference issues before relying on results.</td></tr>
+<tr><td><code>m.plot_layout()</code></td><td>Draw mapped nodes, links, subcatchments, rain gages, and related geometry.</td></tr>
+<tr><td><code>m.run()</code></td><td>Run the native SWMM engine and load output metadata.</td></tr>
+<tr><td><code>m.plot_timeseries.link.flow()</code></td><td>Plot simulated link flow. Result variables require a completed run.</td></tr>
+<tr><td><code>m.save(...)</code></td><td>Write the current in-memory model back to an INP file.</td></tr>
+</tbody></table>
+</main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

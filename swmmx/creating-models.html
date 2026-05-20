@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creating Models | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="active" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Creating Models</h1>
+<p>The constructor opens an existing model or creates a new SI/US model. Do not combine <code>path</code> with <code>new</code> or <code>flow_unit</code>, because existing INP files already define their own unit settings.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">from swmmx import swmm
+
+m = swmm(&quot;examples/example.inp&quot;)         # open an existing model
+m = swmm()                               # new SI model, LPS by default
+m = swmm(new=&quot;SI&quot;, flow_unit=&quot;CMS&quot;)      # new SI model
+m = swmm(new=&quot;US&quot;, flow_unit=&quot;GPM&quot;)      # new US model
+m = swmm(&quot;model.inp&quot;, custom_dll_path=&quot;C:/engines/swmm5.dll&quot;)</code></pre>
+<h2>Arguments</h2>
+<table><thead><tr><th>Argument</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>path</code></td><td>Optional path to an existing <code>.inp</code> file.</td></tr>
+<tr><td><code>new</code></td><td><code>"SI"</code> or <code>"US"</code> for an empty model. If omitted with no path, SI is used.</td></tr>
+<tr><td><code>flow_unit</code></td><td>For new models only. SI accepts <code>LPS</code>, <code>CMS</code>, <code>MLD</code>; US accepts <code>CFS</code>, <code>GPM</code>, <code>MGD</code>.</td></tr>
+<tr><td><code>custom_dll_path</code></td><td>Optional native SWMM engine library path used when running simulations.</td></tr>
+</tbody></table>
+</main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

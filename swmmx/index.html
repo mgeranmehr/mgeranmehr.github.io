@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="active" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<section class="hero">
+  <div>
+    <img class="logo" src="assets/swmmx_logo.png" alt="swmmx logo">
+    <p class="eyebrow">swmmx Documentation</p>
+    <h1>A Python Toolkit for Building, Editing, Running, Importing, Visualizing, and Exporting EPA SWMM Models</h1>
+    <p class="lead">swmmx provides one discoverable Python interface for the full EPA SWMM model lifecycle: open or create models, inspect and edit parameters, add and remove objects, run simulations, plot results, validate inputs, and exchange data with CSV, GIS, and Excel workflows.</p>
+    <div class="actions">
+      <a class="button primary" href="installation.html">Get started</a>
+      <a class="button" href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a class="button" href="https://pypi.org/project/swmmx/">PyPI</a>
+      <a class="button" href="examples.html">Examples</a>
+    </div>
+  </div>
+</section>
+<aside class="callout warning"><strong>Development notice</strong><p>swmmx is under active testing and development. Use the latest release, validate simulation results, and report bugs through GitHub Issues.</p></aside>
+<section>
+  <h2>Main Features</h2>
+  <div class="feature-grid">
+    <div>Open existing SWMM models</div><div>Create new SI or US models</div><div>Get and set model parameters</div><div>Count model objects</div>
+    <div>Add and remove elements</div><div>Import CSV and GIS data</div><div>Export CSV, GIS, and Excel files</div><div>Run SWMM simulations</div>
+    <div>Step through simulations with <code>m.runs()</code></div><div>Plot layout maps</div><div>Plot result time series</div><div>Plot longitudinal profiles</div>
+    <div>Validate models</div><div>Preserve INP comments and unknown sections where possible</div><div>Use bundled Windows/Linux engines</div><div>Provide custom engine paths</div>
+  </div>
+</section>
+<section>
+  <h2>Quick Example</h2>
+  <pre><button class="copy" type="button">Copy</button><code class="language-python">from swmmx import swmm
+
+m = swmm(&quot;examples/example.inp&quot;)
+m.plot_layout()
+print(m.time.count())
+lengths = m.get.conduit.length()
+m.set.conduit.roughness(0.013)
+m.run()
+print(m.log())
+m.plot_timeseries.link.flow()</code></pre>
+</section>
+<section>
+  <h2>Public API at a Glance</h2>
+  <div class='api-grid'><article class='api-card'><h3><code>option_general</code></h3><p><code>flow_units</code>, <code>infiltration_model</code>, <code>flow_routing</code>, <code>link_offsets</code>, <code>force_main_equation</code>, <code>allow_ponding</code>, <code>minimum_slope</code>, <code>skip_steady_state</code>, <code>system_flow_tolerance</code>, <code>lateral_flow_tolerance</code></p></article>
+<article class='api-card'><h3><code>option_process</code></h3><p><code>ignore_rainfall</code>, <code>ignore_snowmelt</code>, <code>ignore_groundwater</code>, <code>ignore_rdii</code>, <code>ignore_routing</code>, <code>ignore_quality</code></p></article>
+<article class='api-card'><h3><code>option_date_time</code></h3><p><code>start_date</code>, <code>start_time</code>, <code>end_date</code>, <code>end_time</code>, <code>report_start_date</code>, <code>report_start_time</code>, <code>report_step</code>, <code>wet_step</code>, <code>dry_step</code>, <code>routing_step</code>, <code>rule_step</code>, <code>sweep_start</code> <span class='muted'>+2 more</span></p></article>
+<article class='api-card'><h3><code>option_dynamic_wave</code></h3><p><code>inertial_damping</code>, <code>normal_flow_limited</code>, <code>surcharge_method</code>, <code>variable_step</code>, <code>minimum_step</code>, <code>lengthening_step</code>, <code>minimum_surface_area</code>, <code>head_tolerance</code>, <code>maximum_trials</code>, <code>threads</code></p></article>
+<article class='api-card'><h3><code>rain_gage</code></h3><p><code>id</code>, <code>count</code>, <code>format</code>, <code>interval</code>, <code>snow_catch_factor</code>, <code>source_type</code>, <code>time_series</code>, <code>filename</code>, <code>station</code>, <code>units</code>, <code>rainfall</code></p></article>
+<article class='api-card'><h3><code>subcatchment</code></h3><p><code>id</code>, <code>count</code>, <code>rain_gage</code>, <code>outlet</code>, <code>area</code>, <code>width</code>, <code>slope</code>, <code>impervious_percent</code>, <code>curb_length</code>, <code>snow_pack</code>, <code>tag</code>, <code>polygon</code> <span class='muted'>+17 more</span></p></article>
+<article class='api-card'><h3><code>infiltration_horton</code></h3><p><code>maximum_rate</code>, <code>minimum_rate</code>, <code>decay</code>, <code>dry_time</code>, <code>maximum_volume</code></p></article>
+<article class='api-card'><h3><code>infiltration_green_ampt</code></h3><p><code>suction_head</code>, <code>hydraulic_conductivity</code>, <code>initial_moisture_deficit</code></p></article>
+<article class='api-card'><h3><code>infiltration_curve_number</code></h3><p><code>curve_number</code>, <code>conductivity</code>, <code>dry_time</code></p></article>
+<article class='api-card'><h3><code>node</code></h3><p><code>id</code>, <code>count</code>, <code>type</code>, <code>invert_elevation</code>, <code>max_depth</code>, <code>initial_depth</code>, <code>surcharge_depth</code>, <code>ponded_area</code>, <code>tag</code>, <code>coordinate</code>, <code>external_inflow</code>, <code>dry_weather_flow</code> <span class='muted'>+9 more</span></p></article>
+<article class='api-card'><h3><code>junction</code></h3><p><code>id</code>, <code>count</code>, <code>invert_elevation</code>, <code>max_depth</code>, <code>initial_depth</code>, <code>surcharge_depth</code>, <code>ponded_area</code></p></article>
+<article class='api-card'><h3><code>outfall</code></h3><p><code>id</code>, <code>count</code>, <code>invert_elevation</code>, <code>type</code>, <code>fixed_stage</code>, <code>tidal_curve</code>, <code>time_series</code>, <code>tide_gate</code>, <code>route_to</code></p></article>
+<article class='api-card'><h3><code>flow_divider</code></h3><p><code>id</code>, <code>count</code>, <code>invert_elevation</code>, <code>max_depth</code>, <code>initial_depth</code>, <code>surcharge_depth</code>, <code>ponded_area</code>, <code>type</code>, <code>diverted_link</code>, <code>cutoff_flow</code>, <code>diversion_curve</code>, <code>weir_height</code> <span class='muted'>+1 more</span></p></article>
+<article class='api-card'><h3><code>storage_unit</code></h3><p><code>id</code>, <code>count</code>, <code>invert_elevation</code>, <code>max_depth</code>, <code>initial_depth</code>, <code>storage_curve_type</code>, <code>storage_curve</code>, <code>area</code>, <code>area_coefficient</code>, <code>area_exponent</code>, <code>area_constant</code>, <code>evaporation_factor</code> <span class='muted'>+1 more</span></p></article>
+<article class='api-card'><h3><code>link</code></h3><p><code>id</code>, <code>count</code>, <code>type</code>, <code>from_node</code>, <code>to_node</code>, <code>inlet_offset</code>, <code>outlet_offset</code>, <code>initial_flow</code>, <code>maximum_flow</code>, <code>flap_gate</code>, <code>tag</code>, <code>vertices</code> <span class='muted'>+7 more</span></p></article>
+<article class='api-card'><h3><code>conduit</code></h3><p><code>id</code>, <code>count</code>, <code>from_node</code>, <code>to_node</code>, <code>length</code>, <code>roughness</code>, <code>inlet_offset</code>, <code>outlet_offset</code>, <code>initial_flow</code>, <code>maximum_flow</code>, <code>shape</code>, <code>geometry</code> <span class='muted'>+18 more</span></p></article>
+<article class='api-card'><h3><code>pump</code></h3><p><code>id</code>, <code>count</code>, <code>from_node</code>, <code>to_node</code>, <code>curve</code>, <code>initial_status</code>, <code>startup_depth</code>, <code>shutoff_depth</code>, <code>flow</code>, <code>status</code>, <code>setting</code>, <code>energy</code></p></article>
+<article class='api-card'><h3><code>orifice</code></h3><p><code>id</code>, <code>count</code>, <code>from_node</code>, <code>to_node</code>, <code>type</code>, <code>shape</code>, <code>height</code>, <code>width</code>, <code>offset</code>, <code>discharge_coefficient</code>, <code>flap_gate</code>, <code>open_close_time</code> <span class='muted'>+2 more</span></p></article>
+<article class='api-card'><h3><code>weir</code></h3><p><code>id</code>, <code>count</code>, <code>from_node</code>, <code>to_node</code>, <code>type</code>, <code>crest_height</code>, <code>length</code>, <code>side_slope</code>, <code>discharge_coefficient</code>, <code>flap_gate</code>, <code>end_contractions</code>, <code>end_coefficient</code> <span class='muted'>+5 more</span></p></article>
+<article class='api-card'><h3><code>outlet</code></h3><p><code>id</code>, <code>count</code>, <code>from_node</code>, <code>to_node</code>, <code>offset</code>, <code>flap_gate</code>, <code>rating_type</code>, <code>curve</code>, <code>coefficient</code>, <code>exponent</code>, <code>flow</code>, <code>setting</code></p></article>
+<article class='api-card'><h3><code>cross_section</code></h3><p><code>link</code>, <code>shape</code>, <code>geometry_1</code>, <code>geometry_2</code>, <code>geometry_3</code>, <code>geometry_4</code>, <code>barrels</code>, <code>culvert_code</code>, <code>height</code>, <code>width</code>, <code>side_slope</code>, <code>shape_curve</code></p></article>
+<article class='api-card'><h3><code>transect</code></h3><p><code>id</code>, <code>count</code>, <code>roughness_left</code>, <code>roughness_right</code>, <code>roughness_channel</code>, <code>left_bank</code>, <code>right_bank</code>, <code>stations</code>, <code>elevations</code>, <code>modifiers</code></p></article>
+<article class='api-card'><h3><code>curve</code></h3><p><code>id</code>, <code>count</code>, <code>type</code>, <code>x</code>, <code>y</code>, <code>points</code></p></article>
+<article class='api-card'><h3><code>coordinate</code></h3><p><code>node_coordinates</code>, <code>subcatchment_coordinates</code>, <code>link_vertices</code>, <code>polygons</code>, <code>labels</code>, <code>map_dimensions</code>, <code>map_units</code></p></article>
+<article class='api-card'><h3><code>street</code></h3><p><code>id</code>, <code>count</code>, <code>crown_width</code>, <code>curb_height</code>, <code>cross_slope</code>, <code>roughness</code>, <code>depression_storage</code>, <code>gutter_width</code>, <code>gutter_slope</code>, <code>spread</code></p></article>
+<article class='api-card'><h3><code>inlet</code></h3><p><code>id</code>, <code>count</code>, <code>type</code>, <code>grate_length</code>, <code>grate_width</code>, <code>grate_type</code>, <code>curb_length</code>, <code>curb_height</code>, <code>slotted_length</code>, <code>slotted_width</code>, <code>captured_flow</code></p></article>
+<article class='api-card'><h3><code>inlet_usage</code></h3><p><code>node</code>, <code>inlet</code>, <code>conduit</code>, <code>number</code>, <code>clogging_factor</code>, <code>flow_restriction</code></p></article>
+<article class='api-card'><h3><code>lid_control</code></h3><p><code>id</code>, <code>count</code>, <code>type</code></p></article>
+<article class='api-card'><h3><code>lid_surface</code></h3><p><code>storage_depth</code>, <code>vegetation_fraction</code>, <code>roughness</code>, <code>slope</code>, <code>side_slope</code></p></article>
+<article class='api-card'><h3><code>lid_pavement</code></h3><p><code>thickness</code>, <code>void_ratio</code>, <code>impervious_surface_fraction</code>, <code>permeability</code>, <code>clogging_factor</code></p></article>
+<article class='api-card'><h3><code>lid_soil</code></h3><p><code>thickness</code>, <code>porosity</code>, <code>field_capacity</code>, <code>wilting_point</code>, <code>conductivity</code>, <code>conductivity_slope</code>, <code>suction_head</code></p></article>
+<article class='api-card'><h3><code>lid_storage</code></h3><p><code>height</code>, <code>void_ratio</code>, <code>seepage_rate</code>, <code>clogging_factor</code></p></article>
+<article class='api-card'><h3><code>lid_drain</code></h3><p><code>coefficient</code>, <code>exponent</code>, <code>offset_height</code>, <code>delay</code>, <code>open_level</code>, <code>closed_level</code>, <code>control_curve</code></p></article>
+<article class='api-card'><h3><code>lid_usage</code></h3><p><code>subcatchment</code>, <code>lid_control</code>, <code>number</code>, <code>area</code>, <code>width</code>, <code>initial_saturation</code>, <code>from_impervious_percent</code>, <code>from_pervious_percent</code>, <code>outlet</code>, <code>drain_to</code>, <code>inflow</code>, <code>evaporation</code> <span class='muted'>+4 more</span></p></article>
+<article class='api-card'><h3><code>aquifer</code></h3><p><code>id</code>, <code>count</code>, <code>porosity</code>, <code>wilting_point</code>, <code>field_capacity</code>, <code>conductivity</code>, <code>conductivity_slope</code>, <code>tension_slope</code>, <code>upper_evaporation_fraction</code>, <code>lower_evaporation_depth</code>, <code>lower_groundwater_loss_rate</code>, <code>bottom_elevation</code> <span class='muted'>+3 more</span></p></article>
+<article class='api-card'><h3><code>groundwater</code></h3><p><code>subcatchment</code>, <code>aquifer</code>, <code>node</code>, <code>surface_elevation</code>, <code>a1</code>, <code>b1</code>, <code>a2</code>, <code>b2</code>, <code>a3</code>, <code>fixed_depth</code>, <code>threshold_elevation</code>, <code>lateral_flow_equation</code> <span class='muted'>+1 more</span></p></article>
+<article class='api-card'><h3><code>snow_pack</code></h3><p><code>id</code>, <code>count</code>, <code>plowable_fraction</code>, <code>impervious_fraction</code>, <code>pervious_fraction</code>, <code>minimum_melt_coefficient</code>, <code>maximum_melt_coefficient</code>, <code>base_temperature</code>, <code>free_water_capacity_fraction</code>, <code>initial_snow_depth</code>, <code>initial_free_water</code>, <code>depth_at_100_percent_cover</code> <span class='muted'>+7 more</span></p></article>
+<article class='api-card'><h3><code>climate</code></h3><p><code>temperature_time_series</code>, <code>evaporation_type</code>, <code>evaporation_constant</code>, <code>evaporation_monthly</code>, <code>evaporation_time_series</code>, <code>evaporation_recovery_pattern</code>, <code>evaporation_dry_only</code>, <code>wind_speed_type</code>, <code>wind_speed_monthly</code>, <code>snowmelt_parameters</code>, <code>areal_depletion_impervious</code>, <code>areal_depletion_pervious</code></p></article>
+<article class='api-card'><h3><code>climate_adjustment</code></h3><p><code>temperature</code>, <code>evaporation</code>, <code>rainfall</code>, <code>conductivity</code></p></article>
+<article class='api-card'><h3><code>pollutant</code></h3><p><code>id</code>, <code>count</code>, <code>units</code>, <code>rain_concentration</code>, <code>groundwater_concentration</code>, <code>rdii_concentration</code>, <code>decay_coefficient</code>, <code>snow_only</code>, <code>co_pollutant</code>, <code>co_pollutant_fraction</code>, <code>dry_weather_flow_concentration</code>, <code>initial_concentration</code></p></article>
+<article class='api-card'><h3><code>land_use</code></h3><p><code>id</code>, <code>count</code>, <code>sweeping_interval</code>, <code>sweeping_availability</code>, <code>last_swept</code></p></article>
+<article class='api-card'><h3><code>coverage</code></h3><p><code>subcatchment</code>, <code>land_use</code>, <code>percent</code></p></article>
+<article class='api-card'><h3><code>loading</code></h3><p><code>subcatchment</code>, <code>pollutant</code>, <code>initial_buildup</code></p></article>
+<article class='api-card'><h3><code>buildup</code></h3><p><code>land_use</code>, <code>pollutant</code>, <code>function</code>, <code>maximum_buildup</code>, <code>rate_constant</code>, <code>power</code>, <code>normalizer</code></p></article>
+<article class='api-card'><h3><code>washoff</code></h3><p><code>land_use</code>, <code>pollutant</code>, <code>function</code>, <code>coefficient</code>, <code>exponent</code>, <code>cleaning_efficiency</code>, <code>bmp_efficiency</code></p></article>
+<article class='api-card'><h3><code>treatment</code></h3><p><code>node</code>, <code>pollutant</code>, <code>expression</code></p></article>
+<article class='api-card'><h3><code>time_series</code></h3><p><code>id</code>, <code>count</code>, <code>datetime</code>, <code>values</code>, <code>filename</code>, <code>description</code></p></article>
+<article class='api-card'><h3><code>time_pattern</code></h3><p><code>id</code>, <code>count</code>, <code>type</code>, <code>multipliers</code></p></article>
+<article class='api-card'><h3><code>external_inflow</code></h3><p><code>node</code>, <code>constituent</code>, <code>time_series</code>, <code>type</code>, <code>units_factor</code>, <code>scale_factor</code>, <code>baseline</code>, <code>pattern</code></p></article>
+<article class='api-card'><h3><code>dry_weather_flow</code></h3><p><code>node</code>, <code>constituent</code>, <code>average_value</code>, <code>monthly_pattern</code>, <code>daily_pattern</code>, <code>hourly_pattern</code>, <code>weekend_pattern</code></p></article>
+<article class='api-card'><h3><code>rdii</code></h3><p><code>node</code>, <code>unit_hydrograph</code>, <code>sewer_area</code></p></article>
+<article class='api-card'><h3><code>unit_hydrograph</code></h3><p><code>id</code>, <code>count</code>, <code>rain_gage</code>, <code>month</code>, <code>short_term_r</code>, <code>short_term_t</code>, <code>short_term_k</code>, <code>medium_term_r</code>, <code>medium_term_t</code>, <code>medium_term_k</code>, <code>long_term_r</code>, <code>long_term_t</code> <span class='muted'>+1 more</span></p></article>
+<article class='api-card'><h3><code>control_rule</code></h3><p><code>id</code>, <code>count</code>, <code>text</code>, <code>conditions</code>, <code>actions</code>, <code>priority</code>, <code>enabled</code>, <code>action_log</code></p></article>
+<article class='api-card'><h3><code>interface_file</code></h3><p><code>rainfall</code>, <code>runoff</code>, <code>hotstart</code>, <code>rdii</code>, <code>inflow</code>, <code>outflow</code>, <code>use_file</code>, <code>save_file</code></p></article>
+<article class='api-card'><h3><code>system_result</code></h3><p><code>air_temperature</code>, <code>rainfall</code>, <code>snow_depth</code>, <code>evaporation</code>, <code>infiltration</code>, <code>runoff</code>, <code>dry_weather_inflow</code>, <code>groundwater_inflow</code>, <code>rdii_inflow</code>, <code>direct_inflow</code>, <code>total_lateral_inflow</code>, <code>flooding</code> <span class='muted'>+3 more</span></p></article>
+<article class='api-card'><h3><code>summary</code></h3><p><code>model</code>, <code>counts</code>, <code>options</code>, <code>subcatchment_runoff</code>, <code>subcatchment_washoff</code>, <code>node_depth</code>, <code>node_inflow</code>, <code>node_flooding</code>, <code>node_surcharge</code>, <code>storage_volume</code>, <code>outfall_loading</code>, <code>link_flow</code> <span class='muted'>+8 more</span></p></article></div>
+</section>
+</main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

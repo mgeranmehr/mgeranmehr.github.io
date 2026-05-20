@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add &amp; Remove | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="active" href="add-remove.html">Add & Remove</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content">
+<h1>Adding and Removing Elements</h1>
+<p>Add and remove paths follow <code>m.add.&lt;category&gt;.&lt;element_type&gt;()</code> and <code>m.remove.&lt;category&gt;.&lt;element_type&gt;()</code>. The API validates IDs, required fields, numeric values, enum-like inputs, and references before editing the INP document.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">from swmmx import swmm
+
+m = swmm(new=&quot;SI&quot;)
+
+m.add.node.junction(&quot;J1&quot;, x=0.0, y=0.0, invert_elevation=10, max_depth=3)
+m.add.node.outfall(&quot;OUT1&quot;, x=100.0, y=0.0, invert_elevation=9, type=&quot;FREE&quot;)
+
+m.add.link.conduit(
+    &quot;C1&quot;,
+    from_node=&quot;J1&quot;,
+    to_node=&quot;OUT1&quot;,
+    length=100,
+    roughness=0.013,
+    shape=&quot;CIRCULAR&quot;,
+    diameter=1.0,
+)
+
+m.add.time.time_series(&quot;Rain1&quot;, data=[(&quot;2026-01-01 00:00&quot;, 0.0), (&quot;2026-01-01 00:05&quot;, 5.0)])
+m.add.hydrology.rain_gage(&quot;RG1&quot;, format=&quot;INTENSITY&quot;, interval=&quot;00:05&quot;, source_type=&quot;TIMESERIES&quot;, time_series=&quot;Rain1&quot;)
+m.add.hydrology.subcatchment(&quot;S1&quot;, rain_gage=&quot;RG1&quot;, outlet=&quot;J1&quot;, x=0.0, y=0.0, area=1.0)
+
+m.save(&quot;new_model.inp&quot;)
+m.remove.link.conduit(&quot;C1&quot;)</code></pre>
+<h2>Rules</h2>
+<table><thead><tr><th>Topic</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>References</td><td>Referenced nodes, curves, time series, and related objects must exist before use.</td></tr>
+<tr><td>Coordinates</td><td>Nodes require explicit <code>x</code>/<code>y</code>; subcatchments require centroid coordinates; rain gages can default to mapped extents.</td></tr>
+<tr><td>Removal checks</td><td>Dependencies block deletion by default.</td></tr>
+<tr><td><code>force=True</code></td><td>Performs only conservative implemented cascades, such as dependent conduit removal for some node deletions.</td></tr>
+<tr><td>State flags</td><td>Add/remove sets <code>m.modified</code>; if results exist, <code>m.results_stale</code> becomes true.</td></tr>
+</tbody></table>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.add_element(&quot;node&quot;, &quot;junction&quot;, &quot;J2&quot;, x=200.0, y=0.0, invert_elevation=11, max_depth=2)
+m.remove_element(&quot;node&quot;, &quot;junction&quot;, &quot;J2&quot;)</code></pre></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

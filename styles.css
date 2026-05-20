@@ -110,3 +110,31 @@ footer {
   border-top: 1px solid var(--border);
   margin-top: 4rem;
 }
+
+.highlight-project {
+  margin-top: 2rem;
+}
+
+.swmmx-project {
+  border: 2px solid #1f6feb;
+  background: #f6f9ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.swmmx-project h4 {
+  color: #1f6feb;
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}

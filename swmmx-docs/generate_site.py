@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import json
 import re
 import shutil
 from pathlib import Path
@@ -24,11 +25,31 @@ NAV = [
     ("Creating Models", "creating-models.html"),
     ("Time Helpers", "time-helpers.html"),
     ("Getting Parameters", "getting-parameters.html"),
+    ("Get: Patterns", "get-patterns.html"),
+    ("Get: Options", "get-options.html"),
+    ("Get: Hydrology", "get-hydrology.html"),
+    ("Get: Nodes", "get-nodes.html"),
+    ("Get: Links", "get-links.html"),
+    ("Get: Hydraulic & Quality", "get-hydraulic-quality.html"),
+    ("Get: Time & Results", "get-time-results.html"),
     ("Setting Parameters", "setting-parameters.html"),
+    ("Set: Patterns", "set-patterns.html"),
+    ("Set: Options", "set-options.html"),
+    ("Set: Hydrology", "set-hydrology.html"),
+    ("Set: Nodes", "set-nodes.html"),
+    ("Set: Links", "set-links.html"),
+    ("Set: Hydraulic & Quality", "set-hydraulic-quality.html"),
+    ("Set: Time & Map", "set-time-map.html"),
     ("Counting Objects", "counting.html"),
     ("Add & Remove", "add-remove.html"),
+    ("Add Reference", "add-reference.html"),
+    ("Remove Reference", "remove-reference.html"),
     ("Running Simulations", "running-simulations.html"),
     ("Plotting", "plotting.html"),
+    ("Plot: Layout", "plot-layout.html"),
+    ("Plot: Time Series", "plot-timeseries.html"),
+    ("Plot: Profiles", "plot-profiles.html"),
+    ("Plot: Errors", "plot-errors.html"),
     ("Importing Data", "importing-data.html"),
     ("Exporting Data", "exporting-data.html"),
     ("Validation", "validation.html"),
@@ -59,6 +80,152 @@ def link(label: str, href: str) -> str:
 def note(kind: str, body: str, title: str | None = None) -> str:
     title_html = f"<strong>{html.escape(title)}</strong>" if title else ""
     return f'<aside class="callout {kind}">{title_html}<p>{body}</p></aside>'
+
+
+def inline_md(text: str) -> str:
+    escaped = html.escape(text)
+    escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
+    escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
+    escaped = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', escaped)
+    return escaped
+
+
+def md_table(lines: list[str]) -> str:
+    rows = []
+    for raw in lines:
+        parts = [part.strip() for part in raw.strip().strip("|").split("|")]
+        rows.append(parts)
+    if len(rows) < 2:
+        return ""
+    headers = rows[0]
+    body_rows = rows[2:]
+    head = "".join(f"<th>{inline_md(value)}</th>" for value in headers)
+    body = []
+    for row in body_rows:
+        cells = row + [""] * (len(headers) - len(row))
+        body.append("<tr>" + "".join(f"<td>{inline_md(value)}</td>" for value in cells[: len(headers)]) + "</tr>")
+    return "<table><thead><tr>" + head + "</tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+
+
+def markdown_to_html(markdown: str, *, heading_offset: int = 1) -> str:
+    lines = markdown.replace("\r\n", "\n").split("\n")
+    out: list[str] = []
+    paragraph: list[str] = []
+    bullet: list[str] = []
+    table: list[str] = []
+    fence: list[str] | None = None
+    fence_lang = ""
+
+    def flush_paragraph() -> None:
+        nonlocal paragraph
+        if paragraph:
+            out.append("<p>" + inline_md(" ".join(part.strip() for part in paragraph)) + "</p>")
+            paragraph = []
+
+    def flush_bullet() -> None:
+        nonlocal bullet
+        if bullet:
+            out.append("<ul>" + "".join(f"<li>{inline_md(item)}</li>" for item in bullet) + "</ul>")
+            bullet = []
+
+    def flush_table() -> None:
+        nonlocal table
+        if table:
+            rendered = md_table(table)
+            if rendered:
+                out.append(rendered)
+            table = []
+
+    for raw in lines:
+        line = raw.rstrip()
+        if fence is not None:
+            if line.strip().startswith("```"):
+                out.append(code("\n".join(fence), fence_lang or "text"))
+                fence = None
+                fence_lang = ""
+            else:
+                fence.append(line)
+            continue
+        if line.strip().startswith("```"):
+            flush_paragraph()
+            flush_bullet()
+            flush_table()
+            fence = []
+            fence_lang = line.strip().strip("`").strip() or "text"
+            continue
+        if not line.strip():
+            flush_paragraph()
+            flush_bullet()
+            flush_table()
+            continue
+        if re.match(r"^\|.+\|$", line.strip()):
+            flush_paragraph()
+            flush_bullet()
+            table.append(line)
+            continue
+        flush_table()
+        heading = re.match(r"^(#{1,6})\s+(.+)$", line)
+        if heading:
+            flush_paragraph()
+            flush_bullet()
+            level = min(6, len(heading.group(1)) + heading_offset)
+            out.append(f"<h{level}>{inline_md(heading.group(2))}</h{level}>")
+            continue
+        bullet_match = re.match(r"^\s*[-*]\s+(.+)$", line)
+        if bullet_match:
+            flush_paragraph()
+            bullet.append(bullet_match.group(1).strip())
+            continue
+        flush_bullet()
+        paragraph.append(line)
+    flush_paragraph()
+    flush_bullet()
+    flush_table()
+    return "\n".join(out)
+
+
+def notebook_html(
+    file_name: str,
+    title: str,
+    *,
+    start_heading: str | None = None,
+    end_heading: str | None = None,
+) -> str:
+    path = SOURCE / "examples" / file_name
+    nb = json.loads(path.read_text(encoding="utf-8"))
+    cells = nb.get("cells", [])
+    if start_heading:
+        start_idx = 0
+        for index, cell in enumerate(cells):
+            source = "".join(cell.get("source", []))
+            if cell.get("cell_type") == "markdown" and start_heading in source:
+                start_idx = index
+                break
+        cells = cells[start_idx:]
+    if end_heading:
+        end_idx = len(cells)
+        for index, cell in enumerate(cells[1:], start=1):
+            source = "".join(cell.get("source", []))
+            if cell.get("cell_type") == "markdown" and end_heading in source:
+                end_idx = index
+                break
+        cells = cells[:end_idx]
+    rendered = [
+        f"<section class='notebook-reference'><h2>{html.escape(title)}</h2>",
+        f"<p class='muted'>Rendered from <a href='{GITHUB}/blob/main/examples/{file_name}'>{html.escape(file_name)}</a>.</p>",
+    ]
+    code_index = 1
+    for cell in cells:
+        source = "".join(cell.get("source", [])).strip()
+        if not source:
+            continue
+        if cell.get("cell_type") == "markdown":
+            rendered.append(markdown_to_html(source, heading_offset=1))
+        elif cell.get("cell_type") == "code":
+            rendered.append(f"<figure class='notebook-code'><figcaption>Code cell {code_index}</figcaption>{code(source)}</figure>")
+            code_index += 1
+    rendered.append("</section>")
+    return "\n".join(rendered)
 
 
 def extract_public_catalog() -> list[tuple[str, list[str]]]:
@@ -138,6 +305,14 @@ def example_links() -> str:
     return "<div class='card-grid'>" + "\n".join(cards) + "</div>"
 
 
+def reference_cards(items: list[tuple[str, str, str]]) -> str:
+    cards = [
+        f"<article class='card'><h3>{html.escape(title)}</h3><p>{html.escape(desc)}</p><a href='{href}'>Open section</a></article>"
+        for title, href, desc in items
+    ]
+    return "<div class='card-grid'>" + "\n".join(cards) + "</div>"
+
+
 PAGES: dict[str, str] = {}
 
 PAGES["index.html"] = f"""
@@ -162,7 +337,7 @@ PAGES["index.html"] = f"""
     <div>Open existing SWMM models</div><div>Create new SI or US models</div><div>Get and set model parameters</div><div>Count model objects</div>
     <div>Add and remove elements</div><div>Import CSV and GIS data</div><div>Export CSV, GIS, and Excel files</div><div>Run SWMM simulations</div>
     <div>Step through simulations with <code>m.runs()</code></div><div>Plot layout maps</div><div>Plot result time series</div><div>Plot longitudinal profiles</div>
-    <div>Validate models</div><div>Preserve INP comments and unknown sections where possible</div><div>Use bundled Windows/Linux engines</div><div>Provide custom engine paths</div>
+    <div>Validate models</div><div>Preserve INP comments and unknown sections where possible</div><div>Use bundled Windows, Linux, and macOS engines</div><div>Provide custom engine paths</div>
   </div>
 </section>
 <section>
@@ -201,7 +376,7 @@ PAGES["installation.html"] = f"""
 <table><thead><tr><th>Platform</th><th>Engine behavior</th></tr></thead><tbody>
 <tr><td>Windows 64-bit</td><td>Bundled <code>swmm5.dll</code>.</td></tr>
 <tr><td>Linux 64-bit</td><td>Bundled <code>libswmm5.so</code>.</td></tr>
-<tr><td>macOS</td><td>Provide a custom engine path until a bundled macOS build is available.</td></tr>
+<tr><td>macOS</td><td>Bundled native SWMM engine, with <code>custom_dll_path</code> still available for custom builds.</td></tr>
 </tbody></table>
 {code("""
 from swmmx import swmm
@@ -301,7 +476,26 @@ node_ids = m.get.node.id()
 <tr><td>Result fields</td><td>Require a completed run and valid non-stale results.</td></tr>
 </tbody></table>
 <h2>Available Categories</h2>
-""" + catalog_cards()
+""" + catalog_cards() + """
+<h2>Detailed Getter Reference</h2>
+<p>The full getter notebook is divided into focused pages so the reference is easier to browse.</p>
+""" + reference_cards([
+    ("Common getter patterns", "get-patterns.html", "Calling conventions, IDs, output formats, result requirements, and error behavior."),
+    ("Model options", "get-options.html", "General, process, date/time, and dynamic-wave option getters."),
+    ("Climate and hydrology", "get-hydrology.html", "Climate, rain gage, subcatchment, infiltration, and LID-related getters."),
+    ("Nodes", "get-nodes.html", "Composite node getters and detailed junction, outfall, divider, and storage-unit fields."),
+    ("Links", "get-links.html", "Composite link getters plus conduit, pump, orifice, weir, outlet, and cross-section fields."),
+    ("Hydraulic geometry and water quality", "get-hydraulic-quality.html", "Inlets, streets, transects, pollutants, land use, buildup, washoff, and treatment."),
+    ("Time, map data, summaries, and system results", "get-time-results.html", "Curves, time series, inflows, controls, coordinates, summaries, and system results."),
+])
+
+PAGES["get-patterns.html"] = notebook_html("11_all_get_functions.ipynb", "Getter Patterns", start_heading="## Common getter patterns", end_heading="## Model options")
+PAGES["get-options.html"] = notebook_html("11_all_get_functions.ipynb", "Getter Reference: Model Options", start_heading="## Model options", end_heading="## Climate and rainfall")
+PAGES["get-hydrology.html"] = notebook_html("11_all_get_functions.ipynb", "Getter Reference: Climate, Rainfall, and Hydrology", start_heading="## Climate and rainfall", end_heading="## Nodes")
+PAGES["get-nodes.html"] = notebook_html("11_all_get_functions.ipynb", "Getter Reference: Nodes", start_heading="## Nodes", end_heading="## Links and conveyance")
+PAGES["get-links.html"] = notebook_html("11_all_get_functions.ipynb", "Getter Reference: Links and Conveyance", start_heading="## Links and conveyance", end_heading="## Inlets and hydraulic geometry")
+PAGES["get-hydraulic-quality.html"] = notebook_html("11_all_get_functions.ipynb", "Getter Reference: Hydraulic Geometry and Water Quality", start_heading="## Inlets and hydraulic geometry", end_heading="## Time, curves, controls, and inflows")
+PAGES["get-time-results.html"] = notebook_html("11_all_get_functions.ipynb", "Getter Reference: Time, Map Data, Summaries, and Results", start_heading="## Time, curves, controls, and inflows")
 
 PAGES["setting-parameters.html"] = """
 <h1>Setting Parameters</h1>
@@ -319,7 +513,26 @@ m.set.node.tag("inspection-needed", ids=["J1", "J2"])
 <tr><td>Read-only field</td><td>Derived and result variables raise <code>ReadOnlyParameterError</code>.</td></tr>
 <tr><td>Invalid reference</td><td>Reference setters validate target IDs where the schema defines a relationship.</td></tr>
 </tbody></table>
-""" + note("info", "After changing model inputs, re-run the model before reading result variables or result-driven plots.", "Stale results")
+""" + note("info", "After changing model inputs, re-run the model before reading result variables or result-driven plots.", "Stale results") + """
+<h2>Detailed Setter Reference</h2>
+<p>The full setter notebook is divided into focused pages by model domain.</p>
+""" + reference_cards([
+    ("Common setter patterns", "set-patterns.html", "Value inputs, broadcasting, read-only fields, references, and stale results."),
+    ("Model options", "set-options.html", "General, process, date/time, and dynamic-wave option setters."),
+    ("Climate and hydrology", "set-hydrology.html", "Climate, rainfall, subcatchment, infiltration, and LID-related setters."),
+    ("Nodes", "set-nodes.html", "Composite node setters and detailed junction, outfall, divider, and storage-unit fields."),
+    ("Links", "set-links.html", "Composite link setters plus conduit, pump, orifice, weir, outlet, and cross-section fields."),
+    ("Hydraulic geometry and water quality", "set-hydraulic-quality.html", "Inlets, streets, transects, pollutants, land use, buildup, washoff, and treatment."),
+    ("Time, map data, summaries, and results", "set-time-map.html", "Curves, time series, inflows, controls, coordinates, and read-only summary/result surfaces."),
+])
+
+PAGES["set-patterns.html"] = notebook_html("12_all_set_functions.ipynb", "Setter Patterns", start_heading="## Common setter patterns", end_heading="## Model options")
+PAGES["set-options.html"] = notebook_html("12_all_set_functions.ipynb", "Setter Reference: Model Options", start_heading="## Model options", end_heading="## Climate and rainfall")
+PAGES["set-hydrology.html"] = notebook_html("12_all_set_functions.ipynb", "Setter Reference: Climate, Rainfall, and Hydrology", start_heading="## Climate and rainfall", end_heading="## Nodes")
+PAGES["set-nodes.html"] = notebook_html("12_all_set_functions.ipynb", "Setter Reference: Nodes", start_heading="## Nodes", end_heading="## Links and conveyance")
+PAGES["set-links.html"] = notebook_html("12_all_set_functions.ipynb", "Setter Reference: Links and Conveyance", start_heading="## Links and conveyance", end_heading="## Inlets and hydraulic geometry")
+PAGES["set-hydraulic-quality.html"] = notebook_html("12_all_set_functions.ipynb", "Setter Reference: Hydraulic Geometry and Water Quality", start_heading="## Inlets and hydraulic geometry", end_heading="## Time, curves, controls, and inflows")
+PAGES["set-time-map.html"] = notebook_html("12_all_set_functions.ipynb", "Setter Reference: Time, Map Data, Summaries, and Results", start_heading="## Time, curves, controls, and inflows")
 
 PAGES["counting.html"] = """
 <h1>Counting Objects</h1>
@@ -375,7 +588,15 @@ m.remove.link.conduit("C1")
 """ + code("""
 m.add_element("node", "junction", "J2", x=200.0, y=0.0, invert_elevation=11, max_depth=2)
 m.remove_element("node", "junction", "J2")
-""")
+""") + """
+<h2>Detailed Add and Remove References</h2>
+""" + reference_cards([
+    ("Add functions", "add-reference.html", "Every public add endpoint, required/optional inputs, implementation status, coordinate rules, references, and examples."),
+    ("Remove functions", "remove-reference.html", "Every public remove endpoint, ids input, force behavior, dependency checks, output summaries, and reserved endpoints."),
+])
+
+PAGES["add-reference.html"] = notebook_html("13_all_add_functions.ipynb", "Complete Add Reference")
+PAGES["remove-reference.html"] = notebook_html("14_all_remove_functions.ipynb", "Complete Remove Reference")
 
 PAGES["running-simulations.html"] = """
 <h1>Running Simulations</h1>
@@ -436,7 +657,18 @@ m.plot_profile.links(["C1", "C2", "C3"])
 m.plot_profile.longest(show_hgl=True, aggregation="max")
 """) + """
 <p>Profiles can plot node-to-node paths, explicit ordered link walks, or the longest directed conduit path. HGL/water overlays require results. Unknown IDs raise <code>UnknownIDError</code>; disconnected paths raise <code>NoPathError</code>.</p>
-"""
+<h2>Detailed Plotting Reference</h2>
+""" + reference_cards([
+    ("Layout plotting", "plot-layout.html", "Plotting families, save behavior, layout options, layer styling, annotations, legends, and data-driven styles."),
+    ("Time-series plotting", "plot-timeseries.html", "Dynamic result plotting endpoints, IDs, time-axis modes, result requirements, and save behavior."),
+    ("Profile plotting", "plot-profiles.html", "Node paths, ordered links, longest paths, HGL/water overlays, aggregation, and profile controls."),
+    ("Validation and common errors", "plot-errors.html", "Common plotting errors, missing coordinates, missing results, unknown IDs, and disconnected profile paths."),
+])
+
+PAGES["plot-layout.html"] = notebook_html("15_all_plot_functions.ipynb", "Plotting Reference: Layout", start_heading="## Plotting families", end_heading="## `m.plot_timeseries.<category>.<variable>()`")
+PAGES["plot-timeseries.html"] = notebook_html("15_all_plot_functions.ipynb", "Plotting Reference: Time Series", start_heading="## `m.plot_timeseries.<category>.<variable>()`", end_heading="## `m.plot_profile`")
+PAGES["plot-profiles.html"] = notebook_html("15_all_plot_functions.ipynb", "Plotting Reference: Profiles", start_heading="## `m.plot_profile`", end_heading="## Validation and common errors")
+PAGES["plot-errors.html"] = notebook_html("15_all_plot_functions.ipynb", "Plotting Reference: Validation and Common Errors", start_heading="## Validation and common errors")
 
 PAGES["importing-data.html"] = """
 <h1>Importing Data</h1>
@@ -477,7 +709,7 @@ print(result.to_frame())
 <tr><td><code>on_error</code></td><td><code>"raise"</code>, <code>"skip"</code>, or <code>"collect"</code>.</td></tr>
 </tbody></table>
 <p>Group-level shortcuts dispatch nodes and links by a <code>type</code> column: <code>m.import_csv.node("nodes.csv", default_type="junction")</code> and <code>m.import_csv.link("links.csv", default_type="conduit")</code>.</p>
-""" + note("info", "CSV files created by m.export.csv() are designed to import back cleanly. Exact SWMM input columns take priority over result or derived columns with similar names.", "Round trip")
+""" + note("info", "CSV files created by m.export.csv() are designed to import back cleanly. Exact SWMM input columns take priority over result or derived columns with similar names.", "Round trip") + notebook_html("16_all_import_export_functions.ipynb", "Complete Import Reference", end_heading="## 19. Export overview")
 
 PAGES["exporting-data.html"] = """
 <h1>Exporting Data</h1>
@@ -511,7 +743,7 @@ m.export.excel(
 <tr><td><code>overwrite</code></td><td>Replace existing outputs when supported.</td></tr>
 </tbody></table>
 <p>Coordinate fields are included where geometry is available: point objects use <code>[x, y]</code>, links use the full coordinate chain, and subcatchments use polygon coordinates when available. Point tables also include plain <code>x</code> and <code>y</code> fields.</p>
-"""
+""" + notebook_html("16_all_import_export_functions.ipynb", "Complete Export and Round-Trip Reference", start_heading="## 19. Export overview")
 
 PAGES["validation.html"] = """
 <h1>Validation</h1>
@@ -555,7 +787,7 @@ PAGES["faq.html"] = """
 <details open><summary>What is EPA SWMM?</summary><p>EPA SWMM is the Storm Water Management Model used to simulate hydrology, hydraulics, water quality, and drainage network behavior.</p></details>
 <details><summary>Is swmmx a replacement for SWMM?</summary><p>No. swmmx is a Python toolkit around EPA SWMM models and engines.</p></details>
 <details><summary>Does swmmx include the SWMM engine?</summary><p>It bundles Windows 64-bit and Linux 64-bit native engines and supports custom engine paths.</p></details>
-<details><summary>Why does macOS require a custom engine path?</summary><p>The package currently reserves the macOS path but requires users to provide an engine until a bundled build is available.</p></details>
+<details><summary>Does macOS have a bundled engine?</summary><p>Yes. The package now includes a native macOS engine alongside the Windows and Linux engines. Use <code>custom_dll_path</code> only when you want to run a custom SWMM engine build.</p></details>
 <details><summary>Why are GIS dependencies optional?</summary><p>GeoPandas and Shapely are substantial dependencies. swmmx loads them only when GIS import/export is used.</p></details>
 <details><summary>Why use m.import_csv instead of m.import?</summary><p><code>import</code> is a Python keyword, so it cannot be used as an attribute-style API name.</p></details>
 <details><summary>Can I create a model from scratch?</summary><p>Yes. Use <code>swmm(new="SI")</code> or <code>swmm(new="US")</code>, then add objects with <code>m.add.*</code>.</p></details>
@@ -703,6 +935,12 @@ h3 { font-size: 1.08rem; margin-top: 1.4rem; }
 .callout { border-left: 4px solid var(--accent); background: var(--surface-2); padding: .9rem 1rem; border-radius: 6px; margin: 1.25rem 0; }
 .callout.warning { border-left-color: var(--warning); background: #fff7ed; }
 .callout p { margin: .3rem 0 0; }
+.notebook-reference { margin-top: 3rem; padding-top: 1.25rem; border-top: 2px solid var(--border); }
+.notebook-reference h2:first-child { margin-top: 0; }
+.notebook-reference h3 { margin-top: 2rem; color: #0f172a; }
+.notebook-reference h4 { margin-top: 1.5rem; color: #233044; }
+.notebook-code { margin: 1rem 0 1.5rem; }
+.notebook-code figcaption { color: var(--muted); font-weight: 800; font-size: .85rem; margin-bottom: .35rem; }
 pre { position: relative; overflow: auto; background: var(--code-bg); color: var(--code-text); border-radius: 8px; padding: 1rem; box-shadow: var(--shadow); }
 code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: .92em; }
 :not(pre) > code { background: #edf2f7; color: #0f172a; padding: .1rem .3rem; border-radius: 4px; }

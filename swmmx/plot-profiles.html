@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plot: Profiles | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="active" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Plotting Reference: Profiles</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/15_all_plot_functions.ipynb'>15_all_plot_functions.ipynb</a>.</p>
+<h3><code>m.plot_profile</code></h3>
+<table><thead><tr><th>Public API</th><th>Path selector input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.plot_profile.nodes(start_node, end_node, ...)</code></td><td>Existing start/end node IDs</td><td>Find a directed hydraulic path between nodes, then plot it.</td></tr><tr><td><code>m.plot_profile.links(ids, ...)</code></td><td>One ordered link ID or list of link IDs</td><td>Validate connected order in either direction, then plot exactly that sequence.</td></tr><tr><td><code>m.plot_profile.longest(...)</code></td><td>No path selector</td><td>Find the longest directed conduit path and plot it.</td></tr></tbody></table>
+<h4>Profile inputs</h4>
+<p>Profiles use directed conduit connectivity, node invert elevations, conduit lengths, and conduit full depths. Ground elevation is approximated from node invert plus max depth when needed. EGL is currently not exposed by the result layer, so requesting <code>show_egl=True</code> emits a warning and skips that overlay.</p>
+<table><thead><tr><th>Input</th><th>Type</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>time_step</code></td><td><code>int</code></td><td><code>-1</code></td><td>Result row index for overlay variables; <code>-1</code> means last row.</td></tr><tr><td><code>aggregation</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>legend</code></td><td><code>bool</code></td><td><code>True</code></td><td>Show profile legend.</td></tr><tr><td><code>grid</code></td><td><code>bool</code></td><td><code>True</code></td><td>Show grid lines.</td></tr><tr><td><code>title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>legend_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>axis</code></td><td><code>bool</code></td><td><code>True</code></td><td>Show axes and ticks.</td></tr><tr><td><code>x_axis_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>y_axis_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>save_format</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>save_path</code></td><td>`str \</td><td>Path \</td><td>None`</td></tr><tr><td><code>figsize</code></td><td><code>tuple[float, float]</code></td><td><code>(12, 5)</code></td><td>Figure size when <code>ax</code> is not supplied.</td></tr><tr><td><code>dpi</code></td><td><code>int</code></td><td><code>300</code></td><td>Figure resolution.</td></tr><tr><td><code>ax</code></td><td>matplotlib `Axes \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>show</code></td><td><code>bool</code></td><td><code>True</code></td><td>Call <code>plt.show()</code> after rendering.</td></tr><tr><td><code>unit_length</code>, <code>unit_elevation</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>show_ground</code></td><td><code>bool</code></td><td><code>True</code></td><td>Draw approximated ground line.</td></tr><tr><td><code>show_conduits</code></td><td><code>bool</code></td><td><code>True</code></td><td>Draw conduit barrels.</td></tr><tr><td><code>show_invert</code></td><td><code>bool</code></td><td><code>True</code></td><td>Draw node invert line.</td></tr><tr><td><code>show_crown</code></td><td><code>bool</code></td><td><code>True</code></td><td>Draw conduit crown line.</td></tr><tr><td><code>show_hgl</code></td><td><code>bool</code></td><td><code>False</code></td><td>Draw hydraulic grade line; requires results.</td></tr><tr><td><code>show_egl</code></td><td><code>bool</code></td><td><code>False</code></td><td>Request energy grade line; currently warns and skips because EGL is not exposed.</td></tr><tr><td><code>show_water_depth</code></td><td><code>bool</code></td><td><code>False</code></td><td>Draw water level; requires results.</td></tr><tr><td><code>show_node_labels</code></td><td><code>bool</code></td><td><code>True</code></td><td>Annotate nodes.</td></tr><tr><td><code>show_link_labels</code></td><td><code>bool</code></td><td><code>True</code></td><td>Annotate links on their conduit barrels.</td></tr><tr><td><code>show_node_guides</code></td><td><code>bool</code></td><td><code>True</code></td><td>Draw prominent vertical dotted lines at node locations.</td></tr><tr><td><code>show_surcharge</code></td><td><code>bool</code></td><td><code>True</code></td><td>Mark surcharge locations when results are available.</td></tr><tr><td><code>show_flooding</code></td><td><code>bool</code></td><td><code>True</code></td><td>Mark flooding locations when results are available.</td></tr><tr><td><code>fill_conduits</code></td><td><code>bool</code></td><td><code>True</code></td><td>Shade conduit barrels between invert and crown.</td></tr><tr><td><code>line_styles</code></td><td>`dict[str, str] \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>colors</code></td><td>`dict[str, str] \</td><td>None`</td><td><code>None</code></td></tr></tbody></table>
+<h4>Profile examples</h4>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_profile.nodes(&#x27;J1&#x27;, &#x27;OUT1&#x27;, show_hgl=True, aggregation=&#x27;max&#x27;)
+m.plot_profile.links([&#x27;C1&#x27;, &#x27;C2&#x27;, &#x27;C3&#x27;])  # connected walks may follow or oppose hydraulic direction
+m.plot_profile.longest(show_hgl=True, aggregation=&#x27;max&#x27;)</code></pre>
+<figure class='notebook-code'><figcaption>Code cell 1</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">fig, ax = m.plot_profile.longest(
+    show_hgl=True,
+    aggregation=&#x27;max&#x27;,
+    title=&#x27;Longest path profile&#x27;,
+    show=False,
+    save_path=output_dir / &#x27;notebook_profile_example.png&#x27;,
+)
+plt.close(fig)</code></pre></figure>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

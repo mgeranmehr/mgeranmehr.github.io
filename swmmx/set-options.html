@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set: Options | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="active" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Setter Reference: Model Options</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/12_all_set_functions.ipynb'>12_all_set_functions.ipynb</a>.</p>
+<h3>Model options</h3>
+<h4><code>option_general</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.option_general.allow_ponding(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.flow_routing(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.flow_units(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.force_main_equation(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.infiltration_model(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.lateral_flow_tolerance(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.link_offsets(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.minimum_slope(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.skip_steady_state(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_general.system_flow_tolerance(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.option_general.allow_ponding(value)
+m.set.option_general.flow_routing(value)
+m.set.option_general.flow_units(value)
+m.set.option_general.force_main_equation(value)
+m.set.option_general.infiltration_model(value)
+m.set.option_general.lateral_flow_tolerance(value)
+m.set.option_general.link_offsets(value)
+m.set.option_general.minimum_slope(value)
+m.set.option_general.skip_steady_state(value)
+m.set.option_general.system_flow_tolerance(value)</code></pre>
+<h4><code>option_process</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.option_process.ignore_groundwater(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_process.ignore_quality(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_process.ignore_rainfall(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_process.ignore_rdii(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_process.ignore_routing(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_process.ignore_snowmelt(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.option_process.ignore_groundwater(value)
+m.set.option_process.ignore_quality(value)
+m.set.option_process.ignore_rainfall(value)
+m.set.option_process.ignore_rdii(value)
+m.set.option_process.ignore_routing(value)
+m.set.option_process.ignore_snowmelt(value)</code></pre>
+<h4><code>option_date_time</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.option_date_time.dry_days(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.dry_step(value)</code></td><td>user</td><td>time/duration</td><td>One model-level <code>time/duration</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.end_date(value)</code></td><td>user</td><td>date</td><td>One model-level <code>date</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.end_time(value)</code></td><td>user</td><td>time</td><td>One model-level <code>time</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.report_start_date(value)</code></td><td>user</td><td>date</td><td>One model-level <code>date</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.report_start_time(value)</code></td><td>user</td><td>time</td><td>One model-level <code>time</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.report_step(value)</code></td><td>user</td><td>time/duration</td><td>One model-level <code>time/duration</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.routing_step(value)</code></td><td>user</td><td>time/duration/float</td><td>One model-level <code>time/duration/float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.rule_step(value)</code></td><td>user</td><td>time/duration</td><td>One model-level <code>time/duration</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.start_date(value)</code></td><td>user</td><td>date</td><td>One model-level <code>date</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.start_time(value)</code></td><td>user</td><td>time</td><td>One model-level <code>time</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.sweep_end(value)</code></td><td>user</td><td>date/day</td><td>One model-level <code>date/day</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.sweep_start(value)</code></td><td>user</td><td>date/day</td><td>One model-level <code>date/day</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_date_time.wet_step(value)</code></td><td>user</td><td>time/duration</td><td>One model-level <code>time/duration</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.option_date_time.dry_days(value)
+m.set.option_date_time.dry_step(value)
+m.set.option_date_time.end_date(value)
+m.set.option_date_time.end_time(value)
+m.set.option_date_time.report_start_date(value)
+m.set.option_date_time.report_start_time(value)
+m.set.option_date_time.report_step(value)
+m.set.option_date_time.routing_step(value)
+m.set.option_date_time.rule_step(value)
+m.set.option_date_time.start_date(value)
+m.set.option_date_time.start_time(value)
+m.set.option_date_time.sweep_end(value)
+m.set.option_date_time.sweep_start(value)
+m.set.option_date_time.wet_step(value)</code></pre>
+<h4><code>option_dynamic_wave</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.option_dynamic_wave.head_tolerance(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.inertial_damping(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.lengthening_step(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.maximum_trials(value)</code></td><td>user</td><td>integer</td><td>One model-level <code>integer</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.minimum_step(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.minimum_surface_area(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.normal_flow_limited(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.surcharge_method(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.threads(value)</code></td><td>user</td><td>integer</td><td>One model-level <code>integer</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.option_dynamic_wave.variable_step(value)</code></td><td>user</td><td>float/bool</td><td>One model-level <code>float/bool</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.option_dynamic_wave.head_tolerance(value)
+m.set.option_dynamic_wave.inertial_damping(value)
+m.set.option_dynamic_wave.lengthening_step(value)
+m.set.option_dynamic_wave.maximum_trials(value)
+m.set.option_dynamic_wave.minimum_step(value)
+m.set.option_dynamic_wave.minimum_surface_area(value)
+m.set.option_dynamic_wave.normal_flow_limited(value)
+m.set.option_dynamic_wave.surcharge_method(value)
+m.set.option_dynamic_wave.threads(value)
+m.set.option_dynamic_wave.variable_step(value)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

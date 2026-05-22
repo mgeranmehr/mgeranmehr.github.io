@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get: Links | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="active" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Getter Reference: Links and Conveyance</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/11_all_get_functions.ipynb'>11_all_get_functions.ipynb</a>.</p>
+<h3>Links and conveyance</h3>
+<h4><code>link</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.link.capacity(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × link</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.link.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.link.depth(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × link</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.link.flap_gate(ids=None, format=None)</code></td><td>user</td><td>bool</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × link</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.link.from_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.initial_flow(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.inlet_offset(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.maximum_flow(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.outlet_offset(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.pollutant_concentration(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × link × pollutant</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.link.setting(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × link</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.link.tag(ids=None, format=None)</code></td><td>user</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.to_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.type(ids=None, format=None)</code></td><td>derived</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.velocity(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × link</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.link.vertices(ids=None, format=None)</code></td><td>user</td><td>coordinates</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.link.volume(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × link</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.link.capacity(ids=None, format=None)
+m.get.link.count(ids=None, format=None)
+m.get.link.depth(ids=None, format=None)
+m.get.link.flap_gate(ids=None, format=None)
+m.get.link.flow(ids=None, format=None)
+m.get.link.from_node(ids=None, format=None)
+m.get.link.id(ids=None, format=None)
+m.get.link.initial_flow(ids=None, format=None)
+m.get.link.inlet_offset(ids=None, format=None)
+m.get.link.maximum_flow(ids=None, format=None)
+m.get.link.outlet_offset(ids=None, format=None)
+m.get.link.pollutant_concentration(ids=None, format=None)
+m.get.link.setting(ids=None, format=None)
+m.get.link.tag(ids=None, format=None)
+m.get.link.to_node(ids=None, format=None)
+m.get.link.type(ids=None, format=None)
+m.get.link.velocity(ids=None, format=None)
+m.get.link.vertices(ids=None, format=None)
+m.get.link.volume(ids=None, format=None)</code></pre>
+<h4><code>conduit</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.conduit.average_loss(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.barrels(ids=None, format=None)</code></td><td>user</td><td>integer</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.capacity(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × conduit</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.conduit.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.conduit.critical_depth(ids=None, format=None)</code></td><td>derived</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.culvert_code(ids=None, format=None)</code></td><td>user</td><td>integer/enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.depth(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × conduit</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.conduit.entry_loss(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.exit_loss(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.flap_gate(ids=None, format=None)</code></td><td>user</td><td>bool</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × conduit</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.conduit.from_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.full_area(ids=None, format=None)</code></td><td>derived</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.full_depth(ids=None, format=None)</code></td><td>derived</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.full_flow(ids=None, format=None)</code></td><td>derived</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.geometry(ids=None, format=None)</code></td><td>user</td><td>float/list</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.hydraulic_radius(ids=None, format=None)</code></td><td>derived</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.initial_flow(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.inlet_offset(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.length(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.maximum_flow(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.normal_depth(ids=None, format=None)</code></td><td>derived</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.outlet_offset(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.roughness(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.seepage_rate(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.shape(ids=None, format=None)</code></td><td>ref/user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.slope(ids=None, format=None)</code></td><td>derived</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.to_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.conduit.velocity(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × conduit</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.conduit.average_loss(ids=None, format=None)
+m.get.conduit.barrels(ids=None, format=None)
+m.get.conduit.capacity(ids=None, format=None)
+m.get.conduit.count(ids=None, format=None)
+m.get.conduit.critical_depth(ids=None, format=None)
+m.get.conduit.culvert_code(ids=None, format=None)
+m.get.conduit.depth(ids=None, format=None)
+m.get.conduit.entry_loss(ids=None, format=None)
+m.get.conduit.exit_loss(ids=None, format=None)
+m.get.conduit.flap_gate(ids=None, format=None)
+m.get.conduit.flow(ids=None, format=None)
+m.get.conduit.from_node(ids=None, format=None)
+m.get.conduit.full_area(ids=None, format=None)
+m.get.conduit.full_depth(ids=None, format=None)
+m.get.conduit.full_flow(ids=None, format=None)
+m.get.conduit.geometry(ids=None, format=None)
+m.get.conduit.hydraulic_radius(ids=None, format=None)
+m.get.conduit.id(ids=None, format=None)
+m.get.conduit.initial_flow(ids=None, format=None)
+m.get.conduit.inlet_offset(ids=None, format=None)
+m.get.conduit.length(ids=None, format=None)
+m.get.conduit.maximum_flow(ids=None, format=None)
+m.get.conduit.normal_depth(ids=None, format=None)
+m.get.conduit.outlet_offset(ids=None, format=None)
+m.get.conduit.roughness(ids=None, format=None)
+m.get.conduit.seepage_rate(ids=None, format=None)
+m.get.conduit.shape(ids=None, format=None)
+m.get.conduit.slope(ids=None, format=None)
+m.get.conduit.to_node(ids=None, format=None)
+m.get.conduit.velocity(ids=None, format=None)</code></pre>
+<h4><code>cross_section</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.cross_section.barrels(ids=None, format=None)</code></td><td>user</td><td>integer</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.culvert_code(ids=None, format=None)</code></td><td>user</td><td>integer/enum</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.geometry_1(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.geometry_2(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.geometry_3(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.geometry_4(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.height(ids=None, format=None)</code></td><td>derived/user</td><td>float</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.link(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.shape(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.shape_curve(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.side_slope(ids=None, format=None)</code></td><td>derived/user</td><td>float</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.cross_section.width(ids=None, format=None)</code></td><td>derived/user</td><td>float</td><td>series by link</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.cross_section.barrels(ids=None, format=None)
+m.get.cross_section.culvert_code(ids=None, format=None)
+m.get.cross_section.geometry_1(ids=None, format=None)
+m.get.cross_section.geometry_2(ids=None, format=None)
+m.get.cross_section.geometry_3(ids=None, format=None)
+m.get.cross_section.geometry_4(ids=None, format=None)
+m.get.cross_section.height(ids=None, format=None)
+m.get.cross_section.link(ids=None, format=None)
+m.get.cross_section.shape(ids=None, format=None)
+m.get.cross_section.shape_curve(ids=None, format=None)
+m.get.cross_section.side_slope(ids=None, format=None)
+m.get.cross_section.width(ids=None, format=None)</code></pre>
+<h4><code>pump</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.pump.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.pump.curve(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pump.energy(ids=None, format=None)</code></td><td>result</td><td>float</td><td>summary/time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.pump.flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × pump</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.pump.from_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pump.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pump.initial_status(ids=None, format=None)</code></td><td>user</td><td>enum/bool</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pump.setting(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × pump</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.pump.shutoff_depth(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pump.startup_depth(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pump.status(ids=None, format=None)</code></td><td>result</td><td>bool/enum</td><td>time series × pump</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.pump.to_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.pump.count(ids=None, format=None)
+m.get.pump.curve(ids=None, format=None)
+m.get.pump.energy(ids=None, format=None)
+m.get.pump.flow(ids=None, format=None)
+m.get.pump.from_node(ids=None, format=None)
+m.get.pump.id(ids=None, format=None)
+m.get.pump.initial_status(ids=None, format=None)
+m.get.pump.setting(ids=None, format=None)
+m.get.pump.shutoff_depth(ids=None, format=None)
+m.get.pump.startup_depth(ids=None, format=None)
+m.get.pump.status(ids=None, format=None)
+m.get.pump.to_node(ids=None, format=None)</code></pre>
+<h4><code>orifice</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.orifice.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.orifice.discharge_coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.flap_gate(ids=None, format=None)</code></td><td>user</td><td>bool</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × orifice</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.orifice.from_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.height(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.offset(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.open_close_time(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.setting(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × orifice</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.orifice.shape(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.to_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.orifice.width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.orifice.count(ids=None, format=None)
+m.get.orifice.discharge_coefficient(ids=None, format=None)
+m.get.orifice.flap_gate(ids=None, format=None)
+m.get.orifice.flow(ids=None, format=None)
+m.get.orifice.from_node(ids=None, format=None)
+m.get.orifice.height(ids=None, format=None)
+m.get.orifice.id(ids=None, format=None)
+m.get.orifice.offset(ids=None, format=None)
+m.get.orifice.open_close_time(ids=None, format=None)
+m.get.orifice.setting(ids=None, format=None)
+m.get.orifice.shape(ids=None, format=None)
+m.get.orifice.to_node(ids=None, format=None)
+m.get.orifice.type(ids=None, format=None)
+m.get.orifice.width(ids=None, format=None)</code></pre>
+<h4><code>weir</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.weir.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.weir.crest_height(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.discharge_coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.end_coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.end_contractions(ids=None, format=None)</code></td><td>user</td><td>integer</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.flap_gate(ids=None, format=None)</code></td><td>user</td><td>bool</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × weir</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.weir.from_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.length(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.road_surface(ids=None, format=None)</code></td><td>user</td><td>enum/str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.road_width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.setting(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × weir</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.weir.side_slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.surcharge(ids=None, format=None)</code></td><td>user</td><td>bool/enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.to_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.weir.type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.weir.count(ids=None, format=None)
+m.get.weir.crest_height(ids=None, format=None)
+m.get.weir.discharge_coefficient(ids=None, format=None)
+m.get.weir.end_coefficient(ids=None, format=None)
+m.get.weir.end_contractions(ids=None, format=None)
+m.get.weir.flap_gate(ids=None, format=None)
+m.get.weir.flow(ids=None, format=None)
+m.get.weir.from_node(ids=None, format=None)
+m.get.weir.id(ids=None, format=None)
+m.get.weir.length(ids=None, format=None)
+m.get.weir.road_surface(ids=None, format=None)
+m.get.weir.road_width(ids=None, format=None)
+m.get.weir.setting(ids=None, format=None)
+m.get.weir.side_slope(ids=None, format=None)
+m.get.weir.surcharge(ids=None, format=None)
+m.get.weir.to_node(ids=None, format=None)
+m.get.weir.type(ids=None, format=None)</code></pre>
+<h4><code>outlet</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.outlet.coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.outlet.curve(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.exponent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.flap_gate(ids=None, format=None)</code></td><td>user</td><td>bool</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × outlet</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.outlet.from_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.offset(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.rating_type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.outlet.setting(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × outlet</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.outlet.to_node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.outlet.coefficient(ids=None, format=None)
+m.get.outlet.count(ids=None, format=None)
+m.get.outlet.curve(ids=None, format=None)
+m.get.outlet.exponent(ids=None, format=None)
+m.get.outlet.flap_gate(ids=None, format=None)
+m.get.outlet.flow(ids=None, format=None)
+m.get.outlet.from_node(ids=None, format=None)
+m.get.outlet.id(ids=None, format=None)
+m.get.outlet.offset(ids=None, format=None)
+m.get.outlet.rating_type(ids=None, format=None)
+m.get.outlet.setting(ids=None, format=None)
+m.get.outlet.to_node(ids=None, format=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

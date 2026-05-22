@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set: Hydraulic &amp; Quality | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="active" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Setter Reference: Hydraulic Geometry and Water Quality</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/12_all_set_functions.ipynb'>12_all_set_functions.ipynb</a>.</p>
+<h3>Inlets and hydraulic geometry</h3>
+<h4><code>street</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.street.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.street.cross_slope(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.crown_width(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.curb_height(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.depression_storage(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.gutter_slope(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.gutter_width(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.roughness(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.street.spread(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.street.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.street.cross_slope(value, ids=None)
+m.set.street.crown_width(value, ids=None)
+m.set.street.curb_height(value, ids=None)
+m.set.street.depression_storage(value, ids=None)
+m.set.street.gutter_slope(value, ids=None)
+m.set.street.gutter_width(value, ids=None)
+m.set.street.id(value, ids=None)
+m.set.street.roughness(value, ids=None)
+m.set.street.spread(value, ids=None)  # read-only: raises ReadOnlyParameterError</code></pre>
+<h4><code>inlet</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.inlet.captured_flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.inlet.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.inlet.curb_height(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.curb_length(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.grate_length(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.grate_type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.grate_width(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.slotted_length(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.slotted_width(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.inlet.captured_flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.inlet.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.inlet.curb_height(value, ids=None)
+m.set.inlet.curb_length(value, ids=None)
+m.set.inlet.grate_length(value, ids=None)
+m.set.inlet.grate_type(value, ids=None)
+m.set.inlet.grate_width(value, ids=None)
+m.set.inlet.id(value, ids=None)
+m.set.inlet.slotted_length(value, ids=None)
+m.set.inlet.slotted_width(value, ids=None)
+m.set.inlet.type(value, ids=None)</code></pre>
+<h4><code>inlet_usage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.inlet_usage.clogging_factor(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet_usage.conduit(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.inlet_usage.flow_restriction(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.inlet_usage.inlet(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.inlet_usage.node(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.inlet_usage.number(value, ids=None)</code></td><td>user</td><td>integer</td><td>One structured <code>integer</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.inlet_usage.clogging_factor(value, ids=None)
+m.set.inlet_usage.conduit(value, ids=None)
+m.set.inlet_usage.flow_restriction(value, ids=None)
+m.set.inlet_usage.inlet(value, ids=None)
+m.set.inlet_usage.node(value, ids=None)
+m.set.inlet_usage.number(value, ids=None)</code></pre>
+<h4><code>transect</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.transect.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.transect.elevations(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.left_bank(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.modifiers(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.right_bank(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.roughness_channel(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.roughness_left(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.roughness_right(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.transect.stations(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.transect.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.transect.elevations(value, ids=None)
+m.set.transect.id(value, ids=None)
+m.set.transect.left_bank(value, ids=None)
+m.set.transect.modifiers(value, ids=None)
+m.set.transect.right_bank(value, ids=None)
+m.set.transect.roughness_channel(value, ids=None)
+m.set.transect.roughness_left(value, ids=None)
+m.set.transect.roughness_right(value, ids=None)
+m.set.transect.stations(value, ids=None)</code></pre>
+<h3>Water quality</h3>
+<h4><code>pollutant</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.pollutant.co_pollutant(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.pollutant.co_pollutant_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.pollutant.decay_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.dry_weather_flow_concentration(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.groundwater_concentration(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.initial_concentration(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.rain_concentration(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.rdii_concentration(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.snow_only(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pollutant.units(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.pollutant.co_pollutant(value, ids=None)
+m.set.pollutant.co_pollutant_fraction(value, ids=None)
+m.set.pollutant.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.pollutant.decay_coefficient(value, ids=None)
+m.set.pollutant.dry_weather_flow_concentration(value, ids=None)
+m.set.pollutant.groundwater_concentration(value, ids=None)
+m.set.pollutant.id(value, ids=None)
+m.set.pollutant.initial_concentration(value, ids=None)
+m.set.pollutant.rain_concentration(value, ids=None)
+m.set.pollutant.rdii_concentration(value, ids=None)
+m.set.pollutant.snow_only(value, ids=None)
+m.set.pollutant.units(value, ids=None)</code></pre>
+<h4><code>land_use</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.land_use.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.land_use.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.land_use.last_swept(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.land_use.sweeping_availability(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.land_use.sweeping_interval(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.land_use.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.land_use.id(value, ids=None)
+m.set.land_use.last_swept(value, ids=None)
+m.set.land_use.sweeping_availability(value, ids=None)
+m.set.land_use.sweeping_interval(value, ids=None)</code></pre>
+<h4><code>coverage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.coverage.land_use(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.coverage.percent(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.coverage.subcatchment(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.coverage.land_use(value, ids=None)
+m.set.coverage.percent(value, ids=None)
+m.set.coverage.subcatchment(value, ids=None)</code></pre>
+<h4><code>loading</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.loading.initial_buildup(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.loading.pollutant(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.loading.subcatchment(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.loading.initial_buildup(value, ids=None)
+m.set.loading.pollutant(value, ids=None)
+m.set.loading.subcatchment(value, ids=None)</code></pre>
+<h4><code>buildup</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.buildup.function(value, ids=None)</code></td><td>user</td><td>enum</td><td>One structured <code>enum</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.buildup.land_use(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.buildup.maximum_buildup(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.buildup.normalizer(value, ids=None)</code></td><td>user</td><td>enum</td><td>One structured <code>enum</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.buildup.pollutant(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.buildup.power(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.buildup.rate_constant(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.buildup.function(value, ids=None)
+m.set.buildup.land_use(value, ids=None)
+m.set.buildup.maximum_buildup(value, ids=None)
+m.set.buildup.normalizer(value, ids=None)
+m.set.buildup.pollutant(value, ids=None)
+m.set.buildup.power(value, ids=None)
+m.set.buildup.rate_constant(value, ids=None)</code></pre>
+<h4><code>washoff</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.washoff.bmp_efficiency(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.washoff.cleaning_efficiency(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.washoff.coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.washoff.exponent(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.washoff.function(value, ids=None)</code></td><td>user</td><td>enum</td><td>One structured <code>enum</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.washoff.land_use(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.washoff.pollutant(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.washoff.bmp_efficiency(value, ids=None)
+m.set.washoff.cleaning_efficiency(value, ids=None)
+m.set.washoff.coefficient(value, ids=None)
+m.set.washoff.exponent(value, ids=None)
+m.set.washoff.function(value, ids=None)
+m.set.washoff.land_use(value, ids=None)
+m.set.washoff.pollutant(value, ids=None)</code></pre>
+<h4><code>treatment</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.treatment.expression(value, ids=None)</code></td><td>user</td><td>expression</td><td>One structured <code>expression</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.treatment.node(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.treatment.pollutant(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.treatment.expression(value, ids=None)
+m.set.treatment.node(value, ids=None)
+m.set.treatment.pollutant(value, ids=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set: Links | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="active" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Setter Reference: Links and Conveyance</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/12_all_set_functions.ipynb'>12_all_set_functions.ipynb</a>.</p>
+<h3>Links and conveyance</h3>
+<h4><code>link</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.link.capacity(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.link.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.link.depth(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.link.flap_gate(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.link.from_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.link.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.initial_flow(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.inlet_offset(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.maximum_flow(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.outlet_offset(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.pollutant_concentration(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.link.setting(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.link.tag(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.to_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.link.type(value, ids=None)</code></td><td>derived</td><td>enum</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.link.velocity(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.link.vertices(value, ids=None)</code></td><td>user</td><td>coordinates</td><td>One coordinate pair per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.link.volume(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.link.capacity(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.depth(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.flap_gate(value, ids=None)
+m.set.link.flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.from_node(value, ids=None)
+m.set.link.id(value, ids=None)
+m.set.link.initial_flow(value, ids=None)
+m.set.link.inlet_offset(value, ids=None)
+m.set.link.maximum_flow(value, ids=None)
+m.set.link.outlet_offset(value, ids=None)
+m.set.link.pollutant_concentration(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.setting(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.tag(value, ids=None)
+m.set.link.to_node(value, ids=None)
+m.set.link.type(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.velocity(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.link.vertices(value, ids=None)
+m.set.link.volume(value, ids=None)  # read-only: raises ReadOnlyParameterError</code></pre>
+<h4><code>conduit</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.conduit.average_loss(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.barrels(value, ids=None)</code></td><td>user</td><td>integer</td><td><code>integer</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.capacity(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.conduit.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.critical_depth(value, ids=None)</code></td><td>derived</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.culvert_code(value, ids=None)</code></td><td>user</td><td>integer/enum</td><td><code>integer/enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.depth(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.conduit.entry_loss(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.exit_loss(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.flap_gate(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.conduit.from_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.conduit.full_area(value, ids=None)</code></td><td>derived</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.full_depth(value, ids=None)</code></td><td>derived</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.full_flow(value, ids=None)</code></td><td>derived</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.geometry(value, ids=None)</code></td><td>user</td><td>float/list</td><td>One structured <code>float/list</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.hydraulic_radius(value, ids=None)</code></td><td>derived</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.initial_flow(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.inlet_offset(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.length(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.maximum_flow(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.normal_depth(value, ids=None)</code></td><td>derived</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.outlet_offset(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.roughness(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.seepage_rate(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.conduit.shape(value, ids=None)</code></td><td>ref/user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.conduit.slope(value, ids=None)</code></td><td>derived</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.conduit.to_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.conduit.velocity(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.conduit.average_loss(value, ids=None)
+m.set.conduit.barrels(value, ids=None)
+m.set.conduit.capacity(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.critical_depth(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.culvert_code(value, ids=None)
+m.set.conduit.depth(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.entry_loss(value, ids=None)
+m.set.conduit.exit_loss(value, ids=None)
+m.set.conduit.flap_gate(value, ids=None)
+m.set.conduit.flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.from_node(value, ids=None)
+m.set.conduit.full_area(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.full_depth(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.full_flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.geometry(value, ids=None)
+m.set.conduit.hydraulic_radius(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.id(value, ids=None)
+m.set.conduit.initial_flow(value, ids=None)
+m.set.conduit.inlet_offset(value, ids=None)
+m.set.conduit.length(value, ids=None)
+m.set.conduit.maximum_flow(value, ids=None)
+m.set.conduit.normal_depth(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.outlet_offset(value, ids=None)
+m.set.conduit.roughness(value, ids=None)
+m.set.conduit.seepage_rate(value, ids=None)
+m.set.conduit.shape(value, ids=None)
+m.set.conduit.slope(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.conduit.to_node(value, ids=None)
+m.set.conduit.velocity(value, ids=None)  # read-only: raises ReadOnlyParameterError</code></pre>
+<h4><code>cross_section</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.cross_section.barrels(value, ids=None)</code></td><td>user</td><td>integer</td><td><code>integer</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.culvert_code(value, ids=None)</code></td><td>user</td><td>integer/enum</td><td><code>integer/enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.geometry_1(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.geometry_2(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.geometry_3(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.geometry_4(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.height(value, ids=None)</code></td><td>derived/user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.link(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.cross_section.shape(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.shape_curve(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.cross_section.side_slope(value, ids=None)</code></td><td>derived/user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.cross_section.width(value, ids=None)</code></td><td>derived/user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.cross_section.barrels(value, ids=None)
+m.set.cross_section.culvert_code(value, ids=None)
+m.set.cross_section.geometry_1(value, ids=None)
+m.set.cross_section.geometry_2(value, ids=None)
+m.set.cross_section.geometry_3(value, ids=None)
+m.set.cross_section.geometry_4(value, ids=None)
+m.set.cross_section.height(value, ids=None)
+m.set.cross_section.link(value, ids=None)
+m.set.cross_section.shape(value, ids=None)
+m.set.cross_section.shape_curve(value, ids=None)
+m.set.cross_section.side_slope(value, ids=None)
+m.set.cross_section.width(value, ids=None)</code></pre>
+<h4><code>pump</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.pump.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.pump.curve(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.pump.energy(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.pump.flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.pump.from_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.pump.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pump.initial_status(value, ids=None)</code></td><td>user</td><td>enum/bool</td><td><code>enum/bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pump.setting(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.pump.shutoff_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pump.startup_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.pump.status(value, ids=None)</code></td><td>result</td><td>bool/enum</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.pump.to_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.pump.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.pump.curve(value, ids=None)
+m.set.pump.energy(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.pump.flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.pump.from_node(value, ids=None)
+m.set.pump.id(value, ids=None)
+m.set.pump.initial_status(value, ids=None)
+m.set.pump.setting(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.pump.shutoff_depth(value, ids=None)
+m.set.pump.startup_depth(value, ids=None)
+m.set.pump.status(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.pump.to_node(value, ids=None)</code></pre>
+<h4><code>orifice</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.orifice.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.orifice.discharge_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.flap_gate(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.orifice.from_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.orifice.height(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.offset(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.open_close_time(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.setting(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.orifice.shape(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.to_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.orifice.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.orifice.width(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.orifice.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.orifice.discharge_coefficient(value, ids=None)
+m.set.orifice.flap_gate(value, ids=None)
+m.set.orifice.flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.orifice.from_node(value, ids=None)
+m.set.orifice.height(value, ids=None)
+m.set.orifice.id(value, ids=None)
+m.set.orifice.offset(value, ids=None)
+m.set.orifice.open_close_time(value, ids=None)
+m.set.orifice.setting(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.orifice.shape(value, ids=None)
+m.set.orifice.to_node(value, ids=None)
+m.set.orifice.type(value, ids=None)
+m.set.orifice.width(value, ids=None)</code></pre>
+<h4><code>weir</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.weir.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.weir.crest_height(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.discharge_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.end_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.end_contractions(value, ids=None)</code></td><td>user</td><td>integer</td><td><code>integer</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.flap_gate(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.weir.from_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.weir.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.length(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.road_surface(value, ids=None)</code></td><td>user</td><td>enum/str</td><td><code>enum/str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.road_width(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.setting(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.weir.side_slope(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.surcharge(value, ids=None)</code></td><td>user</td><td>bool/enum</td><td><code>bool/enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.weir.to_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.weir.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.weir.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.weir.crest_height(value, ids=None)
+m.set.weir.discharge_coefficient(value, ids=None)
+m.set.weir.end_coefficient(value, ids=None)
+m.set.weir.end_contractions(value, ids=None)
+m.set.weir.flap_gate(value, ids=None)
+m.set.weir.flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.weir.from_node(value, ids=None)
+m.set.weir.id(value, ids=None)
+m.set.weir.length(value, ids=None)
+m.set.weir.road_surface(value, ids=None)
+m.set.weir.road_width(value, ids=None)
+m.set.weir.setting(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.weir.side_slope(value, ids=None)
+m.set.weir.surcharge(value, ids=None)
+m.set.weir.to_node(value, ids=None)
+m.set.weir.type(value, ids=None)</code></pre>
+<h4><code>outlet</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.outlet.coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outlet.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.outlet.curve(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.outlet.exponent(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outlet.flap_gate(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outlet.flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.outlet.from_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.outlet.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outlet.offset(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outlet.rating_type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outlet.setting(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.outlet.to_node(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.outlet.coefficient(value, ids=None)
+m.set.outlet.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.outlet.curve(value, ids=None)
+m.set.outlet.exponent(value, ids=None)
+m.set.outlet.flap_gate(value, ids=None)
+m.set.outlet.flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.outlet.from_node(value, ids=None)
+m.set.outlet.id(value, ids=None)
+m.set.outlet.offset(value, ids=None)
+m.set.outlet.rating_type(value, ids=None)
+m.set.outlet.setting(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.outlet.to_node(value, ids=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

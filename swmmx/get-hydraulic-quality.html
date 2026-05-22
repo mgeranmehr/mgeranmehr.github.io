@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get: Hydraulic &amp; Quality | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="active" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Getter Reference: Hydraulic Geometry and Water Quality</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/11_all_get_functions.ipynb'>11_all_get_functions.ipynb</a>.</p>
+<h3>Inlets and hydraulic geometry</h3>
+<h4><code>street</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.street.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.street.cross_slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.crown_width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.curb_height(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.depression_storage(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.gutter_slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.gutter_width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.roughness(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.street.spread(ids=None, format=None)</code></td><td>result</td><td>float</td><td>summary/time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.street.count(ids=None, format=None)
+m.get.street.cross_slope(ids=None, format=None)
+m.get.street.crown_width(ids=None, format=None)
+m.get.street.curb_height(ids=None, format=None)
+m.get.street.depression_storage(ids=None, format=None)
+m.get.street.gutter_slope(ids=None, format=None)
+m.get.street.gutter_width(ids=None, format=None)
+m.get.street.id(ids=None, format=None)
+m.get.street.roughness(ids=None, format=None)
+m.get.street.spread(ids=None, format=None)</code></pre>
+<h4><code>inlet</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.inlet.captured_flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>summary/time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.inlet.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.inlet.curb_height(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.curb_length(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.grate_length(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.grate_type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.grate_width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.slotted_length(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.slotted_width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet.type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.inlet.captured_flow(ids=None, format=None)
+m.get.inlet.count(ids=None, format=None)
+m.get.inlet.curb_height(ids=None, format=None)
+m.get.inlet.curb_length(ids=None, format=None)
+m.get.inlet.grate_length(ids=None, format=None)
+m.get.inlet.grate_type(ids=None, format=None)
+m.get.inlet.grate_width(ids=None, format=None)
+m.get.inlet.id(ids=None, format=None)
+m.get.inlet.slotted_length(ids=None, format=None)
+m.get.inlet.slotted_width(ids=None, format=None)
+m.get.inlet.type(ids=None, format=None)</code></pre>
+<h4><code>inlet_usage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.inlet_usage.clogging_factor(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet_usage.conduit(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet_usage.flow_restriction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet_usage.inlet(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet_usage.node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.inlet_usage.number(ids=None, format=None)</code></td><td>user</td><td>integer</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.inlet_usage.clogging_factor(ids=None, format=None)
+m.get.inlet_usage.conduit(ids=None, format=None)
+m.get.inlet_usage.flow_restriction(ids=None, format=None)
+m.get.inlet_usage.inlet(ids=None, format=None)
+m.get.inlet_usage.node(ids=None, format=None)
+m.get.inlet_usage.number(ids=None, format=None)</code></pre>
+<h4><code>transect</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.transect.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.transect.elevations(ids=None, format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.left_bank(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.modifiers(ids=None, format=None)</code></td><td>user</td><td>float</td><td>list/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.right_bank(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.roughness_channel(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.roughness_left(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.roughness_right(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.transect.stations(ids=None, format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.transect.count(ids=None, format=None)
+m.get.transect.elevations(ids=None, format=None)
+m.get.transect.id(ids=None, format=None)
+m.get.transect.left_bank(ids=None, format=None)
+m.get.transect.modifiers(ids=None, format=None)
+m.get.transect.right_bank(ids=None, format=None)
+m.get.transect.roughness_channel(ids=None, format=None)
+m.get.transect.roughness_left(ids=None, format=None)
+m.get.transect.roughness_right(ids=None, format=None)
+m.get.transect.stations(ids=None, format=None)</code></pre>
+<h3>Water quality</h3>
+<h4><code>pollutant</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.pollutant.co_pollutant(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.co_pollutant_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.pollutant.decay_coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.dry_weather_flow_concentration(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.groundwater_concentration(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.initial_concentration(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.rain_concentration(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.rdii_concentration(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.snow_only(ids=None, format=None)</code></td><td>user</td><td>bool</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.pollutant.units(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.pollutant.co_pollutant(ids=None, format=None)
+m.get.pollutant.co_pollutant_fraction(ids=None, format=None)
+m.get.pollutant.count(ids=None, format=None)
+m.get.pollutant.decay_coefficient(ids=None, format=None)
+m.get.pollutant.dry_weather_flow_concentration(ids=None, format=None)
+m.get.pollutant.groundwater_concentration(ids=None, format=None)
+m.get.pollutant.id(ids=None, format=None)
+m.get.pollutant.initial_concentration(ids=None, format=None)
+m.get.pollutant.rain_concentration(ids=None, format=None)
+m.get.pollutant.rdii_concentration(ids=None, format=None)
+m.get.pollutant.snow_only(ids=None, format=None)
+m.get.pollutant.units(ids=None, format=None)</code></pre>
+<h4><code>land_use</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.land_use.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.land_use.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.land_use.last_swept(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.land_use.sweeping_availability(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.land_use.sweeping_interval(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.land_use.count(ids=None, format=None)
+m.get.land_use.id(ids=None, format=None)
+m.get.land_use.last_swept(ids=None, format=None)
+m.get.land_use.sweeping_availability(ids=None, format=None)
+m.get.land_use.sweeping_interval(ids=None, format=None)</code></pre>
+<h4><code>coverage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.coverage.land_use(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.coverage.percent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.coverage.subcatchment(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.coverage.land_use(ids=None, format=None)
+m.get.coverage.percent(ids=None, format=None)
+m.get.coverage.subcatchment(ids=None, format=None)</code></pre>
+<h4><code>loading</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.loading.initial_buildup(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.loading.pollutant(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.loading.subcatchment(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.loading.initial_buildup(ids=None, format=None)
+m.get.loading.pollutant(ids=None, format=None)
+m.get.loading.subcatchment(ids=None, format=None)</code></pre>
+<h4><code>buildup</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.buildup.function(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.buildup.land_use(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.buildup.maximum_buildup(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.buildup.normalizer(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.buildup.pollutant(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.buildup.power(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.buildup.rate_constant(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.buildup.function(ids=None, format=None)
+m.get.buildup.land_use(ids=None, format=None)
+m.get.buildup.maximum_buildup(ids=None, format=None)
+m.get.buildup.normalizer(ids=None, format=None)
+m.get.buildup.pollutant(ids=None, format=None)
+m.get.buildup.power(ids=None, format=None)
+m.get.buildup.rate_constant(ids=None, format=None)</code></pre>
+<h4><code>washoff</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.washoff.bmp_efficiency(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.washoff.cleaning_efficiency(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.washoff.coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.washoff.exponent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.washoff.function(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.washoff.land_use(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.washoff.pollutant(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.washoff.bmp_efficiency(ids=None, format=None)
+m.get.washoff.cleaning_efficiency(ids=None, format=None)
+m.get.washoff.coefficient(ids=None, format=None)
+m.get.washoff.exponent(ids=None, format=None)
+m.get.washoff.function(ids=None, format=None)
+m.get.washoff.land_use(ids=None, format=None)
+m.get.washoff.pollutant(ids=None, format=None)</code></pre>
+<h4><code>treatment</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.treatment.expression(ids=None, format=None)</code></td><td>user</td><td>expression</td><td>table/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.treatment.node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.treatment.pollutant(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.treatment.expression(ids=None, format=None)
+m.get.treatment.node(ids=None, format=None)
+m.get.treatment.pollutant(ids=None, format=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

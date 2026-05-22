@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plot: Layout | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="active" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Plotting Reference: Layout</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/15_all_plot_functions.ipynb'>15_all_plot_functions.ipynb</a>.</p>
+<h3>Plotting families</h3>
+<table><thead><tr><th>Public API</th><th>Purpose</th><th>Needs results?</th><th>Return value</th></tr></thead><tbody><tr><td><code>m.plot_layout(...)</code></td><td>Draw mapped nodes, links, subcatchments, rain gages, labels, and optional data-driven styling.</td><td>Only for result-driven styling.</td><td><code>(fig, ax)</code></td></tr><tr><td><code>m.plot_timeseries.&lt;category&gt;.&lt;variable&gt;(ids=None, ...)</code></td><td>Plot one or many result series against time.</td><td>Yes.</td><td><code>(fig, ax)</code></td></tr><tr><td><code>m.plot_profile.nodes(...)</code> / <code>.links(...)</code> / <code>.longest(...)</code></td><td>Plot a longitudinal hydraulic path with geometry and optional result overlays.</td><td>Only for HGL/water overlays.</td><td><code>(fig, ax)</code></td></tr></tbody></table>
+<h3>Shared save behavior</h3>
+<table><thead><tr><th>Case</th><th>Behavior</th></tr></thead><tbody><tr><td>No <code>save_path</code>, no <code>save_format</code></td><td>Do not save.</td></tr><tr><td>Only <code>save_format</code></td><td>Save beside the model file, or in the current working directory for unsaved models.</td></tr><tr><td>Existing folder in <code>save_path</code></td><td>Create a sensible filename inside that folder.</td></tr><tr><td>Path without extension</td><td>Append the requested format, or <code>.png</code> by default.</td></tr><tr><td>Path with extension</td><td>Infer format from extension unless <code>save_format</code> overrides it.</td></tr><tr><td>Supported formats</td><td><code>png</code>, <code>jpg</code>, <code>jpeg</code>, <code>pdf</code>, <code>svg</code>, <code>tiff</code>.</td></tr></tbody></table>
+<h3><code>m.plot_layout()</code></h3>
+<p>Layout plots read map geometry from <code>[COORDINATES]</code>, <code>[VERTICES]</code>, <code>[POLYGONS]</code>, and <code>[SYMBOLS]</code>. Elements with unusable coordinates are skipped with warnings; if no plottable geometry exists, the call raises <code>PlotDataError</code>. Subcatchment centroids are derived from polygon geometry, then connected to outlet nodes or downstream subcatchments with dashed lines. Node/link symbology is type-aware by default, and LID usage markers are drawn at subcatchment centroids when present. Titles, grids, and visible coordinate axes use safe ordinary artists instead of Matplotlib&#x27;s native title/tick/grid machinery, avoiding the Spyder/Agg recursive tick-copy path. On non-interactive matplotlib canvases such as Agg, <code>show=True</code> avoids useless GUI calls but keeps the figure available for Spyder/Jupyter rendering; <code>show=False</code> removes only the library-created figure manager so hidden plots stay hidden.</p>
+<table><thead><tr><th>Input</th><th>Type</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>legend</code></td><td><code>bool</code></td><td><code>True</code></td><td>Show ordinary layer legend entries.</td></tr><tr><td><code>grid</code></td><td><code>bool</code></td><td><code>False</code></td><td>Show reference grid lines; they remain visible even when coordinate labels stay hidden.</td></tr><tr><td><code>title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>legend_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>axis</code></td><td><code>bool</code></td><td><code>False</code></td><td>Show coordinate axes and ticks; hidden by default for maps.</td></tr><tr><td><code>x_axis_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>y_axis_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>save_format</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>save_path</code></td><td>`str \</td><td>Path \</td><td>None`</td></tr><tr><td><code>figsize</code></td><td><code>tuple[float, float]</code></td><td><code>(10, 8)</code></td><td>Figure size when <code>ax</code> is not supplied.</td></tr><tr><td><code>dpi</code></td><td><code>int</code></td><td><code>300</code></td><td>Figure resolution for new figures and saved output.</td></tr><tr><td><code>ax</code></td><td>matplotlib `Axes \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>show</code></td><td><code>bool</code></td><td><code>True</code></td><td>Display the completed figure; <code>False</code> suppresses automatic notebook display for function-created figures.</td></tr><tr><td><code>nodes</code></td><td>`dict \</td><td>bool \</td><td>None`</td></tr><tr><td><code>links</code></td><td>`dict \</td><td>bool \</td><td>None`</td></tr><tr><td><code>subcatchments</code></td><td>`dict \</td><td>bool \</td><td>None`</td></tr><tr><td><code>subcatchment_outlets</code></td><td>`dict \</td><td>bool \</td><td>None`</td></tr><tr><td><code>rain_gages</code></td><td>`dict \</td><td>bool \</td><td>None`</td></tr><tr><td><code>lids</code></td><td>`dict \</td><td>bool \</td><td>None`</td></tr><tr><td><code>labels</code></td><td>`dict \</td><td>bool \</td><td>None`</td></tr><tr><td><code>link_color_by</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>link_color_mode</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>link_cmap</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>node_color_result</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>node_result_aggregation</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>link_user_data</code></td><td>`mapping \</td><td>Series \</td><td>None`</td></tr><tr><td><code>annotation</code></td><td>`None \</td><td>str \</td><td>list[str] \</td></tr></tbody></table>
+<h4>Layout layer dictionaries</h4>
+<table><thead><tr><th>Layer</th><th>Supported keys</th><th>Important defaults</th></tr></thead><tbody><tr><td><code>nodes</code></td><td><code>visible</code>, <code>label</code>, <code>legend</code>, <code>alpha</code>, <code>zorder</code>, <code>size</code>, <code>color</code>, <code>edge_color</code>, <code>marker</code>, <code>type_markers</code>, <code>linewidth</code>, <code>ids</code></td><td>Type markers: junction <code>o</code>, outfall <code>v</code>, divider <code>D</code>, storage <code>s</code></td></tr><tr><td><code>links</code></td><td><code>visible</code>, <code>label</code>, <code>legend</code>, <code>alpha</code>, <code>zorder</code>, <code>width</code>, <code>size</code>, <code>color</code>, <code>linestyle</code>, <code>type_linestyles</code>, <code>ids</code></td><td>Type lines: conduit solid, pump dash-dot, orifice dotted, weir dashed, outlet long-dashed</td></tr><tr><td><code>subcatchments</code></td><td><code>visible</code>, <code>label</code>, <code>legend</code>, <code>alpha</code>, <code>zorder</code>, <code>color</code>, <code>edge_color</code>, <code>linewidth</code>, <code>ids</code></td><td><code>color=&#x27;lightgreen&#x27;</code>, <code>edge_color=&#x27;green&#x27;</code>, <code>alpha=0.25</code></td></tr><tr><td><code>subcatchment_outlets</code></td><td><code>visible</code>, <code>label</code>, <code>legend</code>, <code>alpha</code>, <code>zorder</code>, <code>width</code>, <code>color</code>, <code>linestyle</code>, <code>ids</code></td><td>Dashed gray connector from centroid to outlet</td></tr><tr><td><code>rain_gages</code></td><td><code>visible</code>, <code>label</code>, <code>legend</code>, <code>alpha</code>, <code>zorder</code>, <code>size</code>, <code>color</code>, <code>marker</code>, <code>ids</code></td><td><code>size=45</code>, <code>color=&#x27;tab:blue&#x27;</code>, <code>marker=&#x27;^&#x27;</code></td></tr><tr><td><code>lids</code></td><td><code>visible</code>, <code>label</code>, <code>legend</code>, <code>alpha</code>, <code>zorder</code>, <code>size</code>, <code>color</code>, <code>edge_color</code>, <code>linewidth</code>, <code>markers</code></td><td>One distinct marker per LID control ID when usages exist</td></tr><tr><td><code>labels</code></td><td><code>visible</code>, <code>alpha</code>, <code>zorder</code>, <code>fontsize</code>, <code>color</code></td><td><code>visible=False</code>, <code>fontsize=8</code>, <code>color=&#x27;black&#x27;</code></td></tr></tbody></table>
+<h4>Data-driven layout style dictionaries</h4>
+<p>The <code>color</code>, node <code>size</code>, and link <code>width</code>/<code>size</code> keys can be static values or richer dictionaries. Result-driven encodings require <code>m.run()</code> first.</p>
+<table><thead><tr><th>Key</th><th>Accepted values</th><th>Meaning</th></tr></thead><tbody><tr><td><code>by</code></td><td><code>static</code>, <code>parameter</code>, <code>result</code>, or <code>user</code></td><td>Select where styling values come from.</td></tr><tr><td><code>value</code></td><td>static color/size/width</td><td>Used when <code>by=&#x27;static&#x27;</code>.</td></tr><tr><td><code>category</code>, <code>variable</code></td><td>public getter names</td><td>Required for <code>parameter</code> and <code>result</code> styling.</td></tr><tr><td><code>data</code></td><td>mapping or pandas Series</td><td>Required for <code>user</code> styling.</td></tr><tr><td><code>mode</code></td><td><code>continuous</code> or <code>discrete</code></td><td>Color mapping mode; sizes/widths currently scale numeric values continuously.</td></tr><tr><td><code>cmap</code></td><td>matplotlib colormap name</td><td>Colormap for continuous or discrete color encoding.</td></tr><tr><td><code>vmin</code>, <code>vmax</code></td><td>numeric bounds</td><td>Optional continuous color scaling bounds.</td></tr><tr><td><code>aggregation</code></td><td><code>last</code>, <code>max</code>, <code>min</code>, <code>mean</code>, <code>median</code>, or <code>sum</code></td><td>Collapse result time series to one value per object.</td></tr><tr><td><code>time_step</code>, <code>time</code></td><td>integer index or timestamp-like value</td><td>Select one result instant instead of aggregating.</td></tr><tr><td><code>legend</code>, <code>legend_title</code></td><td><code>bool</code>, <code>str</code></td><td>Control the dedicated custom-style legend section.</td></tr><tr><td><code>min_size</code>, <code>max_size</code></td><td>numeric bounds</td><td>Node-size scaling bounds.</td></tr><tr><td><code>min_width</code>, <code>max_width</code></td><td>numeric bounds</td><td>Link-width scaling bounds.</td></tr><tr><td><code>labels</code>, <code>bins</code></td><td>sequence metadata</td><td>Accepted style metadata for discrete presentation; labels are used for color categories.</td></tr></tbody></table>
+<h4>Layout examples</h4>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout()
+
+m.plot_layout(
+    nodes={&#x27;size&#x27;: 40, &#x27;color&#x27;: &#x27;black&#x27;},
+    links={&#x27;width&#x27;: 1.5, &#x27;color&#x27;: &#x27;gray&#x27;},
+)
+
+m.plot_layout(
+    links={
+        &#x27;color&#x27;: {
+            &#x27;by&#x27;: &#x27;parameter&#x27;,
+            &#x27;category&#x27;: &#x27;conduit&#x27;,
+            &#x27;variable&#x27;: &#x27;roughness&#x27;,
+            &#x27;mode&#x27;: &#x27;continuous&#x27;,
+            &#x27;cmap&#x27;: &#x27;viridis&#x27;,
+        }
+    }
+)
+
+m.plot_layout(
+    nodes={&#x27;ids&#x27;: selected_node_ids, &#x27;size&#x27;: {&#x27;by&#x27;: &#x27;user&#x27;, &#x27;data&#x27;: node_size_data}},
+    links={&#x27;ids&#x27;: selected_link_ids, &#x27;width&#x27;: {&#x27;by&#x27;: &#x27;user&#x27;, &#x27;data&#x27;: link_width_data}},
+    subcatchments={&#x27;ids&#x27;: selected_subcatchment_ids, &#x27;color&#x27;: {&#x27;by&#x27;: &#x27;parameter&#x27;, &#x27;variable&#x27;: &#x27;area&#x27;, &#x27;mode&#x27;: &#x27;continuous&#x27;}},
+)
+
+m.run()
+m.plot_layout(
+    nodes={&#x27;size&#x27;: {&#x27;by&#x27;: &#x27;result&#x27;, &#x27;variable&#x27;: &#x27;depth&#x27;, &#x27;aggregation&#x27;: &#x27;max&#x27;}},
+    links={&#x27;color&#x27;: {&#x27;by&#x27;: &#x27;result&#x27;, &#x27;category&#x27;: &#x27;link&#x27;, &#x27;variable&#x27;: &#x27;flow&#x27;, &#x27;aggregation&#x27;: &#x27;max&#x27;}},
+)
+
+m.plot_layout(link_color_by=&#x27;roughness&#x27;, link_color_mode=&#x27;continuous&#x27;, link_cmap=&#x27;viridis&#x27;)</code></pre>
+<h4>Seven fully annotated <code>m.plot_layout()</code> layer examples</h4>
+<p>These examples use IDs discovered from <code>examples/example.inp</code>, so they are safe to execute after the setup cell above. Result-driven examples require <code>m.run()</code> first; user-driven examples use dictionaries prepared in the setup cell.</p>
+<h5>1. <code>nodes={...}</code></h5>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout(
+    nodes={
+        &#x27;visible&#x27;: True,             # True draws nodes; False hides the whole node layer.
+        &#x27;label&#x27;: &#x27;Nodes&#x27;,             # Generic layer label used in the ordinary object legend.
+        &#x27;legend&#x27;: True,               # Include node information in legends when True.
+        &#x27;alpha&#x27;: 1.0,                 # Marker transparency from 0.0 (clear) to 1.0 (opaque).
+        &#x27;zorder&#x27;: 3,                   # Drawing order; larger numbers appear above lower layers.
+        &#x27;size&#x27;: {
+            &#x27;by&#x27;: &#x27;user&#x27;,             # Choose &#x27;static&#x27;, &#x27;parameter&#x27;, &#x27;result&#x27;, or &#x27;user&#x27;.
+            # &#x27;value&#x27;: 40,            # Static size, used only when by=&#x27;static&#x27;.
+            # &#x27;category&#x27;: &#x27;node&#x27;,     # Public getter category for parameter/result styling.
+            # &#x27;variable&#x27;: &#x27;depth&#x27;,    # Public getter variable to encode.
+            &#x27;data&#x27;: node_size_data,   # ID -&gt; value mapping, used only when by=&#x27;user&#x27;.
+            &#x27;mode&#x27;: &#x27;continuous&#x27;,     # Reserved metadata for size encodings; numeric scaling is continuous.
+            # &#x27;bins&#x27;: [0, 1, 2],      # Optional metadata for future/discrete presentation.
+            # &#x27;labels&#x27;: [&#x27;low&#x27;, &#x27;high&#x27;],  # Optional presentation labels.
+            # &#x27;aggregation&#x27;: &#x27;max&#x27;,   # Result reducer: last/max/min/mean/median/sum.
+            # &#x27;time_step&#x27;: -1,        # Select one result row instead of aggregating.
+            # &#x27;time&#x27;: &#x27;2026-01-01 01:00&#x27;,  # Select one result timestamp instead of aggregating.
+            &#x27;min_size&#x27;: 20,            # Smallest rendered marker area.
+            &#x27;max_size&#x27;: 200,           # Largest rendered marker area.
+            &#x27;legend&#x27;: True,            # Add a dedicated custom-style legend section.
+            &#x27;legend_title&#x27;: &#x27;Node size score&#x27;,  # Custom legend section title.
+        },
+        &#x27;color&#x27;: {
+            &#x27;by&#x27;: &#x27;user&#x27;,             # Here color is based on user-defined classes.
+            # &#x27;value&#x27;: &#x27;black&#x27;,       # Static color, used only when by=&#x27;static&#x27;.
+            # &#x27;category&#x27;: &#x27;node&#x27;,     # Required for parameter/result styling.
+            # &#x27;variable&#x27;: &#x27;depth&#x27;,    # Required for parameter/result styling.
+            &#x27;data&#x27;: node_class_data,  # ID -&gt; value mapping, required when by=&#x27;user&#x27;.
+            &#x27;mode&#x27;: &#x27;discrete&#x27;,        # &#x27;continuous&#x27; for numeric ramps, &#x27;discrete&#x27; for classes.
+            &#x27;cmap&#x27;: &#x27;tab10&#x27;,           # Any matplotlib colormap name.
+            # &#x27;bins&#x27;: [0, 1, 2],      # Optional metadata for custom/discrete grouping.
+            &#x27;labels&#x27;: [&#x27;Junction&#x27;, &#x27;Outfall&#x27;],  # Display labels for discrete classes.
+            # &#x27;vmin&#x27;: 0.0,            # Lower color bound for continuous color maps.
+            # &#x27;vmax&#x27;: 2.0,            # Upper color bound for continuous color maps.
+            # &#x27;aggregation&#x27;: &#x27;max&#x27;,   # Result reducer when by=&#x27;result&#x27;.
+            # &#x27;time_step&#x27;: -1,        # Single result row when by=&#x27;result&#x27;.
+            # &#x27;time&#x27;: &#x27;2026-01-01 01:00&#x27;,  # Single result timestamp when by=&#x27;result&#x27;.
+            &#x27;legend&#x27;: True,            # Add a dedicated color legend section.
+            &#x27;legend_title&#x27;: &#x27;Node class&#x27;,
+        },
+        &#x27;edge_color&#x27;: &#x27;white&#x27;,         # Marker edge color.
+        &#x27;marker&#x27;: &#x27;o&#x27;,                 # Fallback marker when no type-specific marker is supplied.
+        &#x27;type_markers&#x27;: {              # Marker by SWMM node type.
+            &#x27;junction&#x27;: &#x27;o&#x27;,
+            &#x27;outfall&#x27;: &#x27;v&#x27;,
+            &#x27;divider&#x27;: &#x27;D&#x27;,
+            &#x27;storage_unit&#x27;: &#x27;s&#x27;,
+        },
+        &#x27;linewidth&#x27;: 0.5,              # Marker edge-line width.
+        &#x27;ids&#x27;: selected_node_ids,       # Optional node subset; omit to draw all nodes.
+    },
+)</code></pre>
+<h5>2. <code>links={...}</code></h5>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout(
+    links={
+        &#x27;visible&#x27;: True,               # True draws links; False hides the whole link layer.
+        &#x27;label&#x27;: &#x27;Links&#x27;,               # Generic layer label for the ordinary object legend.
+        &#x27;legend&#x27;: True,                 # Include link information in legends when True.
+        &#x27;alpha&#x27;: 1.0,                   # Line transparency.
+        &#x27;zorder&#x27;: 2,                     # Draw links above polygons but below nodes.
+        &#x27;width&#x27;: {
+            &#x27;by&#x27;: &#x27;parameter&#x27;,          # Width can come from static/parameter/result/user data.
+            # &#x27;value&#x27;: 1.5,             # Static width when by=&#x27;static&#x27;.
+            &#x27;category&#x27;: &#x27;conduit&#x27;,      # Getter category for the width source.
+            &#x27;variable&#x27;: &#x27;roughness&#x27;,    # Getter variable for the width source.
+            # &#x27;data&#x27;: link_width_data,  # ID -&gt; value mapping when by=&#x27;user&#x27;.
+            &#x27;mode&#x27;: &#x27;continuous&#x27;,       # Numeric width scaling is continuous.
+            # &#x27;bins&#x27;: [0.01, 0.02],     # Optional metadata.
+            # &#x27;labels&#x27;: [&#x27;smooth&#x27;, &#x27;rough&#x27;],  # Optional presentation labels.
+            # &#x27;aggregation&#x27;: &#x27;max&#x27;,      # Result reducer when by=&#x27;result&#x27;.
+            # &#x27;time_step&#x27;: -1,           # Single result row when by=&#x27;result&#x27;.
+            # &#x27;time&#x27;: &#x27;2026-01-01 01:00&#x27;,  # Single result timestamp when by=&#x27;result&#x27;.
+            &#x27;min_width&#x27;: 0.5,            # Smallest rendered line width.
+            &#x27;max_width&#x27;: 4.0,            # Largest rendered line width.
+            &#x27;legend&#x27;: True,              # Add a dedicated width legend section.
+            &#x27;legend_title&#x27;: &#x27;Conduit roughness&#x27;,
+        },
+        # &#x27;size&#x27;: {...},                # Alias for &#x27;width&#x27;; use either &#x27;width&#x27; or &#x27;size&#x27;.
+        &#x27;color&#x27;: {
+            &#x27;by&#x27;: &#x27;user&#x27;,               # Here color is based on your own link classes.
+            # &#x27;value&#x27;: &#x27;gray&#x27;,          # Static color when by=&#x27;static&#x27;.
+            # &#x27;category&#x27;: &#x27;link&#x27;,       # Result getter category.
+            # &#x27;variable&#x27;: &#x27;flow&#x27;,       # Result getter variable.
+            &#x27;data&#x27;: link_class_data,    # ID -&gt; value mapping when by=&#x27;user&#x27;.
+            &#x27;mode&#x27;: &#x27;discrete&#x27;,          # Discrete classes or continuous numeric values.
+            &#x27;cmap&#x27;: &#x27;tab10&#x27;,             # Matplotlib colormap.
+            # &#x27;bins&#x27;: [0, 1, 2],        # Optional metadata.
+            &#x27;labels&#x27;: [&#x27;Main&#x27;, &#x27;Secondary&#x27;],  # Optional labels for discrete mode.
+            # &#x27;vmin&#x27;: 0.0,              # Lower color-map limit for continuous mode.
+            # &#x27;vmax&#x27;: 10.0,              # Optional upper color-map limit.
+            # &#x27;aggregation&#x27;: &#x27;max&#x27;,      # Result reducer.
+            # &#x27;time_step&#x27;: -1,           # Single result row instead of aggregation.
+            # &#x27;time&#x27;: &#x27;2026-01-01 01:00&#x27;,  # Single result timestamp instead of aggregation.
+            &#x27;legend&#x27;: True,              # Add a result-driven custom legend section.
+            &#x27;legend_title&#x27;: &#x27;Link class&#x27;,
+        },
+        &#x27;linestyle&#x27;: &#x27;-&#x27;,               # Fallback line style.
+        &#x27;type_linestyles&#x27;: {            # Line style by SWMM link type.
+            &#x27;conduit&#x27;: &#x27;-&#x27;,
+            &#x27;pump&#x27;: &#x27;-.&#x27;,
+            &#x27;orifice&#x27;: &#x27;:&#x27;,
+            &#x27;weir&#x27;: &#x27;--&#x27;,
+            &#x27;outlet&#x27;: (0, (5, 1)),
+        },
+        &#x27;ids&#x27;: selected_link_ids,        # Optional link subset; omit to draw all links.
+    },
+)</code></pre>
+<h5>3. <code>subcatchments={...}</code></h5>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout(
+    subcatchments={
+        &#x27;visible&#x27;: True,                # Draw polygon areas when True.
+        &#x27;label&#x27;: &#x27;Subcatchments&#x27;,        # Ordinary legend label.
+        &#x27;legend&#x27;: True,                  # Include polygons in legends when True.
+        &#x27;alpha&#x27;: 0.25,                   # Polygon fill transparency.
+        &#x27;zorder&#x27;: 1,                      # Background layer below network geometry.
+        &#x27;color&#x27;: {
+            &#x27;by&#x27;: &#x27;parameter&#x27;,           # Static/parameter/result/user are all supported.
+            # &#x27;value&#x27;: &#x27;lightgreen&#x27;,     # Static fill color when by=&#x27;static&#x27;.
+            &#x27;category&#x27;: &#x27;subcatchment&#x27;,  # Getter category for parameter/result styling.
+            &#x27;variable&#x27;: &#x27;area&#x27;,          # Getter variable to encode.
+            # &#x27;data&#x27;: subcatchment_class_data,  # ID -&gt; value mapping when by=&#x27;user&#x27;.
+            &#x27;mode&#x27;: &#x27;continuous&#x27;,        # Continuous or discrete color mapping.
+            &#x27;cmap&#x27;: &#x27;YlGn&#x27;,               # Matplotlib colormap.
+            # &#x27;bins&#x27;: [0, 1, 2],         # Optional metadata.
+            # &#x27;labels&#x27;: [&#x27;small&#x27;, &#x27;large&#x27;],  # Optional labels for discrete mode.
+            # &#x27;vmin&#x27;: 0.0,               # Optional lower color bound.
+            # &#x27;vmax&#x27;: 10.0,              # Optional upper color bound.
+            # &#x27;aggregation&#x27;: &#x27;max&#x27;,      # Result reducer when by=&#x27;result&#x27;.
+            # &#x27;time_step&#x27;: -1,           # Single result row when by=&#x27;result&#x27;.
+            # &#x27;time&#x27;: &#x27;2026-01-01 01:00&#x27;,  # Single result timestamp when by=&#x27;result&#x27;.
+            &#x27;legend&#x27;: True,              # Add a custom legend section for the fill encoding.
+            &#x27;legend_title&#x27;: &#x27;Subcatchment area&#x27;,
+        },
+        &#x27;edge_color&#x27;: &#x27;green&#x27;,           # Polygon boundary color.
+        &#x27;linewidth&#x27;: 1.0,                # Polygon boundary width.
+        &#x27;ids&#x27;: selected_subcatchment_ids, # Optional polygon subset.
+    },
+)</code></pre>
+<h5>4. <code>subcatchment_outlets={...}</code></h5>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout(
+    subcatchment_outlets={
+        &#x27;visible&#x27;: True,                 # Draw centroid -&gt; outlet connectors.
+        &#x27;label&#x27;: &#x27;Subcatchment outlets&#x27;,  # Ordinary legend label.
+        &#x27;legend&#x27;: True,                   # Include connector style in the legend.
+        &#x27;alpha&#x27;: 0.8,                     # Connector transparency.
+        &#x27;zorder&#x27;: 1.5,                    # Above polygons, below links.
+        &#x27;width&#x27;: 1.0,                     # Connector line width.
+        &#x27;color&#x27;: &#x27;0.45&#x27;,                  # Any matplotlib color.
+        &#x27;linestyle&#x27;: &#x27;--&#x27;,                # Dashed drainage cue.
+        &#x27;ids&#x27;: selected_subcatchment_ids, # Optional subcatchment subset.
+    },
+)</code></pre>
+<h5>5. <code>rain_gages={...}</code></h5>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout(
+    rain_gages={
+        &#x27;visible&#x27;: True,                  # Draw rain-gage symbols when True.
+        &#x27;label&#x27;: &#x27;Rain gages&#x27;,             # Ordinary legend label.
+        &#x27;legend&#x27;: True,                    # Include rain gages in the legend.
+        &#x27;alpha&#x27;: 1.0,                      # Marker transparency.
+        &#x27;zorder&#x27;: 4,                       # Above the hydraulic network.
+        &#x27;size&#x27;: 45,                        # Marker area.
+        &#x27;color&#x27;: &#x27;tab:blue&#x27;,               # Marker fill color.
+        &#x27;marker&#x27;: &#x27;^&#x27;,                     # Matplotlib marker shape.
+        &#x27;ids&#x27;: selected_rain_gage_ids,     # Optional rain-gage subset.
+    },
+)</code></pre>
+<h5>6. <code>lids={...}</code></h5>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout(
+    lids={
+        &#x27;visible&#x27;: True,                   # Draw LID usage markers when usages exist.
+        &#x27;label&#x27;: &#x27;LID controls&#x27;,            # Generic layer label; each control also gets its own legend item.
+        &#x27;legend&#x27;: True,                     # Include LID markers in the legend.
+        &#x27;alpha&#x27;: 1.0,                       # Marker transparency.
+        &#x27;zorder&#x27;: 4.5,                      # Above nodes/rain gages when desired.
+        &#x27;size&#x27;: 55,                         # Marker area.
+        &#x27;color&#x27;: &#x27;tab:purple&#x27;,              # Marker fill color.
+        &#x27;edge_color&#x27;: &#x27;white&#x27;,              # Marker edge color.
+        &#x27;linewidth&#x27;: 0.5,                   # Marker edge width.
+        &#x27;markers&#x27;: [&#x27;P&#x27;, &#x27;X&#x27;, &#x27;*&#x27;, &#x27;h&#x27;, &#x27;8&#x27;, &#x27;d&#x27;],  # Cycled across distinct LID control IDs.
+    },
+)</code></pre>
+<h5>7. <code>labels={...}</code></h5>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.plot_layout(
+    labels={
+        &#x27;visible&#x27;: True,                    # Draw node-ID text labels when True.
+        &#x27;alpha&#x27;: 1.0,                       # Text transparency.
+        &#x27;zorder&#x27;: 5,                         # Text usually sits above all symbol layers.
+        &#x27;fontsize&#x27;: 8,                       # Text size in points.
+        &#x27;color&#x27;: &#x27;black&#x27;,                    # Text color.
+    },
+)</code></pre>
+<figure class='notebook-code'><figcaption>Code cell 1</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">fig, ax = m.plot_layout(
+    title=&#x27;Network layout&#x27;,
+    nodes={&#x27;size&#x27;: 40, &#x27;color&#x27;: &#x27;black&#x27;},
+    links={&#x27;width&#x27;: 1.5, &#x27;color&#x27;: &#x27;gray&#x27;},
+    show=False,
+    save_path=output_dir / &#x27;notebook_layout_example.png&#x27;,
+)
+plt.close(fig)</code></pre></figure>
+<h3>Layout annotations</h3>
+<p><code>plot_layout()</code> supports optional map annotations through the <code>annotation=</code> argument. Annotations can show object IDs, input parameters, derived values, result variables when available, or custom text. The feature supports simple field names, multiple fields, templates, prefixes, suffixes, formatting, styling, filtering, callable functions, external user data, and conservative link-aligned rotation.</p>
+<p>A top-level string such as <code>annotation=&quot;id&quot;</code> is intentionally documented as a node-label shorthand. For other layers, use explicit layer keys.</p>
+<table><thead><tr><th>Input form</th><th>Example</th><th>Meaning</th></tr></thead><tbody><tr><td>String</td><td><code>annotation={&quot;nodes&quot;: &quot;id&quot;}</code></td><td>Show one field.</td></tr><tr><td>List</td><td><code>annotation={&quot;nodes&quot;: [&quot;id&quot;, &quot;invert_elevation&quot;]}</code></td><td>Show multiple fields, one per line.</td></tr></tbody></table>
+<p>| Template | <code>{&quot;template&quot;: &quot;{id} Inv={invert_elevation:.2f} m&quot;}</code> | Fully custom text using Python format syntax. |</p>
+<table><thead><tr><th>Prefix/suffix</th><th><code>prefix</code>, <code>suffix</code>, <code>format</code></th><th>Add labels, units, and numeric precision.</th></tr></thead><tbody><tr><td>Styling</td><td><code>fontsize</code>, <code>color</code>, <code>bbox</code>, <code>offset</code>, <code>rotation</code></td><td>Control appearance.</td></tr><tr><td>Filtering</td><td><code>ids</code>, <code>where</code>, <code>max_labels</code></td><td>Limit which objects are annotated.</td></tr><tr><td>User data</td><td><code>data</code>, <code>data_field</code>, <code>data_id</code></td><td>Merge external dictionaries, Series, or DataFrames into labels.</td></tr></tbody></table>
+<p>Supported layer keys include <code>nodes</code>, <code>junctions</code>, <code>outfalls</code>, <code>storage_units</code>, <code>flow_dividers</code>, <code>links</code>, <code>conduits</code>, <code>pumps</code>, <code>orifices</code>, <code>weirs</code>, <code>outlets</code>, <code>subcatchments</code>, <code>rain_gages</code>, <code>lid_usages</code>, and <code>labels</code>. Singular aliases such as <code>node</code>, <code>conduit</code>, and <code>rain_gage</code> are accepted.</p>
+<p>Missing annotation fields use <code>on_annotation_error=&quot;raise&quot;</code> by default. Use <code>&quot;skip&quot;</code> or <code>&quot;warn&quot;</code> to omit labels instead of stopping the plot. External user data uses <code>on_missing_data=&quot;empty&quot;</code> by default; <code>&quot;skip&quot;</code>, <code>&quot;raise&quot;</code>, and <code>&quot;warn&quot;</code> are also supported.</p>
+<figure class='notebook-code'><figcaption>Code cell 2</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 1. Simple node IDs.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: &quot;id&quot;
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 3</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 2. Node and conduit labels.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: &quot;id&quot;,
+        &quot;conduits&quot;: &quot;id&quot;,
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 4</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 3. Multiple fields.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: [&quot;id&quot;, &quot;invert_elevation&quot;],
+        &quot;conduits&quot;: [&quot;id&quot;, &quot;length&quot;, &quot;diameter&quot;],
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 5</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 4. Prefix, suffix, units, and formatting.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: {
+            &quot;fields&quot;: [&quot;id&quot;, &quot;invert_elevation&quot;],
+            &quot;prefix&quot;: {&quot;invert_elevation&quot;: &quot;Inv: &quot;},
+            &quot;suffix&quot;: {&quot;invert_elevation&quot;: &quot; m&quot;},
+            &quot;format&quot;: {&quot;invert_elevation&quot;: &quot;.2f&quot;},
+        },
+        &quot;conduits&quot;: {
+            &quot;fields&quot;: [&quot;id&quot;, &quot;diameter&quot;, &quot;length&quot;],
+            &quot;prefix&quot;: {&quot;diameter&quot;: &quot;D: &quot;, &quot;length&quot;: &quot;L: &quot;},
+            &quot;suffix&quot;: {&quot;diameter&quot;: &quot; m&quot;, &quot;length&quot;: &quot; m&quot;},
+            &quot;format&quot;: {&quot;diameter&quot;: &quot;.2f&quot;, &quot;length&quot;: &quot;.1f&quot;},
+        },
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 6</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 5. Template strings.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: {
+            &quot;template&quot;: &quot;{id}
+Inv={invert_elevation:.2f} m&quot;,
+        },
+        &quot;conduits&quot;: {
+            &quot;template&quot;: &quot;{id}
+D={diameter:.2f} m
+L={length:.1f} m&quot;,
+        },
+        &quot;subcatchments&quot;: {
+            &quot;template&quot;: &quot;{id}
+A={area:.2f}&quot;,
+        },
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 7</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 6. Styled annotations.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: {
+            &quot;template&quot;: &quot;{id}&quot;,
+            &quot;fontsize&quot;: 8,
+            &quot;color&quot;: &quot;black&quot;,
+            &quot;offset&quot;: (4, 4),
+            &quot;bbox&quot;: True,
+            &quot;bbox_alpha&quot;: 0.7,
+        },
+        &quot;conduits&quot;: {
+            &quot;template&quot;: &quot;D={diameter:.2f} m&quot;,
+            &quot;fontsize&quot;: 7,
+            &quot;color&quot;: &quot;darkblue&quot;,
+            &quot;offset&quot;: (0, 6),
+            &quot;rotation&quot;: &quot;link&quot;,
+        },
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 8</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 7. Filtering by IDs.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: {
+            &quot;template&quot;: &quot;{id}&quot;,
+            &quot;ids&quot;: selected_node_ids,
+        }
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 9</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 8. Maximum label count.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: {
+            &quot;template&quot;: &quot;{id}&quot;,
+            &quot;max_labels&quot;: 10,
+        }
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 10</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 9. Conditional filtering.
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;conduits&quot;: {
+            &quot;template&quot;: &quot;{id}
+D={diameter:.2f} m&quot;,
+            &quot;where&quot;: {
+                &quot;diameter&quot;: [&quot;&gt;&quot;, 1.0],
+            },
+        }
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 11</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 10. Callable annotation.
+def node_label(row):
+    return f&quot;{row[&#x27;id&#x27;]}
+Inv={row[&#x27;invert_elevation&#x27;]:.2f} m&quot;
+
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;nodes&quot;: node_label,
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 12</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 11. Result-based annotation, if the model has been run.
+m.run()
+
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;conduits&quot;: {
+            &quot;template&quot;: &quot;{id}
+Q={flow:.3f}&quot;,
+        },
+        &quot;nodes&quot;: {
+            &quot;template&quot;: &quot;{id}
+Depth={depth:.2f}&quot;,
+        },
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+<figure class='notebook-code'><figcaption>Code cell 13</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># 12. External user data from dictionaries, Series, and DataFrames.
+pipe_data = {
+    selected_link_ids[0]: {&quot;risk&quot;: &quot;High&quot;, &quot;age&quot;: 42},
+}
+pipe_risk = pd.Series({selected_link_ids[0]: &quot;High&quot;}, name=&quot;risk&quot;)
+pipe_frame = pd.DataFrame({&quot;id&quot;: [selected_link_ids[0]], &quot;risk&quot;: [&quot;High&quot;], &quot;age&quot;: [42]})
+
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;conduits&quot;: {
+            &quot;template&quot;: &quot;{id}
+Risk={risk}
+Age={age} yr&quot;,
+            &quot;data&quot;: pipe_data,
+            &quot;on_missing_data&quot;: &quot;skip&quot;,
+        }
+    },
+    show=False,
+)
+plt.close(fig)
+
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;conduits&quot;: {
+            &quot;template&quot;: &quot;{id}
+Risk={risk}&quot;,
+            &quot;data&quot;: pipe_risk,
+            &quot;on_missing_data&quot;: &quot;skip&quot;,
+        }
+    },
+    show=False,
+)
+plt.close(fig)
+
+fig, ax = m.plot_layout(
+    annotation={
+        &quot;conduits&quot;: {
+            &quot;template&quot;: &quot;{id}
+Risk={risk}
+Age={age} yr&quot;,
+            &quot;data&quot;: pipe_frame,
+            &quot;data_id&quot;: &quot;id&quot;,
+            &quot;on_missing_data&quot;: &quot;skip&quot;,
+        }
+    },
+    show=False,
+)
+plt.close(fig)</code></pre></figure>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

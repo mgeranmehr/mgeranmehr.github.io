@@ -29,11 +29,31 @@
 <a class="" href="creating-models.html">Creating Models</a>
 <a class="" href="time-helpers.html">Time Helpers</a>
 <a class="active" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
 <a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
 <a class="" href="counting.html">Counting Objects</a>
 <a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
 <a class="" href="running-simulations.html">Running Simulations</a>
 <a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
 <a class="" href="importing-data.html">Importing Data</a>
 <a class="" href="exporting-data.html">Exporting Data</a>
 <a class="" href="validation.html">Validation</a>
@@ -116,7 +136,16 @@ node_ids = m.get.node.id()</code></pre>
 <article class='api-card'><h3><code>control_rule</code></h3><p><code>id</code>, <code>count</code>, <code>text</code>, <code>conditions</code>, <code>actions</code>, <code>priority</code>, <code>enabled</code>, <code>action_log</code></p></article>
 <article class='api-card'><h3><code>interface_file</code></h3><p><code>rainfall</code>, <code>runoff</code>, <code>hotstart</code>, <code>rdii</code>, <code>inflow</code>, <code>outflow</code>, <code>use_file</code>, <code>save_file</code></p></article>
 <article class='api-card'><h3><code>system_result</code></h3><p><code>air_temperature</code>, <code>rainfall</code>, <code>snow_depth</code>, <code>evaporation</code>, <code>infiltration</code>, <code>runoff</code>, <code>dry_weather_inflow</code>, <code>groundwater_inflow</code>, <code>rdii_inflow</code>, <code>direct_inflow</code>, <code>total_lateral_inflow</code>, <code>flooding</code> <span class='muted'>+3 more</span></p></article>
-<article class='api-card'><h3><code>summary</code></h3><p><code>model</code>, <code>counts</code>, <code>options</code>, <code>subcatchment_runoff</code>, <code>subcatchment_washoff</code>, <code>node_depth</code>, <code>node_inflow</code>, <code>node_flooding</code>, <code>node_surcharge</code>, <code>storage_volume</code>, <code>outfall_loading</code>, <code>link_flow</code> <span class='muted'>+8 more</span></p></article></div></main>
+<article class='api-card'><h3><code>summary</code></h3><p><code>model</code>, <code>counts</code>, <code>options</code>, <code>subcatchment_runoff</code>, <code>subcatchment_washoff</code>, <code>node_depth</code>, <code>node_inflow</code>, <code>node_flooding</code>, <code>node_surcharge</code>, <code>storage_volume</code>, <code>outfall_loading</code>, <code>link_flow</code> <span class='muted'>+8 more</span></p></article></div>
+<h2>Detailed Getter Reference</h2>
+<p>The full getter notebook is divided into focused pages so the reference is easier to browse.</p>
+<div class='card-grid'><article class='card'><h3>Common getter patterns</h3><p>Calling conventions, IDs, output formats, result requirements, and error behavior.</p><a href='get-patterns.html'>Open section</a></article>
+<article class='card'><h3>Model options</h3><p>General, process, date/time, and dynamic-wave option getters.</p><a href='get-options.html'>Open section</a></article>
+<article class='card'><h3>Climate and hydrology</h3><p>Climate, rain gage, subcatchment, infiltration, and LID-related getters.</p><a href='get-hydrology.html'>Open section</a></article>
+<article class='card'><h3>Nodes</h3><p>Composite node getters and detailed junction, outfall, divider, and storage-unit fields.</p><a href='get-nodes.html'>Open section</a></article>
+<article class='card'><h3>Links</h3><p>Composite link getters plus conduit, pump, orifice, weir, outlet, and cross-section fields.</p><a href='get-links.html'>Open section</a></article>
+<article class='card'><h3>Hydraulic geometry and water quality</h3><p>Inlets, streets, transects, pollutants, land use, buildup, washoff, and treatment.</p><a href='get-hydraulic-quality.html'>Open section</a></article>
+<article class='card'><h3>Time, map data, summaries, and system results</h3><p>Curves, time series, inflows, controls, coordinates, summaries, and system results.</p><a href='get-time-results.html'>Open section</a></article></div></main>
   </div>
   <footer class="footer">
     <span>swmmx Documentation</span>

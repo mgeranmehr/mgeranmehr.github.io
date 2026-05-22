@@ -29,11 +29,31 @@
 <a class="" href="creating-models.html">Creating Models</a>
 <a class="" href="time-helpers.html">Time Helpers</a>
 <a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
 <a class="active" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
 <a class="" href="counting.html">Counting Objects</a>
 <a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
 <a class="" href="running-simulations.html">Running Simulations</a>
 <a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
 <a class="" href="importing-data.html">Importing Data</a>
 <a class="" href="exporting-data.html">Exporting Data</a>
 <a class="" href="validation.html">Validation</a>
@@ -58,7 +78,16 @@ m.set.node.tag(&quot;inspection-needed&quot;, ids=[&quot;J1&quot;, &quot;J2&quot
 <tr><td>Read-only field</td><td>Derived and result variables raise <code>ReadOnlyParameterError</code>.</td></tr>
 <tr><td>Invalid reference</td><td>Reference setters validate target IDs where the schema defines a relationship.</td></tr>
 </tbody></table>
-<aside class="callout info"><strong>Stale results</strong><p>After changing model inputs, re-run the model before reading result variables or result-driven plots.</p></aside></main>
+<aside class="callout info"><strong>Stale results</strong><p>After changing model inputs, re-run the model before reading result variables or result-driven plots.</p></aside>
+<h2>Detailed Setter Reference</h2>
+<p>The full setter notebook is divided into focused pages by model domain.</p>
+<div class='card-grid'><article class='card'><h3>Common setter patterns</h3><p>Value inputs, broadcasting, read-only fields, references, and stale results.</p><a href='set-patterns.html'>Open section</a></article>
+<article class='card'><h3>Model options</h3><p>General, process, date/time, and dynamic-wave option setters.</p><a href='set-options.html'>Open section</a></article>
+<article class='card'><h3>Climate and hydrology</h3><p>Climate, rainfall, subcatchment, infiltration, and LID-related setters.</p><a href='set-hydrology.html'>Open section</a></article>
+<article class='card'><h3>Nodes</h3><p>Composite node setters and detailed junction, outfall, divider, and storage-unit fields.</p><a href='set-nodes.html'>Open section</a></article>
+<article class='card'><h3>Links</h3><p>Composite link setters plus conduit, pump, orifice, weir, outlet, and cross-section fields.</p><a href='set-links.html'>Open section</a></article>
+<article class='card'><h3>Hydraulic geometry and water quality</h3><p>Inlets, streets, transects, pollutants, land use, buildup, washoff, and treatment.</p><a href='set-hydraulic-quality.html'>Open section</a></article>
+<article class='card'><h3>Time, map data, summaries, and results</h3><p>Curves, time series, inflows, controls, coordinates, and read-only summary/result surfaces.</p><a href='set-time-map.html'>Open section</a></article></div></main>
   </div>
   <footer class="footer">
     <span>swmmx Documentation</span>

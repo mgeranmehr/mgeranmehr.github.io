@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set: Hydrology | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="active" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Setter Reference: Climate, Rainfall, and Hydrology</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/12_all_set_functions.ipynb'>12_all_set_functions.ipynb</a>.</p>
+<h3>Climate and rainfall</h3>
+<h4><code>climate</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.climate.areal_depletion_impervious(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.areal_depletion_pervious(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.evaporation_constant(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.evaporation_dry_only(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.evaporation_monthly(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.evaporation_recovery_pattern(value)</code></td><td>ref</td><td>str</td><td>One model-level <code>str</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.climate.evaporation_time_series(value)</code></td><td>ref</td><td>str</td><td>One model-level <code>str</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.climate.evaporation_type(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.snowmelt_parameters(value)</code></td><td>user</td><td>mixed</td><td>One model-level <code>mixed</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.temperature_time_series(value)</code></td><td>ref</td><td>str/table</td><td>One model-level <code>str/table</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.climate.wind_speed_monthly(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate.wind_speed_type(value)</code></td><td>user</td><td>enum</td><td>One model-level <code>enum</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.climate.areal_depletion_impervious(value)
+m.set.climate.areal_depletion_pervious(value)
+m.set.climate.evaporation_constant(value)
+m.set.climate.evaporation_dry_only(value)
+m.set.climate.evaporation_monthly(value)
+m.set.climate.evaporation_recovery_pattern(value)
+m.set.climate.evaporation_time_series(value)
+m.set.climate.evaporation_type(value)
+m.set.climate.snowmelt_parameters(value)
+m.set.climate.temperature_time_series(value)
+m.set.climate.wind_speed_monthly(value)
+m.set.climate.wind_speed_type(value)</code></pre>
+<h4><code>climate_adjustment</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.climate_adjustment.conductivity(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate_adjustment.evaporation(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate_adjustment.rainfall(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.climate_adjustment.temperature(value)</code></td><td>user</td><td>float</td><td>One model-level <code>float</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.climate_adjustment.conductivity(value)
+m.set.climate_adjustment.evaporation(value)
+m.set.climate_adjustment.rainfall(value)
+m.set.climate_adjustment.temperature(value)</code></pre>
+<h4><code>rain_gage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.rain_gage.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.rain_gage.filename(value, ids=None)</code></td><td>ref</td><td>path</td><td><code>path</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.rain_gage.format(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.rain_gage.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.rain_gage.interval(value, ids=None)</code></td><td>user</td><td>time</td><td><code>time</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.rain_gage.rainfall(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.rain_gage.snow_catch_factor(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.rain_gage.source_type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.rain_gage.station(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.rain_gage.time_series(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.rain_gage.units(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.rain_gage.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.rain_gage.filename(value, ids=None)
+m.set.rain_gage.format(value, ids=None)
+m.set.rain_gage.id(value, ids=None)
+m.set.rain_gage.interval(value, ids=None)
+m.set.rain_gage.rainfall(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.rain_gage.snow_catch_factor(value, ids=None)
+m.set.rain_gage.source_type(value, ids=None)
+m.set.rain_gage.station(value, ids=None)
+m.set.rain_gage.time_series(value, ids=None)
+m.set.rain_gage.units(value, ids=None)</code></pre>
+<h3>Hydrology and catchments</h3>
+<h4><code>subcatchment</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.subcatchment.area(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.centroid(value, ids=None)</code></td><td>user/derived</td><td>coordinates</td><td>One coordinate pair per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.subcatchment.curb_length(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.depression_storage_impervious(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.depression_storage_pervious(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.evaporation(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.groundwater_elevation(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.groundwater_flow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.impervious_percent(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.infiltration(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.n_impervious(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.n_pervious(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.outlet(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.subcatchment.percent_routed(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.pollutant_concentration(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.polygon(value, ids=None)</code></td><td>user</td><td>coordinates</td><td>One coordinate pair per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.rain_gage(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.subcatchment.rainfall(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.runoff(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.slope(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.snow_depth(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.snow_pack(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.subcatchment.soil_moisture(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.subcatchment.subarea_routing(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.tag(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.width(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.subcatchment.zero_depression_storage_impervious_percent(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.subcatchment.area(value, ids=None)
+m.set.subcatchment.centroid(value, ids=None)
+m.set.subcatchment.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.curb_length(value, ids=None)
+m.set.subcatchment.depression_storage_impervious(value, ids=None)
+m.set.subcatchment.depression_storage_pervious(value, ids=None)
+m.set.subcatchment.evaporation(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.groundwater_elevation(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.groundwater_flow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.id(value, ids=None)
+m.set.subcatchment.impervious_percent(value, ids=None)
+m.set.subcatchment.infiltration(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.n_impervious(value, ids=None)
+m.set.subcatchment.n_pervious(value, ids=None)
+m.set.subcatchment.outlet(value, ids=None)
+m.set.subcatchment.percent_routed(value, ids=None)
+m.set.subcatchment.pollutant_concentration(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.polygon(value, ids=None)
+m.set.subcatchment.rain_gage(value, ids=None)
+m.set.subcatchment.rainfall(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.runoff(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.slope(value, ids=None)
+m.set.subcatchment.snow_depth(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.snow_pack(value, ids=None)
+m.set.subcatchment.soil_moisture(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.subcatchment.subarea_routing(value, ids=None)
+m.set.subcatchment.tag(value, ids=None)
+m.set.subcatchment.width(value, ids=None)
+m.set.subcatchment.zero_depression_storage_impervious_percent(value, ids=None)</code></pre>
+<h4><code>infiltration_horton</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.infiltration_horton.decay(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_horton.dry_time(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_horton.maximum_rate(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_horton.maximum_volume(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_horton.minimum_rate(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.infiltration_horton.decay(value, ids=None)
+m.set.infiltration_horton.dry_time(value, ids=None)
+m.set.infiltration_horton.maximum_rate(value, ids=None)
+m.set.infiltration_horton.maximum_volume(value, ids=None)
+m.set.infiltration_horton.minimum_rate(value, ids=None)</code></pre>
+<h4><code>infiltration_green_ampt</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.infiltration_green_ampt.hydraulic_conductivity(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_green_ampt.initial_moisture_deficit(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_green_ampt.suction_head(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.infiltration_green_ampt.hydraulic_conductivity(value, ids=None)
+m.set.infiltration_green_ampt.initial_moisture_deficit(value, ids=None)
+m.set.infiltration_green_ampt.suction_head(value, ids=None)</code></pre>
+<h4><code>infiltration_curve_number</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.infiltration_curve_number.conductivity(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_curve_number.curve_number(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.infiltration_curve_number.dry_time(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.infiltration_curve_number.conductivity(value, ids=None)
+m.set.infiltration_curve_number.curve_number(value, ids=None)
+m.set.infiltration_curve_number.dry_time(value, ids=None)</code></pre>
+<h4><code>aquifer</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.aquifer.bottom_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.conductivity(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.conductivity_slope(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.aquifer.field_capacity(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.lower_evaporation_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.lower_groundwater_loss_rate(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.porosity(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.tension_slope(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.unsaturated_moisture(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.upper_evaporation_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.upper_evaporation_pattern(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.aquifer.water_table_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.aquifer.wilting_point(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.aquifer.bottom_elevation(value, ids=None)
+m.set.aquifer.conductivity(value, ids=None)
+m.set.aquifer.conductivity_slope(value, ids=None)
+m.set.aquifer.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.aquifer.field_capacity(value, ids=None)
+m.set.aquifer.id(value, ids=None)
+m.set.aquifer.lower_evaporation_depth(value, ids=None)
+m.set.aquifer.lower_groundwater_loss_rate(value, ids=None)
+m.set.aquifer.porosity(value, ids=None)
+m.set.aquifer.tension_slope(value, ids=None)
+m.set.aquifer.unsaturated_moisture(value, ids=None)
+m.set.aquifer.upper_evaporation_fraction(value, ids=None)
+m.set.aquifer.upper_evaporation_pattern(value, ids=None)
+m.set.aquifer.water_table_elevation(value, ids=None)
+m.set.aquifer.wilting_point(value, ids=None)</code></pre>
+<h4><code>groundwater</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.groundwater.a1(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.a2(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.a3(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.aquifer(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.groundwater.b1(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.b2(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.deep_flow_equation(value, ids=None)</code></td><td>user</td><td>expression</td><td>One structured <code>expression</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.fixed_depth(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.lateral_flow_equation(value, ids=None)</code></td><td>user</td><td>expression</td><td>One structured <code>expression</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.node(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.groundwater.subcatchment(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.groundwater.surface_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.groundwater.threshold_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.groundwater.a1(value, ids=None)
+m.set.groundwater.a2(value, ids=None)
+m.set.groundwater.a3(value, ids=None)
+m.set.groundwater.aquifer(value, ids=None)
+m.set.groundwater.b1(value, ids=None)
+m.set.groundwater.b2(value, ids=None)
+m.set.groundwater.deep_flow_equation(value, ids=None)
+m.set.groundwater.fixed_depth(value, ids=None)
+m.set.groundwater.lateral_flow_equation(value, ids=None)
+m.set.groundwater.node(value, ids=None)
+m.set.groundwater.subcatchment(value, ids=None)
+m.set.groundwater.surface_elevation(value, ids=None)
+m.set.groundwater.threshold_elevation(value, ids=None)</code></pre>
+<h4><code>snow_pack</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.snow_pack.base_temperature(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.snow_pack.depth_at_100_percent_cover(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.destination_subcatchment(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.snow_pack.fraction_to_immediate_melt(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.fraction_to_impervious(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.fraction_to_outflow(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.fraction_to_pervious(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.fraction_to_subcatchment(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.free_water_capacity_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.impervious_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.initial_free_water(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.initial_snow_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.maximum_melt_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.minimum_melt_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.pervious_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.plowable_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.snow_pack.removal_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.snow_pack.base_temperature(value, ids=None)
+m.set.snow_pack.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.snow_pack.depth_at_100_percent_cover(value, ids=None)
+m.set.snow_pack.destination_subcatchment(value, ids=None)
+m.set.snow_pack.fraction_to_immediate_melt(value, ids=None)
+m.set.snow_pack.fraction_to_impervious(value, ids=None)
+m.set.snow_pack.fraction_to_outflow(value, ids=None)
+m.set.snow_pack.fraction_to_pervious(value, ids=None)
+m.set.snow_pack.fraction_to_subcatchment(value, ids=None)
+m.set.snow_pack.free_water_capacity_fraction(value, ids=None)
+m.set.snow_pack.id(value, ids=None)
+m.set.snow_pack.impervious_fraction(value, ids=None)
+m.set.snow_pack.initial_free_water(value, ids=None)
+m.set.snow_pack.initial_snow_depth(value, ids=None)
+m.set.snow_pack.maximum_melt_coefficient(value, ids=None)
+m.set.snow_pack.minimum_melt_coefficient(value, ids=None)
+m.set.snow_pack.pervious_fraction(value, ids=None)
+m.set.snow_pack.plowable_fraction(value, ids=None)
+m.set.snow_pack.removal_depth(value, ids=None)</code></pre>
+<h4><code>unit_hydrograph</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.unit_hydrograph.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.unit_hydrograph.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.long_term_k(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.long_term_r(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.long_term_t(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.medium_term_k(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.medium_term_r(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.medium_term_t(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.month(value, ids=None)</code></td><td>user</td><td>enum/integer</td><td>One structured <code>enum/integer</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.rain_gage(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.unit_hydrograph.short_term_k(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.short_term_r(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.unit_hydrograph.short_term_t(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.unit_hydrograph.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.unit_hydrograph.id(value, ids=None)
+m.set.unit_hydrograph.long_term_k(value, ids=None)
+m.set.unit_hydrograph.long_term_r(value, ids=None)
+m.set.unit_hydrograph.long_term_t(value, ids=None)
+m.set.unit_hydrograph.medium_term_k(value, ids=None)
+m.set.unit_hydrograph.medium_term_r(value, ids=None)
+m.set.unit_hydrograph.medium_term_t(value, ids=None)
+m.set.unit_hydrograph.month(value, ids=None)
+m.set.unit_hydrograph.rain_gage(value, ids=None)
+m.set.unit_hydrograph.short_term_k(value, ids=None)
+m.set.unit_hydrograph.short_term_r(value, ids=None)
+m.set.unit_hydrograph.short_term_t(value, ids=None)</code></pre>
+<h4><code>lid_control</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.lid_control.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.lid_control.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_control.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.lid_control.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.lid_control.id(value, ids=None)
+m.set.lid_control.type(value, ids=None)</code></pre>
+<h4><code>lid_surface</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.lid_surface.roughness(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_surface.side_slope(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_surface.slope(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_surface.storage_depth(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_surface.vegetation_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.lid_surface.roughness(value, ids=None)
+m.set.lid_surface.side_slope(value, ids=None)
+m.set.lid_surface.slope(value, ids=None)
+m.set.lid_surface.storage_depth(value, ids=None)
+m.set.lid_surface.vegetation_fraction(value, ids=None)</code></pre>
+<h4><code>lid_pavement</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.lid_pavement.clogging_factor(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_pavement.impervious_surface_fraction(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_pavement.permeability(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_pavement.thickness(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_pavement.void_ratio(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.lid_pavement.clogging_factor(value, ids=None)
+m.set.lid_pavement.impervious_surface_fraction(value, ids=None)
+m.set.lid_pavement.permeability(value, ids=None)
+m.set.lid_pavement.thickness(value, ids=None)
+m.set.lid_pavement.void_ratio(value, ids=None)</code></pre>
+<h4><code>lid_soil</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.lid_soil.conductivity(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_soil.conductivity_slope(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_soil.field_capacity(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_soil.porosity(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_soil.suction_head(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_soil.thickness(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_soil.wilting_point(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.lid_soil.conductivity(value, ids=None)
+m.set.lid_soil.conductivity_slope(value, ids=None)
+m.set.lid_soil.field_capacity(value, ids=None)
+m.set.lid_soil.porosity(value, ids=None)
+m.set.lid_soil.suction_head(value, ids=None)
+m.set.lid_soil.thickness(value, ids=None)
+m.set.lid_soil.wilting_point(value, ids=None)</code></pre>
+<h4><code>lid_storage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.lid_storage.clogging_factor(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_storage.height(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_storage.seepage_rate(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_storage.void_ratio(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.lid_storage.clogging_factor(value, ids=None)
+m.set.lid_storage.height(value, ids=None)
+m.set.lid_storage.seepage_rate(value, ids=None)
+m.set.lid_storage.void_ratio(value, ids=None)</code></pre>
+<h4><code>lid_drain</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.lid_drain.closed_level(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_drain.coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_drain.control_curve(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.lid_drain.delay(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_drain.exponent(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_drain.offset_height(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_drain.open_level(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.lid_drain.closed_level(value, ids=None)
+m.set.lid_drain.coefficient(value, ids=None)
+m.set.lid_drain.control_curve(value, ids=None)
+m.set.lid_drain.delay(value, ids=None)
+m.set.lid_drain.exponent(value, ids=None)
+m.set.lid_drain.offset_height(value, ids=None)
+m.set.lid_drain.open_level(value, ids=None)</code></pre>
+<h4><code>lid_usage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.lid_usage.area(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_usage.drain_outflow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.lid_usage.drain_to(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.lid_usage.evaporation(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.lid_usage.from_impervious_percent(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_usage.from_pervious_percent(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_usage.infiltration(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.lid_usage.inflow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.lid_usage.initial_saturation(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_usage.lid_control(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.lid_usage.number(value, ids=None)</code></td><td>user</td><td>integer</td><td>One structured <code>integer</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.lid_usage.outlet(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.lid_usage.storage(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.lid_usage.subcatchment(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.lid_usage.surface_outflow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.lid_usage.width(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.lid_usage.area(value, ids=None)
+m.set.lid_usage.drain_outflow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.lid_usage.drain_to(value, ids=None)
+m.set.lid_usage.evaporation(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.lid_usage.from_impervious_percent(value, ids=None)
+m.set.lid_usage.from_pervious_percent(value, ids=None)
+m.set.lid_usage.infiltration(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.lid_usage.inflow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.lid_usage.initial_saturation(value, ids=None)
+m.set.lid_usage.lid_control(value, ids=None)
+m.set.lid_usage.number(value, ids=None)
+m.set.lid_usage.outlet(value, ids=None)
+m.set.lid_usage.storage(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.lid_usage.subcatchment(value, ids=None)
+m.set.lid_usage.surface_outflow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.lid_usage.width(value, ids=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

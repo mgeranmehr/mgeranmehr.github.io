@@ -29,11 +29,31 @@
 <a class="" href="creating-models.html">Creating Models</a>
 <a class="" href="time-helpers.html">Time Helpers</a>
 <a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
 <a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
 <a class="" href="counting.html">Counting Objects</a>
 <a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
 <a class="" href="running-simulations.html">Running Simulations</a>
 <a class="active" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
 <a class="" href="importing-data.html">Importing Data</a>
 <a class="" href="exporting-data.html">Exporting Data</a>
 <a class="" href="validation.html">Validation</a>
@@ -81,7 +101,11 @@ m.plot_timeseries.system.runoff(time_format=&quot;elapsed&quot;)</code></pre>
 m.plot_profile.links([&quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;])
 m.plot_profile.longest(show_hgl=True, aggregation=&quot;max&quot;)</code></pre>
 <p>Profiles can plot node-to-node paths, explicit ordered link walks, or the longest directed conduit path. HGL/water overlays require results. Unknown IDs raise <code>UnknownIDError</code>; disconnected paths raise <code>NoPathError</code>.</p>
-</main>
+<h2>Detailed Plotting Reference</h2>
+<div class='card-grid'><article class='card'><h3>Layout plotting</h3><p>Plotting families, save behavior, layout options, layer styling, annotations, legends, and data-driven styles.</p><a href='plot-layout.html'>Open section</a></article>
+<article class='card'><h3>Time-series plotting</h3><p>Dynamic result plotting endpoints, IDs, time-axis modes, result requirements, and save behavior.</p><a href='plot-timeseries.html'>Open section</a></article>
+<article class='card'><h3>Profile plotting</h3><p>Node paths, ordered links, longest paths, HGL/water overlays, aggregation, and profile controls.</p><a href='plot-profiles.html'>Open section</a></article>
+<article class='card'><h3>Validation and common errors</h3><p>Common plotting errors, missing coordinates, missing results, unknown IDs, and disconnected profile paths.</p><a href='plot-errors.html'>Open section</a></article></div></main>
   </div>
   <footer class="footer">
     <span>swmmx Documentation</span>

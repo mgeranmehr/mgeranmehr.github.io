@@ -29,11 +29,31 @@
 <a class="" href="creating-models.html">Creating Models</a>
 <a class="" href="time-helpers.html">Time Helpers</a>
 <a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
 <a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
 <a class="" href="counting.html">Counting Objects</a>
 <a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
 <a class="" href="running-simulations.html">Running Simulations</a>
 <a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
 <a class="" href="importing-data.html">Importing Data</a>
 <a class="active" href="exporting-data.html">Exporting Data</a>
 <a class="" href="validation.html">Validation</a>
@@ -74,7 +94,70 @@ m.export.excel(
 <tr><td><code>overwrite</code></td><td>Replace existing outputs when supported.</td></tr>
 </tbody></table>
 <p>Coordinate fields are included where geometry is available: point objects use <code>[x, y]</code>, links use the full coordinate chain, and subcatchments use polygon coordinates when available. Point tables also include plain <code>x</code> and <code>y</code> fields.</p>
-</main>
+<section class='notebook-reference'><h2>Complete Export and Round-Trip Reference</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/16_all_import_export_functions.ipynb'>16_all_import_export_functions.ipynb</a>.</p>
+<h3>19. Export overview</h3>
+<p>The export API already follows the same model namespace style:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.export.csv(...)
+m.export.gis(...)
+m.export.excel(...)</code></pre>
+<p>Common export options:</p>
+<table><thead><tr><th>Option</th><th>Meaning</th></tr></thead><tbody><tr><td><code>path</code></td><td>Output folder. If omitted, export beside the model file or in the current working directory.</td></tr><tr><td><code>file_name</code></td><td>Single workbook name or prefix for multi-file exports.</td></tr><tr><td><code>elements</code></td><td>Named tables, groups such as <code>hydrology</code>, or <code>&quot;all&quot;</code>.</td></tr><tr><td><code>time_step</code></td><td>Result snapshot index; <code>-1</code> means the final simulated time step.</td></tr><tr><td><code>strict_results</code></td><td>Treat missing results as an error instead of exporting parameter-only tables.</td></tr><tr><td><code>overwrite</code></td><td>Replace existing export files when supported.</td></tr></tbody></table>
+<p>All CSV, Excel, and GIS exports include a <code>coordinates</code> attribute column. Point objects use <code>[x,y]</code>, links use the full coordinate chain, and subcatchments use polygon coordinates when available. Node-based and point-based export tables also include plain <code>x</code> and <code>y</code> columns: all node types use <code>[COORDINATES]</code>, rain gages use <code>[SYMBOLS]</code>, node-attached rows inherit their node coordinates, and subcatchments use the polygon centre point.</p>
+<p>GIS export also requires <code>geopandas</code> and <code>shapely</code>.</p>
+<figure class='notebook-code'><figcaption>Code cell 1</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># Save the current in-memory model first so exports have a model context.
+model_path = WORK / &quot;import_export_demo.inp&quot;
+m.save(model_path)
+print(f&quot;Saved model to: {model_path}&quot;)
+
+# CSV export: one CSV file per selected table. Exported tables include a coordinates field when map geometry is available; node-based tables also include x/y fields.
+csv_result = m.export.csv(path=WORK / &quot;csv_export&quot;, elements=[&quot;nodes&quot;, &quot;links&quot;, &quot;subcatchments&quot;])
+print(csv_result)
+
+# Excel export requires openpyxl.
+# excel_result = m.export.excel(path=WORK / &quot;excel_export&quot;, file_name=&quot;model_export.xlsx&quot;, elements=&quot;all&quot;)
+# print(excel_result)
+
+# GIS export requires geopandas and shapely.
+# gis_result = m.export.gis(path=WORK / &quot;gis_export&quot;, elements=[&quot;nodes&quot;, &quot;links&quot;], overwrite=True)
+# print(gis_result)</code></pre></figure>
+<h3>20. Re-importing exported CSV files</h3>
+<p>CSV tables created by <code>m.export.csv()</code> are intended to be easy to import into a new model or a QA copy. Version <code>0.0.36</code> gives exact input fields priority over result or derived fields with similar names. For example, an exported junction table may contain both <code>max_depth</code> and result <code>depth</code>; the importer uses <code>max_depth</code> for the junction and ignores result <code>depth</code> unless you explicitly map it.</p>
+<p>Export helper columns are also understood where practical: <code>element_type</code> dispatches group-level node/link imports, <code>stage_data</code> is translated for outfalls, <code>source_data</code> is translated for rain gages, and serialized <code>coordinates</code> can restore subcatchment polygons or link vertices.</p>
+<figure class='notebook-code'><figcaption>Code cell 2</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># Round-trip example for CSV files produced by swmmx itself.
+# Import dependent tables in dependency order: time series/rain gages/nodes before subcatchments and links.
+example_path = Path(&quot;example.inp&quot;)
+if not example_path.exists():
+    example_path = Path(&quot;examples/example.inp&quot;)
+source_model = swmm(example_path)
+source_model.run()
+exported = source_model.export.csv(path=WORK / &quot;round_trip_csv&quot;, elements=[&quot;time_series&quot;, &quot;rain_gages&quot;, &quot;nodes&quot;, &quot;subcatchments&quot;, &quot;links&quot;], time_step=-1, overwrite=True)
+
+copy_model = swmm()
+copy_model.import_csv.time.time_series(exported[&quot;time_series&quot;])
+copy_model.import_csv.node(exported[&quot;nodes&quot;])
+copy_model.import_csv.hydrology.rain_gage(exported[&quot;rain_gages&quot;])
+copy_model.import_csv.hydrology.subcatchment(exported[&quot;subcatchments&quot;])
+copy_model.import_csv.link(exported[&quot;links&quot;])
+
+validation = copy_model.validate()
+print(&quot;Imported exported CSV files successfully:&quot;, not validation.errors)</code></pre></figure>
+<h3>20. Recommended workflow</h3>
+<p>A robust import/export session usually follows this pattern:</p>
+<p>1. Start with <code>dry_run=True</code> and <code>on_unknown_fields=&quot;warn&quot;</code> to inspect field matching. 2. Use <code>field_map</code> for any project-specific or ambiguous names. 3. Import reference objects first: nodes, rain gages, curves, and time series. 4. Import dependent objects next: links and subcatchments. 5. Validate the model with <code>m.validate()</code>. 6. Save to a new <code>.inp</code> path. 7. Export CSV/GIS/Excel snapshots for QA.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">nodes = m.import_csv.node(&quot;nodes.csv&quot;, dry_run=True, on_unknown_fields=&quot;warn&quot;)
+print(nodes.summary())
+print(nodes.to_frame())</code></pre>
+<figure class='notebook-code'><figcaption>Code cell 3</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">validation = m.validate()
+print(&quot;Validation errors:&quot;, len(validation.errors))
+print(&quot;Validation warnings:&quot;, len(validation.warnings))</code></pre></figure>
+<h3>21. Troubleshooting quick reference</h3>
+<table><thead><tr><th>Symptom</th><th>Likely fix</th></tr></thead><tbody><tr><td>Missing required field</td><td>Check aliases or pass <code>field_map</code>. Required fields depend on endpoint.</td></tr><tr><td>Ambiguous field error</td><td>Two columns matched one canonical field; resolve with <code>field_map</code>.</td></tr><tr><td>Unknown field error</td><td>Use <code>on_unknown_fields=&quot;ignore&quot;</code> or remove/rename extra columns.</td></tr><tr><td>Duplicate ID in add mode</td><td>Use <code>mode=&quot;upsert&quot;</code> or remove existing object first.</td></tr><tr><td>Missing ID in update mode</td><td>Use <code>mode=&quot;upsert&quot;</code> or import the object before updating.</td></tr><tr><td>GIS dependency error</td><td>Install <code>geopandas</code> and <code>shapely</code>.</td></tr><tr><td>Link reference error</td><td>Import nodes before links and check <code>from_node</code> / <code>to_node</code> values.</td></tr><tr><td>Subcatchment reference error</td><td>Import rain gages and outlet nodes/subcatchments before subcatchments.</td></tr></tbody></table>
+<p>When in doubt, start with:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">result = m.import_csv.node.junction(&quot;junctions.csv&quot;, dry_run=True, on_unknown_fields=&quot;warn&quot;)
+print(result.summary())
+print(result.to_frame())</code></pre>
+</section></main>
   </div>
   <footer class="footer">
     <span>swmmx Documentation</span>

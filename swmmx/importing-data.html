@@ -29,11 +29,31 @@
 <a class="" href="creating-models.html">Creating Models</a>
 <a class="" href="time-helpers.html">Time Helpers</a>
 <a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
 <a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
 <a class="" href="counting.html">Counting Objects</a>
 <a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
 <a class="" href="running-simulations.html">Running Simulations</a>
 <a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
 <a class="active" href="importing-data.html">Importing Data</a>
 <a class="" href="exporting-data.html">Exporting Data</a>
 <a class="" href="validation.html">Validation</a>
@@ -79,7 +99,319 @@ print(result.to_frame())</code></pre>
 <tr><td><code>on_error</code></td><td><code>"raise"</code>, <code>"skip"</code>, or <code>"collect"</code>.</td></tr>
 </tbody></table>
 <p>Group-level shortcuts dispatch nodes and links by a <code>type</code> column: <code>m.import_csv.node("nodes.csv", default_type="junction")</code> and <code>m.import_csv.link("links.csv", default_type="conduit")</code>.</p>
-<aside class="callout info"><strong>Round trip</strong><p>CSV files created by m.export.csv() are designed to import back cleanly. Exact SWMM input columns take priority over result or derived columns with similar names.</p></aside></main>
+<aside class="callout info"><strong>Round trip</strong><p>CSV files created by m.export.csv() are designed to import back cleanly. Exact SWMM input columns take priority over result or derived columns with similar names.</p></aside><section class='notebook-reference'><h2>Complete Import Reference</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/16_all_import_export_functions.ipynb'>16_all_import_export_functions.ipynb</a>.</p>
+<h2>swmmx import and export reference</h2>
+<p>This notebook is a practical reference for the <code>swmmx</code> import and export APIs introduced in version <code>0.0.33</code> and strengthened for exported-file round trips in version <code>0.0.36</code>.</p>
+<p>The import API intentionally uses <code>m.import_csv</code> and <code>m.import_gis</code> instead of <code>m.import</code>, because <code>import</code> is a reserved Python keyword.</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.import_csv.&lt;category&gt;.&lt;element_type&gt;(file_path, field_map=None, **options)
+m.import_gis.&lt;category&gt;.&lt;element_type&gt;(file_path, field_map=None, **options)</code></pre>
+<p>The design mirrors the rest of the package: <code>m.get...</code>, <code>m.set...</code>, <code>m.add...</code>, <code>m.remove...</code>, <code>m.export...</code>, and now <code>m.import_csv...</code> / <code>m.import_gis...</code>.</p>
+<figure class='notebook-code'><figcaption>Code cell 1</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">from pathlib import Path
+import pandas as pd
+
+from swmmx import swmm
+
+WORK = Path(&quot;output/import_export_demo&quot;)
+WORK.mkdir(parents=True, exist_ok=True)
+
+m = swmm(new=&quot;SI&quot;)
+print(&quot;Created a new SI model&quot;)</code></pre></figure>
+<h3>1. Import managers and endpoint shape</h3>
+<p>The new managers are attached directly to every model object:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.import_csv
+m.import_gis</code></pre>
+<p>Element-level imports are explicit:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.import_csv.node.junction(&quot;junctions.csv&quot;)
+m.import_csv.link.conduit(&quot;conduits.csv&quot;)
+m.import_gis.hydrology.subcatchment(&quot;subcatchments.shp&quot;)</code></pre>
+<p>Group-level shortcuts are available where practical:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.import_csv.node(&quot;nodes.csv&quot;)
+m.import_csv.link(&quot;links.csv&quot;)
+m.import_gis.node(&quot;nodes.shp&quot;)
+m.import_gis.link(&quot;links.shp&quot;)</code></pre>
+<p>Group-level imports use a <code>type</code> field to dispatch each row. If the <code>type</code> field is missing, pass <code>default_type=&quot;junction&quot;</code> for nodes or <code>default_type=&quot;conduit&quot;</code> for links.</p>
+<figure class='notebook-code'><figcaption>Code cell 2</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># Quick discovery in an interactive session:
+print(&quot;CSV categories:&quot;, [name for name in dir(m.import_csv) if not name.startswith(&quot;_&quot;)])
+print(&quot;Node CSV endpoints:&quot;, [name for name in dir(m.import_csv.node) if not name.startswith(&quot;_&quot;)])
+print(&quot;Link CSV endpoints:&quot;, [name for name in dir(m.import_csv.link) if not name.startswith(&quot;_&quot;)])</code></pre></figure>
+<h3>2. Core CSV endpoints</h3>
+<table><thead><tr><th>Category</th><th>Endpoint examples</th><th>Notes</th></tr></thead><tbody><tr><td>Node</td><td><code>m.import_csv.node.junction(...)</code>, <code>.outfall(...)</code>, <code>.flow_divider(...)</code>, <code>.storage_unit(...)</code></td><td>Junction/outfall imports use existing add/update machinery where available; divider/storage rows are written through the same internal SWMM sections.</td></tr><tr><td>Link</td><td><code>m.import_csv.link.conduit(...)</code>, <code>.pump(...)</code>, <code>.orifice(...)</code>, <code>.weir(...)</code>, <code>.outlet(...)</code></td><td>Conduits use cross-section data such as <code>shape</code>, <code>diameter</code>/<code>geometry_1</code>, barrels, losses, and optional vertices.</td></tr><tr><td>Hydrology</td><td><code>m.import_csv.hydrology.rain_gage(...)</code>, <code>.subcatchment(...)</code></td><td>Subcatchments can include centroid coordinates and optional polygon geometry.</td></tr><tr><td>Time</td><td><code>m.import_csv.time.time_series(...)</code>, <code>.time_pattern(...)</code></td><td>Time series and curves support multiple rows per object ID.</td></tr><tr><td>Data</td><td><code>m.import_csv.curve.curve(...)</code></td><td>Curve points are grouped by curve ID.</td></tr><tr><td>Coordinates</td><td><code>m.import_csv.coordinate.node_coordinates(...)</code>, <code>.link_vertices(...)</code>, <code>.polygons(...)</code>, <code>.labels(...)</code></td><td>Spatial helper tables can update geometry without adding hydraulic objects.</td></tr></tbody></table>
+<h3>3. Import options</h3>
+<p>All import functions return an <code>ImportResult</code> and accept a consistent option set.</p>
+<table><thead><tr><th>Option</th><th>Values</th><th>Meaning</th></tr></thead><tbody><tr><td><code>mode</code></td><td><code>&quot;add&quot;</code>, <code>&quot;update&quot;</code>, <code>&quot;upsert&quot;</code></td><td>Add only, update only, or add missing/update existing.</td></tr><tr><td><code>field_map</code></td><td><code>dict</code> or <code>None</code></td><td>Explicit mapping from canonical swmmx field names to source columns. Explicit mappings win over aliases.</td></tr><tr><td><code>on_missing_required</code></td><td><code>&quot;error&quot;</code>, <code>&quot;skip&quot;</code></td><td>Raise for missing required fields or skip invalid rows and record issues.</td></tr><tr><td><code>on_unknown_fields</code></td><td><code>&quot;ignore&quot;</code>, <code>&quot;warn&quot;</code>, <code>&quot;error&quot;</code></td><td>Control how extra source columns are handled.</td></tr><tr><td><code>on_error</code></td><td><code>&quot;raise&quot;</code>, <code>&quot;skip&quot;</code>, <code>&quot;collect&quot;</code></td><td>Stop at first row error, skip failed rows, or collect row errors and continue.</td></tr><tr><td><code>dry_run</code></td><td><code>True</code>, <code>False</code></td><td>Validate and summarize without modifying the model.</td></tr><tr><td><code>encoding</code></td><td>string</td><td>CSV text encoding, default <code>&quot;utf-8&quot;</code>.</td></tr><tr><td><code>delimiter</code></td><td>string or <code>None</code></td><td>Passed to <code>pandas.read_csv</code> as <code>sep=</code> when provided.</td></tr><tr><td><code>default_type</code></td><td>string or <code>None</code></td><td>Used by group-level imports when the <code>type</code> field is absent.</td></tr><tr><td><code>overwrite_geometry</code></td><td><code>True</code>, <code>False</code></td><td>Replace existing coordinates/vertices/polygons on update/upsert.</td></tr></tbody></table>
+<h3>4. Field matching rules</h3>
+<p>The importer normalizes column names before matching:</p>
+<ul><li>lowercase</li><li>remove spaces, underscores, hyphens, periods, brackets, parentheses, and slashes</li><li>convert <code>%</code> to <code>percent</code></li><li>remove simple punctuation</li></ul>
+<p>Examples:</p>
+<table><thead><tr><th>Source column</th><th>Normalized</th><th>Can match</th></tr></thead><tbody><tr><td><code>Node ID</code></td><td><code>nodeid</code></td><td><code>id</code></td></tr><tr><td><code>node_id</code></td><td><code>nodeid</code></td><td><code>id</code></td></tr><tr><td><code>Invert Elev.</code></td><td><code>invertelev</code></td><td><code>invert_elevation</code></td></tr><tr><td><code>Max Depth</code></td><td><code>maxdepth</code></td><td><code>max_depth</code></td></tr><tr><td><code>% Imperv</code></td><td><code>percentimperv</code></td><td><code>impervious_percent</code></td></tr><tr><td><code>Easting</code></td><td><code>easting</code></td><td><code>x</code></td></tr><tr><td><code>Northing</code></td><td><code>northing</code></td><td><code>y</code></td></tr></tbody></table>
+<p>Matching priority:</p>
+<p>1. Explicit <code>field_map</code> 2. Exact normalized canonical field name 3. Alias catalog match 4. Conservative obvious matching only</p>
+<p>If two source columns match the same target, the importer raises an ambiguous-field error unless <code>field_map</code> resolves it.</p>
+<h3>5. ImportResult</h3>
+<p>Every import returns an <code>ImportResult</code> object with counts, field matches, ignored columns, and issues.</p>
+<p>Useful attributes and methods:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">result.ok
+result.has_warnings
+result.has_errors
+result.to_dict()
+result.to_frame()
+result.summary()</code></pre>
+<figure class='notebook-code'><figcaption>Code cell 3</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># A tiny CSV with common alias names.
+junctions_csv = WORK / &quot;junctions_aliases.csv&quot;
+pd.DataFrame(
+    {
+        &quot;Node ID&quot;: [&quot;J1&quot;, &quot;J2&quot;],
+        &quot;Easting&quot;: [0.0, 100.0],
+        &quot;Northing&quot;: [0.0, 0.0],
+        &quot;Invert Elev.&quot;: [10.0, 9.5],
+        &quot;Max Depth&quot;: [3.0, 2.5],
+        &quot;Tag&quot;: [&quot;main&quot;, &quot;main&quot;],
+    }
+).to_csv(junctions_csv, index=False)
+
+result = m.import_csv.node.junction(junctions_csv)
+print(result.summary())
+print(result.field_matches)
+result.to_frame()</code></pre></figure>
+<h3>6. CSV junction import with explicit <code>field_map</code></h3>
+<p>Use <code>field_map</code> when your file uses project-specific names or when a column would otherwise be ambiguous.</p>
+<figure class='notebook-code'><figcaption>Code cell 4</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">junctions_map_csv = WORK / &quot;junctions_field_map.csv&quot;
+pd.DataFrame(
+    {
+        &quot;NodeName&quot;: [&quot;J3&quot;],
+        &quot;CoordEast&quot;: [200.0],
+        &quot;CoordNorth&quot;: [0.0],
+        &quot;Invert&quot;: [9.0],
+        &quot;Depth&quot;: [2.0],
+    }
+).to_csv(junctions_map_csv, index=False)
+
+result = m.import_csv.node.junction(
+    junctions_map_csv,
+    field_map={
+        &quot;id&quot;: &quot;NodeName&quot;,              # required object ID
+        &quot;x&quot;: &quot;CoordEast&quot;,              # required map x-coordinate
+        &quot;y&quot;: &quot;CoordNorth&quot;,             # required map y-coordinate
+        &quot;invert_elevation&quot;: &quot;Invert&quot;,  # optional junction invert elevation
+        &quot;max_depth&quot;: &quot;Depth&quot;,          # optional junction maximum depth
+    },
+)
+print(result.summary())</code></pre></figure>
+<h3>7. CSV outfall import</h3>
+<p>Outfalls require <code>id</code>, <code>x</code>, and <code>y</code>; optional fields include <code>invert_elevation</code>, <code>type</code>, <code>fixed_stage</code>, <code>tidal_curve</code>, <code>time_series</code>, <code>tide_gate</code>, <code>route_to</code>, and <code>tag</code>.</p>
+<figure class='notebook-code'><figcaption>Code cell 5</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">outfalls_csv = WORK / &quot;outfalls.csv&quot;
+pd.DataFrame(
+    {
+        &quot;ID&quot;: [&quot;OUT1&quot;],
+        &quot;X&quot;: [300.0],
+        &quot;Y&quot;: [0.0],
+        &quot;Invert&quot;: [8.5],
+        &quot;Type&quot;: [&quot;FREE&quot;],
+    }
+).to_csv(outfalls_csv, index=False)
+
+result = m.import_csv.node.outfall(outfalls_csv)
+print(result.summary())</code></pre></figure>
+<h3>8. CSV conduit import</h3>
+<p>Conduits require <code>id</code>, <code>from_node</code>, <code>to_node</code>, <code>length</code>, and <code>roughness</code>. A circular conduit may provide <code>diameter</code>, which the importer maps into cross-section geometry.</p>
+<p>Common aliases include <code>PipeID</code> -&gt; <code>id</code>, <code>US_Node</code> -&gt; <code>from_node</code>, <code>DS_Node</code> -&gt; <code>to_node</code>, <code>ManningN</code> -&gt; <code>roughness</code>, and <code>Dia</code>/<code>Diameter</code> -&gt; <code>diameter</code>.</p>
+<figure class='notebook-code'><figcaption>Code cell 6</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">conduits_csv = WORK / &quot;conduits.csv&quot;
+pd.DataFrame(
+    {
+        &quot;PipeID&quot;: [&quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;],
+        &quot;US_Node&quot;: [&quot;J1&quot;, &quot;J2&quot;, &quot;J3&quot;],
+        &quot;DS_Node&quot;: [&quot;J2&quot;, &quot;J3&quot;, &quot;OUT1&quot;],
+        &quot;Length_m&quot;: [100.0, 100.0, 100.0],
+        &quot;ManningN&quot;: [0.013, 0.014, 0.015],
+        &quot;Diameter&quot;: [1.0, 1.0, 1.2],
+    }
+).to_csv(conduits_csv, index=False)
+
+result = m.import_csv.link.conduit(
+    conduits_csv,
+    field_map={
+        &quot;id&quot;: &quot;PipeID&quot;,
+        &quot;from_node&quot;: &quot;US_Node&quot;,
+        &quot;to_node&quot;: &quot;DS_Node&quot;,
+        &quot;length&quot;: &quot;Length_m&quot;,
+        &quot;roughness&quot;: &quot;ManningN&quot;,
+        &quot;diameter&quot;: &quot;Diameter&quot;,
+    },
+)
+print(result.summary())</code></pre></figure>
+<h3>9. Group-level node import</h3>
+<p><code>m.import_csv.node(...)</code> reads a <code>type</code> field and dispatches rows to:</p>
+<ul><li><code>junction</code></li><li><code>outfall</code></li><li><code>flow_divider</code></li><li><code>storage_unit</code></li></ul>
+<p>If <code>type</code> is missing, use <code>default_type=&quot;junction&quot;</code> or another valid node type.</p>
+<figure class='notebook-code'><figcaption>Code cell 7</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">group_nodes_csv = WORK / &quot;group_nodes.csv&quot;
+pd.DataFrame(
+    {
+        &quot;id&quot;: [&quot;J4&quot;, &quot;OUT2&quot;],
+        &quot;type&quot;: [&quot;junction&quot;, &quot;outfall&quot;],
+        &quot;x&quot;: [400.0, 500.0],
+        &quot;y&quot;: [0.0, 0.0],
+        &quot;invert_elevation&quot;: [8.0, 7.8],
+        &quot;max_depth&quot;: [2.0, None],
+    }
+).to_csv(group_nodes_csv, index=False)
+
+result = m.import_csv.node(group_nodes_csv)
+print(result.summary())</code></pre></figure>
+<h3>10. Group-level link import</h3>
+<p><code>m.import_csv.link(...)</code> reads a <code>type</code> field and dispatches rows to:</p>
+<ul><li><code>conduit</code></li><li><code>pump</code></li><li><code>orifice</code></li><li><code>weir</code></li><li><code>outlet</code></li></ul>
+<p>If <code>type</code> is missing, use <code>default_type=&quot;conduit&quot;</code> or another valid link type.</p>
+<figure class='notebook-code'><figcaption>Code cell 8</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">group_links_csv = WORK / &quot;group_links.csv&quot;
+pd.DataFrame(
+    {
+        &quot;id&quot;: [&quot;C4&quot;],
+        &quot;type&quot;: [&quot;conduit&quot;],
+        &quot;from_node&quot;: [&quot;J4&quot;],
+        &quot;to_node&quot;: [&quot;OUT2&quot;],
+        &quot;length&quot;: [100.0],
+        &quot;roughness&quot;: [0.013],
+        &quot;diameter&quot;: [1.0],
+    }
+).to_csv(group_links_csv, index=False)
+
+result = m.import_csv.link(group_links_csv)
+print(result.summary())</code></pre></figure>
+<h3>11. Dry run</h3>
+<p><code>dry_run=True</code> validates, matches fields, and returns an <code>ImportResult</code> without modifying the model.</p>
+<figure class='notebook-code'><figcaption>Code cell 9</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">dry_run_csv = WORK / &quot;dry_run_junction.csv&quot;
+pd.DataFrame({&quot;id&quot;: [&quot;J_DRY&quot;], &quot;x&quot;: [999.0], &quot;y&quot;: [999.0]}).to_csv(dry_run_csv, index=False)
+
+before = list(m.get.node.id())
+result = m.import_csv.node.junction(dry_run_csv, dry_run=True)
+after = list(m.get.node.id())
+
+print(result.summary())
+print(&quot;Model changed?&quot;, before != after)</code></pre></figure>
+<h3>12. Add, update, and upsert modes</h3>
+<ul><li><code>mode=&quot;add&quot;</code>: add new objects only; fail if an ID already exists.</li><li><code>mode=&quot;update&quot;</code>: update existing objects only; fail if an ID does not exist.</li><li><code>mode=&quot;upsert&quot;</code>: update existing objects and add missing objects.</li></ul>
+<figure class='notebook-code'><figcaption>Code cell 10</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">upsert_csv = WORK / &quot;junctions_upsert.csv&quot;
+pd.DataFrame(
+    {
+        &quot;id&quot;: [&quot;J1&quot;, &quot;J_NEW&quot;],
+        &quot;x&quot;: [0.0, 600.0],
+        &quot;y&quot;: [0.0, 0.0],
+        &quot;invert_elevation&quot;: [11.0, 7.0],
+        &quot;max_depth&quot;: [4.0, 2.0],
+    }
+).to_csv(upsert_csv, index=False)
+
+result = m.import_csv.node.junction(upsert_csv, mode=&quot;upsert&quot;)
+print(result.summary())</code></pre></figure>
+<h3>13. Missing fields, unknown fields, and row errors</h3>
+<p>Use strict behavior during data QA and more forgiving behavior during exploratory cleaning.</p>
+<figure class='notebook-code'><figcaption>Code cell 11</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">bad_csv = WORK / &quot;bad_junctions.csv&quot;
+pd.DataFrame(
+    {
+        &quot;id&quot;: [&quot;BAD1&quot;, &quot;BAD2&quot;],
+        &quot;x&quot;: [0.0, 1.0],
+        # y is intentionally missing
+        &quot;notes&quot;: [&quot;missing y&quot;, &quot;missing y&quot;],
+    }
+).to_csv(bad_csv, index=False)
+
+result = m.import_csv.node.junction(
+    bad_csv,
+    on_missing_required=&quot;skip&quot;,
+    on_unknown_fields=&quot;warn&quot;,
+    on_error=&quot;collect&quot;,
+)
+
+print(result.summary())
+result.to_frame()</code></pre></figure>
+<h3>14. CSV time series import</h3>
+<p>Time series rows are grouped by <code>id</code>. Use either a single <code>datetime</code> column or separate <code>date</code> + <code>time</code> columns.</p>
+<figure class='notebook-code'><figcaption>Code cell 12</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">time_series_csv = WORK / &quot;rain_timeseries.csv&quot;
+pd.DataFrame(
+    {
+        &quot;id&quot;: [&quot;TS1&quot;, &quot;TS1&quot;, &quot;TS1&quot;],
+        &quot;datetime&quot;: [&quot;2026-01-01 00:00&quot;, &quot;2026-01-01 00:05&quot;, &quot;2026-01-01 00:10&quot;],
+        &quot;value&quot;: [0.0, 1.5, 0.0],
+    }
+).to_csv(time_series_csv, index=False)
+
+result = m.import_csv.time.time_series(time_series_csv)
+print(result.summary())</code></pre></figure>
+<h3>15. CSV curve import</h3>
+<p>Curve rows are grouped by <code>id</code> and imported as ordered <code>(x, y)</code> points.</p>
+<figure class='notebook-code'><figcaption>Code cell 13</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">curve_csv = WORK / &quot;curves.csv&quot;
+pd.DataFrame(
+    {
+        &quot;id&quot;: [&quot;CURVE1&quot;, &quot;CURVE1&quot;, &quot;CURVE1&quot;],
+        &quot;x&quot;: [0.0, 1.0, 2.0],
+        &quot;y&quot;: [0.0, 0.8, 1.0],
+        &quot;type&quot;: [&quot;STORAGE&quot;, &quot;STORAGE&quot;, &quot;STORAGE&quot;],
+    }
+).to_csv(curve_csv, index=False)
+
+result = m.import_csv.curve.curve(curve_csv)
+print(result.summary())</code></pre></figure>
+<h3>16. CSV coordinate helper imports</h3>
+<p>Coordinate helpers can update spatial records directly:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.import_csv.coordinate.node_coordinates(&quot;node_coordinates.csv&quot;)
+m.import_csv.coordinate.link_vertices(&quot;link_vertices.csv&quot;)
+m.import_csv.coordinate.polygons(&quot;polygons.csv&quot;)
+m.import_csv.coordinate.labels(&quot;labels.csv&quot;)</code></pre>
+<p>Useful canonical fields:</p>
+<ul><li>node coordinates: <code>id</code>, <code>x</code>, <code>y</code></li><li>link vertices: <code>id</code>, <code>x</code>, <code>y</code> with one row per vertex</li><li>polygons: <code>id</code>, <code>x</code>, <code>y</code> with one row per polygon vertex</li><li>labels: <code>id</code>, <code>x</code>, <code>y</code>, optional <code>text</code>/label fields depending on the model section</li></ul>
+<figure class='notebook-code'><figcaption>Code cell 14</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python">vertices_csv = WORK / &quot;link_vertices.csv&quot;
+pd.DataFrame(
+    {
+        &quot;id&quot;: [&quot;C1&quot;, &quot;C1&quot;],
+        &quot;x&quot;: [25.0, 75.0],
+        &quot;y&quot;: [10.0, 10.0],
+    }
+).to_csv(vertices_csv, index=False)
+
+result = m.import_csv.coordinate.link_vertices(vertices_csv, mode=&quot;upsert&quot;)
+print(result.summary())</code></pre></figure>
+<h3>17. GIS import overview</h3>
+<p>GIS import has the same endpoint style as CSV import:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.import_gis.node.junction(&quot;junctions.shp&quot;)
+m.import_gis.node.outfall(&quot;outfalls.gpkg&quot;, layer=&quot;outfalls&quot;)
+m.import_gis.link.conduit(&quot;pipes.geojson&quot;)
+m.import_gis.hydrology.subcatchment(&quot;subcatchments.shp&quot;)</code></pre>
+<p>GIS import lazily imports optional dependencies. Install them only if you need spatial import/export:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-bash">pip install geopandas shapely</code></pre>
+<p>GIS-specific options:</p>
+<table><thead><tr><th>Option</th><th>Meaning</th></tr></thead><tbody><tr><td><code>layer=None</code></td><td>Read a specific layer from GeoPackage or other multi-layer data.</td></tr><tr><td><code>use_geometry=True</code></td><td>Use geometry to fill coordinates, vertices, polygons, and optional lengths.</td></tr><tr><td><code>geometry_field=&quot;geometry&quot;</code></td><td>Name of geometry column.</td></tr><tr><td><code>compute_length_from_geometry=False</code></td><td>For line geometry, compute length if no length field is available.</td></tr><tr><td><code>polygon_to_centroid=True</code></td><td>For polygons, use centroid as <code>x</code>/<code>y</code> when explicit coordinates are absent.</td></tr><tr><td>`crs_action=&quot;warn&quot;</td><td>&quot;ignore&quot;</td></tr></tbody></table>
+<figure class='notebook-code'><figcaption>Code cell 15</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># GIS examples are shown but not executed here because geopandas/shapely are optional.
+# Uncomment after installing geopandas and shapely and after preparing source files.
+
+# result = m.import_gis.node.junction(
+#     &quot;junctions.shp&quot;,
+#     field_map={&quot;id&quot;: &quot;NodeID&quot;},  # Point geometry supplies x/y
+# )
+# print(result.summary())
+
+# result = m.import_gis.link.conduit(
+#     &quot;pipes.geojson&quot;,
+#     field_map={
+#         &quot;id&quot;: &quot;PipeID&quot;,
+#         &quot;from_node&quot;: &quot;US_Node&quot;,
+#         &quot;to_node&quot;: &quot;DS_Node&quot;,
+#         &quot;roughness&quot;: &quot;ManningN&quot;,
+#         &quot;diameter&quot;: &quot;Diameter&quot;,
+#     },
+#     compute_length_from_geometry=True,  # LineString geometry can supply vertices and length
+# )
+# print(result.summary())
+
+# result = m.import_gis.hydrology.subcatchment(
+#     &quot;subcatchments.gpkg&quot;,
+#     layer=&quot;subcatchments&quot;,
+#     polygon_to_centroid=True,  # Polygon geometry supplies polygon and centroid x/y
+# )
+# print(result.summary())</code></pre></figure>
+<h3>18. GIS geometry behavior</h3>
+<table><thead><tr><th>Geometry type</th><th>Import behavior</th></tr></thead><tbody><tr><td><code>Point</code></td><td>Supplies <code>x</code> and <code>y</code> for nodes, rain gages, and labels when columns are absent.</td></tr><tr><td><code>LineString</code></td><td>Supplies link vertices; can compute length when <code>compute_length_from_geometry=True</code>.</td></tr><tr><td><code>Polygon</code></td><td>Supplies subcatchment polygon; centroid can supply <code>x</code> and <code>y</code>.</td></tr><tr><td><code>MultiLineString</code></td><td>Uses the longest line conservatively and records a warning.</td></tr><tr><td><code>MultiPolygon</code></td><td>Uses the largest polygon conservatively and records a warning.</td></tr></tbody></table>
+<p>If your GIS file has trustworthy attribute fields for <code>x</code>, <code>y</code>, <code>length</code>, or polygon vertices, those fields can still be used through normal alias matching or <code>field_map</code>.</p>
+</section></main>
   </div>
   <footer class="footer">
     <span>swmmx Documentation</span>

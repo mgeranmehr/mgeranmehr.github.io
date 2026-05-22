@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set: Nodes | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="active" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Setter Reference: Nodes</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/12_all_set_functions.ipynb'>12_all_set_functions.ipynb</a>.</p>
+<h3>Nodes</h3>
+<h4><code>node</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.node.coordinate(value, ids=None)</code></td><td>user</td><td>coordinates</td><td>One coordinate pair per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.node.depth(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.node.dry_weather_flow(value, ids=None)</code></td><td>ref/mixed</td><td>table</td><td>One structured <code>table</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.node.external_inflow(value, ids=None)</code></td><td>ref/mixed</td><td>table</td><td>One structured <code>table</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.node.flooding(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.node.head(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.node.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.initial_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.invert_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.lateral_inflow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.node.max_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.overflow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.node.pollutant_concentration(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.node.ponded_area(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.surcharge_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.tag(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.total_inflow(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.node.treatment(value, ids=None)</code></td><td>user</td><td>expression/table</td><td>One structured <code>expression/table</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.node.type(value, ids=None)</code></td><td>derived</td><td>enum</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.node.volume(value, ids=None)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.node.coordinate(value, ids=None)
+m.set.node.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.depth(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.dry_weather_flow(value, ids=None)
+m.set.node.external_inflow(value, ids=None)
+m.set.node.flooding(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.head(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.id(value, ids=None)
+m.set.node.initial_depth(value, ids=None)
+m.set.node.invert_elevation(value, ids=None)
+m.set.node.lateral_inflow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.max_depth(value, ids=None)
+m.set.node.overflow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.pollutant_concentration(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.ponded_area(value, ids=None)
+m.set.node.surcharge_depth(value, ids=None)
+m.set.node.tag(value, ids=None)
+m.set.node.total_inflow(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.treatment(value, ids=None)
+m.set.node.type(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.node.volume(value, ids=None)  # read-only: raises ReadOnlyParameterError</code></pre>
+<h4><code>junction</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.junction.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.junction.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.junction.initial_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.junction.invert_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.junction.max_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.junction.ponded_area(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.junction.surcharge_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.junction.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.junction.id(value, ids=None)
+m.set.junction.initial_depth(value, ids=None)
+m.set.junction.invert_elevation(value, ids=None)
+m.set.junction.max_depth(value, ids=None)
+m.set.junction.ponded_area(value, ids=None)
+m.set.junction.surcharge_depth(value, ids=None)</code></pre>
+<h4><code>outfall</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.outfall.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.outfall.fixed_stage(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outfall.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outfall.invert_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outfall.route_to(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.outfall.tidal_curve(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.outfall.tide_gate(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.outfall.time_series(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.outfall.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.outfall.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.outfall.fixed_stage(value, ids=None)
+m.set.outfall.id(value, ids=None)
+m.set.outfall.invert_elevation(value, ids=None)
+m.set.outfall.route_to(value, ids=None)
+m.set.outfall.tidal_curve(value, ids=None)
+m.set.outfall.tide_gate(value, ids=None)
+m.set.outfall.time_series(value, ids=None)
+m.set.outfall.type(value, ids=None)</code></pre>
+<h4><code>flow_divider</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.flow_divider.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.flow_divider.cutoff_flow(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.diversion_curve(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.flow_divider.diverted_link(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.flow_divider.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.initial_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.invert_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.max_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.ponded_area(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.surcharge_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.weir_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.flow_divider.weir_height(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.flow_divider.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.flow_divider.cutoff_flow(value, ids=None)
+m.set.flow_divider.diversion_curve(value, ids=None)
+m.set.flow_divider.diverted_link(value, ids=None)
+m.set.flow_divider.id(value, ids=None)
+m.set.flow_divider.initial_depth(value, ids=None)
+m.set.flow_divider.invert_elevation(value, ids=None)
+m.set.flow_divider.max_depth(value, ids=None)
+m.set.flow_divider.ponded_area(value, ids=None)
+m.set.flow_divider.surcharge_depth(value, ids=None)
+m.set.flow_divider.type(value, ids=None)
+m.set.flow_divider.weir_coefficient(value, ids=None)
+m.set.flow_divider.weir_height(value, ids=None)</code></pre>
+<h4><code>storage_unit</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.storage_unit.area(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.area_coefficient(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.area_constant(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.area_exponent(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.storage_unit.evaporation_factor(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.initial_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.invert_elevation(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.max_depth(value, ids=None)</code></td><td>user</td><td>float</td><td><code>float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.seepage_loss(value, ids=None)</code></td><td>user</td><td>float/table</td><td>One structured <code>float/table</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.storage_unit.storage_curve(value, ids=None)</code></td><td>ref</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.storage_unit.storage_curve_type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.storage_unit.area(value, ids=None)
+m.set.storage_unit.area_coefficient(value, ids=None)
+m.set.storage_unit.area_constant(value, ids=None)
+m.set.storage_unit.area_exponent(value, ids=None)
+m.set.storage_unit.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.storage_unit.evaporation_factor(value, ids=None)
+m.set.storage_unit.id(value, ids=None)
+m.set.storage_unit.initial_depth(value, ids=None)
+m.set.storage_unit.invert_elevation(value, ids=None)
+m.set.storage_unit.max_depth(value, ids=None)
+m.set.storage_unit.seepage_loss(value, ids=None)
+m.set.storage_unit.storage_curve(value, ids=None)
+m.set.storage_unit.storage_curve_type(value, ids=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

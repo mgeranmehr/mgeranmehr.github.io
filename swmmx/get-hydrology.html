@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get: Hydrology | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="active" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Getter Reference: Climate, Rainfall, and Hydrology</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/11_all_get_functions.ipynb'>11_all_get_functions.ipynb</a>.</p>
+<h3>Climate and rainfall</h3>
+<h4><code>climate</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.climate.areal_depletion_impervious(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.areal_depletion_pervious(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.evaporation_constant(format=None)</code></td><td>user</td><td>float</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.evaporation_dry_only(format=None)</code></td><td>user</td><td>bool</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.evaporation_monthly(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.evaporation_recovery_pattern(format=None)</code></td><td>ref</td><td>str</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.evaporation_time_series(format=None)</code></td><td>ref</td><td>str</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.evaporation_type(format=None)</code></td><td>user</td><td>enum</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.snowmelt_parameters(format=None)</code></td><td>user</td><td>mixed</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.temperature_time_series(format=None)</code></td><td>ref</td><td>str/table</td><td>series/table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.wind_speed_monthly(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate.wind_speed_type(format=None)</code></td><td>user</td><td>enum</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.climate.areal_depletion_impervious(format=None)
+m.get.climate.areal_depletion_pervious(format=None)
+m.get.climate.evaporation_constant(format=None)
+m.get.climate.evaporation_dry_only(format=None)
+m.get.climate.evaporation_monthly(format=None)
+m.get.climate.evaporation_recovery_pattern(format=None)
+m.get.climate.evaporation_time_series(format=None)
+m.get.climate.evaporation_type(format=None)
+m.get.climate.snowmelt_parameters(format=None)
+m.get.climate.temperature_time_series(format=None)
+m.get.climate.wind_speed_monthly(format=None)
+m.get.climate.wind_speed_type(format=None)</code></pre>
+<h4><code>climate_adjustment</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.climate_adjustment.conductivity(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate_adjustment.evaporation(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate_adjustment.rainfall(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.climate_adjustment.temperature(format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.climate_adjustment.conductivity(format=None)
+m.get.climate_adjustment.evaporation(format=None)
+m.get.climate_adjustment.rainfall(format=None)
+m.get.climate_adjustment.temperature(format=None)</code></pre>
+<h4><code>rain_gage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.rain_gage.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.rain_gage.filename(ids=None, format=None)</code></td><td>ref</td><td>path</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.format(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.interval(ids=None, format=None)</code></td><td>user</td><td>time</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.rainfall(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.rain_gage.snow_catch_factor(ids=None, format=None)</code></td><td>user</td><td>float</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.source_type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.station(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.time_series(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rain_gage.units(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.rain_gage.count(ids=None, format=None)
+m.get.rain_gage.filename(ids=None, format=None)
+m.get.rain_gage.format(ids=None, format=None)
+m.get.rain_gage.id(ids=None, format=None)
+m.get.rain_gage.interval(ids=None, format=None)
+m.get.rain_gage.rainfall(ids=None, format=None)
+m.get.rain_gage.snow_catch_factor(ids=None, format=None)
+m.get.rain_gage.source_type(ids=None, format=None)
+m.get.rain_gage.station(ids=None, format=None)
+m.get.rain_gage.time_series(ids=None, format=None)
+m.get.rain_gage.units(ids=None, format=None)</code></pre>
+<h3>Hydrology and catchments</h3>
+<h4><code>subcatchment</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.subcatchment.area(ids=None, format=None)</code></td><td>user</td><td>float</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.centroid(ids=None, format=None)</code></td><td>user/derived</td><td>coordinates</td><td>single/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.subcatchment.curb_length(ids=None, format=None)</code></td><td>user</td><td>float</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.depression_storage_impervious(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.depression_storage_pervious(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.evaporation(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.groundwater_elevation(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.groundwater_flow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.impervious_percent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.infiltration(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.n_impervious(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.n_pervious(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.outlet(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.percent_routed(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.pollutant_concentration(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series × pollutant</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.polygon(ids=None, format=None)</code></td><td>user</td><td>coordinates</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.rain_gage(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.rainfall(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.runoff(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.snow_depth(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.snow_pack(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.soil_moisture(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.subcatchment.subarea_routing(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.tag(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>single/series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.subcatchment.zero_depression_storage_impervious_percent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.subcatchment.area(ids=None, format=None)
+m.get.subcatchment.centroid(ids=None, format=None)
+m.get.subcatchment.count(ids=None, format=None)
+m.get.subcatchment.curb_length(ids=None, format=None)
+m.get.subcatchment.depression_storage_impervious(ids=None, format=None)
+m.get.subcatchment.depression_storage_pervious(ids=None, format=None)
+m.get.subcatchment.evaporation(ids=None, format=None)
+m.get.subcatchment.groundwater_elevation(ids=None, format=None)
+m.get.subcatchment.groundwater_flow(ids=None, format=None)
+m.get.subcatchment.id(ids=None, format=None)
+m.get.subcatchment.impervious_percent(ids=None, format=None)
+m.get.subcatchment.infiltration(ids=None, format=None)
+m.get.subcatchment.n_impervious(ids=None, format=None)
+m.get.subcatchment.n_pervious(ids=None, format=None)
+m.get.subcatchment.outlet(ids=None, format=None)
+m.get.subcatchment.percent_routed(ids=None, format=None)
+m.get.subcatchment.pollutant_concentration(ids=None, format=None)
+m.get.subcatchment.polygon(ids=None, format=None)
+m.get.subcatchment.rain_gage(ids=None, format=None)
+m.get.subcatchment.rainfall(ids=None, format=None)
+m.get.subcatchment.runoff(ids=None, format=None)
+m.get.subcatchment.slope(ids=None, format=None)
+m.get.subcatchment.snow_depth(ids=None, format=None)
+m.get.subcatchment.snow_pack(ids=None, format=None)
+m.get.subcatchment.soil_moisture(ids=None, format=None)
+m.get.subcatchment.subarea_routing(ids=None, format=None)
+m.get.subcatchment.tag(ids=None, format=None)
+m.get.subcatchment.width(ids=None, format=None)
+m.get.subcatchment.zero_depression_storage_impervious_percent(ids=None, format=None)</code></pre>
+<h4><code>infiltration_horton</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.infiltration_horton.decay(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_horton.dry_time(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_horton.maximum_rate(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_horton.maximum_volume(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_horton.minimum_rate(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.infiltration_horton.decay(ids=None, format=None)
+m.get.infiltration_horton.dry_time(ids=None, format=None)
+m.get.infiltration_horton.maximum_rate(ids=None, format=None)
+m.get.infiltration_horton.maximum_volume(ids=None, format=None)
+m.get.infiltration_horton.minimum_rate(ids=None, format=None)</code></pre>
+<h4><code>infiltration_green_ampt</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.infiltration_green_ampt.hydraulic_conductivity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_green_ampt.initial_moisture_deficit(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_green_ampt.suction_head(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.infiltration_green_ampt.hydraulic_conductivity(ids=None, format=None)
+m.get.infiltration_green_ampt.initial_moisture_deficit(ids=None, format=None)
+m.get.infiltration_green_ampt.suction_head(ids=None, format=None)</code></pre>
+<h4><code>infiltration_curve_number</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.infiltration_curve_number.conductivity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_curve_number.curve_number(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.infiltration_curve_number.dry_time(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by subcatchment</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.infiltration_curve_number.conductivity(ids=None, format=None)
+m.get.infiltration_curve_number.curve_number(ids=None, format=None)
+m.get.infiltration_curve_number.dry_time(ids=None, format=None)</code></pre>
+<h4><code>aquifer</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.aquifer.bottom_elevation(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.conductivity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.conductivity_slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.aquifer.field_capacity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.lower_evaporation_depth(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.lower_groundwater_loss_rate(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.porosity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.tension_slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.unsaturated_moisture(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.upper_evaporation_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.upper_evaporation_pattern(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.water_table_elevation(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.aquifer.wilting_point(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.aquifer.bottom_elevation(ids=None, format=None)
+m.get.aquifer.conductivity(ids=None, format=None)
+m.get.aquifer.conductivity_slope(ids=None, format=None)
+m.get.aquifer.count(ids=None, format=None)
+m.get.aquifer.field_capacity(ids=None, format=None)
+m.get.aquifer.id(ids=None, format=None)
+m.get.aquifer.lower_evaporation_depth(ids=None, format=None)
+m.get.aquifer.lower_groundwater_loss_rate(ids=None, format=None)
+m.get.aquifer.porosity(ids=None, format=None)
+m.get.aquifer.tension_slope(ids=None, format=None)
+m.get.aquifer.unsaturated_moisture(ids=None, format=None)
+m.get.aquifer.upper_evaporation_fraction(ids=None, format=None)
+m.get.aquifer.upper_evaporation_pattern(ids=None, format=None)
+m.get.aquifer.water_table_elevation(ids=None, format=None)
+m.get.aquifer.wilting_point(ids=None, format=None)</code></pre>
+<h4><code>groundwater</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.groundwater.a1(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.a2(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.a3(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.aquifer(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.b1(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.b2(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.deep_flow_equation(ids=None, format=None)</code></td><td>user</td><td>expression</td><td>single/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.fixed_depth(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.lateral_flow_equation(ids=None, format=None)</code></td><td>user</td><td>expression</td><td>single/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.subcatchment(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.surface_elevation(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.groundwater.threshold_elevation(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.groundwater.a1(ids=None, format=None)
+m.get.groundwater.a2(ids=None, format=None)
+m.get.groundwater.a3(ids=None, format=None)
+m.get.groundwater.aquifer(ids=None, format=None)
+m.get.groundwater.b1(ids=None, format=None)
+m.get.groundwater.b2(ids=None, format=None)
+m.get.groundwater.deep_flow_equation(ids=None, format=None)
+m.get.groundwater.fixed_depth(ids=None, format=None)
+m.get.groundwater.lateral_flow_equation(ids=None, format=None)
+m.get.groundwater.node(ids=None, format=None)
+m.get.groundwater.subcatchment(ids=None, format=None)
+m.get.groundwater.surface_elevation(ids=None, format=None)
+m.get.groundwater.threshold_elevation(ids=None, format=None)</code></pre>
+<h4><code>snow_pack</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.snow_pack.base_temperature(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.snow_pack.depth_at_100_percent_cover(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.destination_subcatchment(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.fraction_to_immediate_melt(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.fraction_to_impervious(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.fraction_to_outflow(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.fraction_to_pervious(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.fraction_to_subcatchment(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.free_water_capacity_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.impervious_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.initial_free_water(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.initial_snow_depth(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.maximum_melt_coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.minimum_melt_coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.pervious_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.plowable_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.snow_pack.removal_depth(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.snow_pack.base_temperature(ids=None, format=None)
+m.get.snow_pack.count(ids=None, format=None)
+m.get.snow_pack.depth_at_100_percent_cover(ids=None, format=None)
+m.get.snow_pack.destination_subcatchment(ids=None, format=None)
+m.get.snow_pack.fraction_to_immediate_melt(ids=None, format=None)
+m.get.snow_pack.fraction_to_impervious(ids=None, format=None)
+m.get.snow_pack.fraction_to_outflow(ids=None, format=None)
+m.get.snow_pack.fraction_to_pervious(ids=None, format=None)
+m.get.snow_pack.fraction_to_subcatchment(ids=None, format=None)
+m.get.snow_pack.free_water_capacity_fraction(ids=None, format=None)
+m.get.snow_pack.id(ids=None, format=None)
+m.get.snow_pack.impervious_fraction(ids=None, format=None)
+m.get.snow_pack.initial_free_water(ids=None, format=None)
+m.get.snow_pack.initial_snow_depth(ids=None, format=None)
+m.get.snow_pack.maximum_melt_coefficient(ids=None, format=None)
+m.get.snow_pack.minimum_melt_coefficient(ids=None, format=None)
+m.get.snow_pack.pervious_fraction(ids=None, format=None)
+m.get.snow_pack.plowable_fraction(ids=None, format=None)
+m.get.snow_pack.removal_depth(ids=None, format=None)</code></pre>
+<h4><code>unit_hydrograph</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.unit_hydrograph.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.unit_hydrograph.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.long_term_k(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.long_term_r(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.long_term_t(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.medium_term_k(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.medium_term_r(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.medium_term_t(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.month(ids=None, format=None)</code></td><td>user</td><td>enum/integer</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.rain_gage(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.short_term_k(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.short_term_r(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.unit_hydrograph.short_term_t(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.unit_hydrograph.count(ids=None, format=None)
+m.get.unit_hydrograph.id(ids=None, format=None)
+m.get.unit_hydrograph.long_term_k(ids=None, format=None)
+m.get.unit_hydrograph.long_term_r(ids=None, format=None)
+m.get.unit_hydrograph.long_term_t(ids=None, format=None)
+m.get.unit_hydrograph.medium_term_k(ids=None, format=None)
+m.get.unit_hydrograph.medium_term_r(ids=None, format=None)
+m.get.unit_hydrograph.medium_term_t(ids=None, format=None)
+m.get.unit_hydrograph.month(ids=None, format=None)
+m.get.unit_hydrograph.rain_gage(ids=None, format=None)
+m.get.unit_hydrograph.short_term_k(ids=None, format=None)
+m.get.unit_hydrograph.short_term_r(ids=None, format=None)
+m.get.unit_hydrograph.short_term_t(ids=None, format=None)</code></pre>
+<h4><code>lid_control</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.lid_control.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.lid_control.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_control.type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.lid_control.count(ids=None, format=None)
+m.get.lid_control.id(ids=None, format=None)
+m.get.lid_control.type(ids=None, format=None)</code></pre>
+<h4><code>lid_surface</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.lid_surface.roughness(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_surface.side_slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_surface.slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_surface.storage_depth(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_surface.vegetation_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.lid_surface.roughness(ids=None, format=None)
+m.get.lid_surface.side_slope(ids=None, format=None)
+m.get.lid_surface.slope(ids=None, format=None)
+m.get.lid_surface.storage_depth(ids=None, format=None)
+m.get.lid_surface.vegetation_fraction(ids=None, format=None)</code></pre>
+<h4><code>lid_pavement</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.lid_pavement.clogging_factor(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_pavement.impervious_surface_fraction(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_pavement.permeability(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_pavement.thickness(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_pavement.void_ratio(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.lid_pavement.clogging_factor(ids=None, format=None)
+m.get.lid_pavement.impervious_surface_fraction(ids=None, format=None)
+m.get.lid_pavement.permeability(ids=None, format=None)
+m.get.lid_pavement.thickness(ids=None, format=None)
+m.get.lid_pavement.void_ratio(ids=None, format=None)</code></pre>
+<h4><code>lid_soil</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.lid_soil.conductivity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_soil.conductivity_slope(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_soil.field_capacity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_soil.porosity(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_soil.suction_head(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_soil.thickness(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_soil.wilting_point(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.lid_soil.conductivity(ids=None, format=None)
+m.get.lid_soil.conductivity_slope(ids=None, format=None)
+m.get.lid_soil.field_capacity(ids=None, format=None)
+m.get.lid_soil.porosity(ids=None, format=None)
+m.get.lid_soil.suction_head(ids=None, format=None)
+m.get.lid_soil.thickness(ids=None, format=None)
+m.get.lid_soil.wilting_point(ids=None, format=None)</code></pre>
+<h4><code>lid_storage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.lid_storage.clogging_factor(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_storage.height(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_storage.seepage_rate(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_storage.void_ratio(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.lid_storage.clogging_factor(ids=None, format=None)
+m.get.lid_storage.height(ids=None, format=None)
+m.get.lid_storage.seepage_rate(ids=None, format=None)
+m.get.lid_storage.void_ratio(ids=None, format=None)</code></pre>
+<h4><code>lid_drain</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.lid_drain.closed_level(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_drain.coefficient(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_drain.control_curve(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_drain.delay(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_drain.exponent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_drain.offset_height(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_drain.open_level(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.lid_drain.closed_level(ids=None, format=None)
+m.get.lid_drain.coefficient(ids=None, format=None)
+m.get.lid_drain.control_curve(ids=None, format=None)
+m.get.lid_drain.delay(ids=None, format=None)
+m.get.lid_drain.exponent(ids=None, format=None)
+m.get.lid_drain.offset_height(ids=None, format=None)
+m.get.lid_drain.open_level(ids=None, format=None)</code></pre>
+<h4><code>lid_usage</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.lid_usage.area(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.drain_outflow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.lid_usage.drain_to(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.evaporation(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.lid_usage.from_impervious_percent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.from_pervious_percent(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.infiltration(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.lid_usage.inflow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.lid_usage.initial_saturation(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.lid_control(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.number(ids=None, format=None)</code></td><td>user</td><td>integer</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.outlet(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.storage(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.lid_usage.subcatchment(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.lid_usage.surface_outflow(ids=None, format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.lid_usage.width(ids=None, format=None)</code></td><td>user</td><td>float</td><td>series/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.lid_usage.area(ids=None, format=None)
+m.get.lid_usage.drain_outflow(ids=None, format=None)
+m.get.lid_usage.drain_to(ids=None, format=None)
+m.get.lid_usage.evaporation(ids=None, format=None)
+m.get.lid_usage.from_impervious_percent(ids=None, format=None)
+m.get.lid_usage.from_pervious_percent(ids=None, format=None)
+m.get.lid_usage.infiltration(ids=None, format=None)
+m.get.lid_usage.inflow(ids=None, format=None)
+m.get.lid_usage.initial_saturation(ids=None, format=None)
+m.get.lid_usage.lid_control(ids=None, format=None)
+m.get.lid_usage.number(ids=None, format=None)
+m.get.lid_usage.outlet(ids=None, format=None)
+m.get.lid_usage.storage(ids=None, format=None)
+m.get.lid_usage.subcatchment(ids=None, format=None)
+m.get.lid_usage.surface_outflow(ids=None, format=None)
+m.get.lid_usage.width(ids=None, format=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

@@ -67,6 +67,12 @@ h3 { font-size: 1.08rem; margin-top: 1.4rem; }
 .callout { border-left: 4px solid var(--accent); background: var(--surface-2); padding: .9rem 1rem; border-radius: 6px; margin: 1.25rem 0; }
 .callout.warning { border-left-color: var(--warning); background: #fff7ed; }
 .callout p { margin: .3rem 0 0; }
+.notebook-reference { margin-top: 3rem; padding-top: 1.25rem; border-top: 2px solid var(--border); }
+.notebook-reference h2:first-child { margin-top: 0; }
+.notebook-reference h3 { margin-top: 2rem; color: #0f172a; }
+.notebook-reference h4 { margin-top: 1.5rem; color: #233044; }
+.notebook-code { margin: 1rem 0 1.5rem; }
+.notebook-code figcaption { color: var(--muted); font-weight: 800; font-size: .85rem; margin-bottom: .35rem; }
 pre { position: relative; overflow: auto; background: var(--code-bg); color: var(--code-text); border-radius: 8px; padding: 1rem; box-shadow: var(--shadow); }
 code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: .92em; }
 :not(pre) > code { background: #edf2f7; color: #0f172a; padding: .1rem .3rem; border-radius: 4px; }

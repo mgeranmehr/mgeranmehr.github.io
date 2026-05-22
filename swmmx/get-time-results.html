@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get: Time &amp; Results | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="active" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Getter Reference: Time, Map Data, Summaries, and Results</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/11_all_get_functions.ipynb'>11_all_get_functions.ipynb</a>.</p>
+<h3>Time, curves, controls, and inflows</h3>
+<h4><code>time_series</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.time_series.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.time_series.datetime(ids=None, format=None)</code></td><td>user</td><td>datetime</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.time_series.description(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.time_series.filename(ids=None, format=None)</code></td><td>ref</td><td>path</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.time_series.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.time_series.values(ids=None, format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.time_series.count(ids=None, format=None)
+m.get.time_series.datetime(ids=None, format=None)
+m.get.time_series.description(ids=None, format=None)
+m.get.time_series.filename(ids=None, format=None)
+m.get.time_series.id(ids=None, format=None)
+m.get.time_series.values(ids=None, format=None)</code></pre>
+<h4><code>time_pattern</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.time_pattern.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.time_pattern.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.time_pattern.multipliers(ids=None, format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.time_pattern.type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.time_pattern.count(ids=None, format=None)
+m.get.time_pattern.id(ids=None, format=None)
+m.get.time_pattern.multipliers(ids=None, format=None)
+m.get.time_pattern.type(ids=None, format=None)</code></pre>
+<h4><code>curve</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.curve.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.curve.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.curve.points(ids=None, format=None)</code></td><td>user</td><td>tuple/list</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.curve.type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>series by ID</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.curve.x(ids=None, format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.curve.y(ids=None, format=None)</code></td><td>user</td><td>float</td><td>sequence/list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.curve.count(ids=None, format=None)
+m.get.curve.id(ids=None, format=None)
+m.get.curve.points(ids=None, format=None)
+m.get.curve.type(ids=None, format=None)
+m.get.curve.x(ids=None, format=None)
+m.get.curve.y(ids=None, format=None)</code></pre>
+<h4><code>control_rule</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.control_rule.action_log(ids=None, format=None)</code></td><td>result</td><td>table</td><td>event list</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.control_rule.actions(ids=None, format=None)</code></td><td>user/derived</td><td>expression/table</td><td>list/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.control_rule.conditions(ids=None, format=None)</code></td><td>user/derived</td><td>expression/table</td><td>list/table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.control_rule.count(ids=None, format=None)</code></td><td>derived</td><td>integer</td><td>single</td><td><code>int</code> scalar count</td></tr><tr><td><code>m.get.control_rule.enabled(ids=None, format=None)</code></td><td>user</td><td>bool</td><td>single/series</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.control_rule.id(ids=None, format=None)</code></td><td>user</td><td>str</td><td>single</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.control_rule.priority(ids=None, format=None)</code></td><td>user</td><td>integer/float</td><td>single/series</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.control_rule.text(ids=None, format=None)</code></td><td>user</td><td>str/list</td><td>list</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.control_rule.action_log(ids=None, format=None)
+m.get.control_rule.actions(ids=None, format=None)
+m.get.control_rule.conditions(ids=None, format=None)
+m.get.control_rule.count(ids=None, format=None)
+m.get.control_rule.enabled(ids=None, format=None)
+m.get.control_rule.id(ids=None, format=None)
+m.get.control_rule.priority(ids=None, format=None)
+m.get.control_rule.text(ids=None, format=None)</code></pre>
+<h4><code>external_inflow</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.external_inflow.baseline(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.external_inflow.constituent(ids=None, format=None)</code></td><td>ref/user</td><td>str/enum</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.external_inflow.node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.external_inflow.pattern(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.external_inflow.scale_factor(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.external_inflow.time_series(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.external_inflow.type(ids=None, format=None)</code></td><td>user</td><td>enum</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.external_inflow.units_factor(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.external_inflow.baseline(ids=None, format=None)
+m.get.external_inflow.constituent(ids=None, format=None)
+m.get.external_inflow.node(ids=None, format=None)
+m.get.external_inflow.pattern(ids=None, format=None)
+m.get.external_inflow.scale_factor(ids=None, format=None)
+m.get.external_inflow.time_series(ids=None, format=None)
+m.get.external_inflow.type(ids=None, format=None)
+m.get.external_inflow.units_factor(ids=None, format=None)</code></pre>
+<h4><code>dry_weather_flow</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.dry_weather_flow.average_value(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.dry_weather_flow.constituent(ids=None, format=None)</code></td><td>ref/user</td><td>str/enum</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.dry_weather_flow.daily_pattern(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.dry_weather_flow.hourly_pattern(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.dry_weather_flow.monthly_pattern(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.dry_weather_flow.node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.dry_weather_flow.weekend_pattern(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.dry_weather_flow.average_value(ids=None, format=None)
+m.get.dry_weather_flow.constituent(ids=None, format=None)
+m.get.dry_weather_flow.daily_pattern(ids=None, format=None)
+m.get.dry_weather_flow.hourly_pattern(ids=None, format=None)
+m.get.dry_weather_flow.monthly_pattern(ids=None, format=None)
+m.get.dry_weather_flow.node(ids=None, format=None)
+m.get.dry_weather_flow.weekend_pattern(ids=None, format=None)</code></pre>
+<h4><code>rdii</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.rdii.node(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rdii.sewer_area(ids=None, format=None)</code></td><td>user</td><td>float</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr><tr><td><code>m.get.rdii.unit_hydrograph(ids=None, format=None)</code></td><td>ref</td><td>str</td><td>table</td><td>One ID → scalar/structured value; many/all IDs → NumPy array or one-row DataFrame</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.rdii.node(ids=None, format=None)
+m.get.rdii.sewer_area(ids=None, format=None)
+m.get.rdii.unit_hydrograph(ids=None, format=None)</code></pre>
+<h4><code>interface_file</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.interface_file.hotstart(format=None)</code></td><td>ref</td><td>path</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.interface_file.inflow(format=None)</code></td><td>ref</td><td>path</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.interface_file.outflow(format=None)</code></td><td>ref</td><td>path</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.interface_file.rainfall(format=None)</code></td><td>ref</td><td>path</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.interface_file.rdii(format=None)</code></td><td>ref</td><td>path</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.interface_file.runoff(format=None)</code></td><td>ref</td><td>path</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.interface_file.save_file(format=None)</code></td><td>user</td><td>bool</td><td>single/table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.interface_file.use_file(format=None)</code></td><td>user</td><td>bool</td><td>single/table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.interface_file.hotstart(format=None)
+m.get.interface_file.inflow(format=None)
+m.get.interface_file.outflow(format=None)
+m.get.interface_file.rainfall(format=None)
+m.get.interface_file.rdii(format=None)
+m.get.interface_file.runoff(format=None)
+m.get.interface_file.save_file(format=None)
+m.get.interface_file.use_file(format=None)</code></pre>
+<h3>Map data, summaries, and system results</h3>
+<h4><code>coordinate</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.coordinate.labels(format=None)</code></td><td>user</td><td>coordinates</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.coordinate.link_vertices(format=None)</code></td><td>user</td><td>coordinates</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.coordinate.map_dimensions(format=None)</code></td><td>user/derived</td><td>coordinates</td><td>single/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.coordinate.map_units(format=None)</code></td><td>user</td><td>enum/str</td><td>single</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.coordinate.node_coordinates(format=None)</code></td><td>user</td><td>coordinates</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.coordinate.polygons(format=None)</code></td><td>user</td><td>coordinates</td><td>sequence/list</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.coordinate.subcatchment_coordinates(format=None)</code></td><td>user</td><td>coordinates</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.coordinate.labels(format=None)
+m.get.coordinate.link_vertices(format=None)
+m.get.coordinate.map_dimensions(format=None)
+m.get.coordinate.map_units(format=None)
+m.get.coordinate.node_coordinates(format=None)
+m.get.coordinate.polygons(format=None)
+m.get.coordinate.subcatchment_coordinates(format=None)</code></pre>
+<h4><code>summary</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.summary.conduit_surcharge(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.counts(format=None)</code></td><td>derived</td><td>table/dict</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.summary.flow_routing_continuity(format=None)</code></td><td>result</td><td>table/dict</td><td>single/table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.lid_performance(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.link_flow(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.link_velocity(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.model(format=None)</code></td><td>derived/result</td><td>table/dict</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.summary.node_depth(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.node_flooding(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.node_inflow(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.node_surcharge(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.options(format=None)</code></td><td>derived/user</td><td>table/dict</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr><tr><td><code>m.get.summary.outfall_loading(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.pump_operation(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.quality_routing_continuity(format=None)</code></td><td>result</td><td>table/dict</td><td>single/table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.runoff_continuity(format=None)</code></td><td>result</td><td>table/dict</td><td>single/table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.storage_volume(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.subcatchment_runoff(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.subcatchment_washoff(format=None)</code></td><td>result</td><td>table</td><td>table</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.summary.validation_issues(format=None)</code></td><td>derived</td><td>table</td><td>table</td><td>Model-level scalar, sequence, mapping, or table depending on the declared type</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.summary.conduit_surcharge(format=None)
+m.get.summary.counts(format=None)
+m.get.summary.flow_routing_continuity(format=None)
+m.get.summary.lid_performance(format=None)
+m.get.summary.link_flow(format=None)
+m.get.summary.link_velocity(format=None)
+m.get.summary.model(format=None)
+m.get.summary.node_depth(format=None)
+m.get.summary.node_flooding(format=None)
+m.get.summary.node_inflow(format=None)
+m.get.summary.node_surcharge(format=None)
+m.get.summary.options(format=None)
+m.get.summary.outfall_loading(format=None)
+m.get.summary.pump_operation(format=None)
+m.get.summary.quality_routing_continuity(format=None)
+m.get.summary.runoff_continuity(format=None)
+m.get.summary.storage_volume(format=None)
+m.get.summary.subcatchment_runoff(format=None)
+m.get.summary.subcatchment_washoff(format=None)
+m.get.summary.validation_issues(format=None)</code></pre>
+<h4><code>system_result</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Getter</th><th>Source</th><th>Declared type</th><th>Declared size</th><th>Output note</th></tr></thead><tbody><tr><td><code>m.get.system_result.air_temperature(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.direct_inflow(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.dry_weather_inflow(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.evaporation(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.flooding(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.groundwater_inflow(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.infiltration(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.outfall_flow(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.pollutant_loading(format=None)</code></td><td>result</td><td>float</td><td>time series × pollutant</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.rainfall(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.rdii_inflow(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.runoff(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.snow_depth(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.storage_volume(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr><tr><td><code>m.get.system_result.total_lateral_inflow(format=None)</code></td><td>result</td><td>float</td><td>time series</td><td>Time series; NumPy by default, or timestamp-indexed DataFrame with <code>format=&#x27;df&#x27;</code></td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.get.system_result.air_temperature(format=None)
+m.get.system_result.direct_inflow(format=None)
+m.get.system_result.dry_weather_inflow(format=None)
+m.get.system_result.evaporation(format=None)
+m.get.system_result.flooding(format=None)
+m.get.system_result.groundwater_inflow(format=None)
+m.get.system_result.infiltration(format=None)
+m.get.system_result.outfall_flow(format=None)
+m.get.system_result.pollutant_loading(format=None)
+m.get.system_result.rainfall(format=None)
+m.get.system_result.rdii_inflow(format=None)
+m.get.system_result.runoff(format=None)
+m.get.system_result.snow_depth(format=None)
+m.get.system_result.storage_volume(format=None)
+m.get.system_result.total_lateral_inflow(format=None)</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

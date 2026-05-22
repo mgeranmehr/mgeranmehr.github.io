@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plot: Time Series | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="active" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Plotting Reference: Time Series</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/15_all_plot_functions.ipynb'>15_all_plot_functions.ipynb</a>.</p>
+<h3><code>m.plot_timeseries.&lt;category&gt;.&lt;variable&gt;()</code></h3>
+<p>Time-series endpoints are generated dynamically from public result variables. They require a completed run and use a timestamp index by default. Their titles, grids, ticks, and axis labels use safe ordinary artists instead of native Matplotlib <code>Axis</code> artists, while legends use lightweight proxy lines rather than cloning the plotted artists. Together those two choices avoid the Spyder/Agg recursive marker-copy paths.</p>
+<table><thead><tr><th>Input</th><th>Type</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>ids</code></td><td>`None \</td><td>str \</td><td>list[str]`</td></tr><tr><td><code>legend</code></td><td><code>bool</code></td><td><code>True</code></td><td>Show line legend.</td></tr><tr><td><code>grid</code></td><td><code>bool</code></td><td><code>True</code></td><td>Show grid lines.</td></tr><tr><td><code>title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>legend_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>axis</code></td><td><code>bool</code></td><td><code>True</code></td><td>Show axes and ticks.</td></tr><tr><td><code>x_axis_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>y_axis_title</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>save_format</code></td><td>`str \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>save_path</code></td><td>`str \</td><td>Path \</td><td>None`</td></tr><tr><td><code>figsize</code></td><td><code>tuple[float, float]</code></td><td><code>(10, 4)</code></td><td>Figure size when <code>ax</code> is not supplied.</td></tr><tr><td><code>dpi</code></td><td><code>int</code></td><td><code>300</code></td><td>Figure resolution.</td></tr><tr><td><code>ax</code></td><td>matplotlib `Axes \</td><td>None`</td><td><code>None</code></td></tr><tr><td><code>show</code></td><td><code>bool</code></td><td><code>True</code></td><td>Call <code>plt.show()</code> after rendering.</td></tr><tr><td><code>time_format</code></td><td>`&#x27;datetime&#x27; \</td><td>&#x27;clock&#x27; \</td><td>&#x27;elapsed&#x27;`</td></tr><tr><td><code>start_time</code>, <code>end_time</code></td><td>timestamp-like</td><td><code>None</code></td><td>Optional time-window filters.</td></tr><tr><td><code>labels</code></td><td>`dict \</td><td>list \</td><td>tuple \</td></tr><tr><td><code>linewidth</code></td><td><code>float</code></td><td><code>1.5</code></td><td>Line width.</td></tr><tr><td><code>linestyle</code></td><td><code>str</code></td><td><code>&#x27;-&#x27;</code></td><td>Matplotlib line style.</td></tr><tr><td><code>marker</code></td><td>matplotlib marker or <code>None</code></td><td><code>None</code></td><td>Optional point marker.</td></tr><tr><td><code>alpha</code></td><td><code>float</code></td><td><code>1.0</code></td><td>Line transparency.</td></tr></tbody></table>
+<h4>Available time-series variables</h4>
+<table><thead><tr><th>Category</th><th>Available variables</th><th>ID behavior</th><th>Example endpoint</th></tr></thead><tbody><tr><td><code>conduit</code></td><td><code>capacity</code>, <code>depth</code>, <code>flow</code>, <code>velocity</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.conduit.capacity(...)</code></td></tr><tr><td><code>inlet</code></td><td><code>captured_flow</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.inlet.captured_flow(...)</code></td></tr><tr><td><code>lid_usage</code></td><td><code>drain_outflow</code>, <code>evaporation</code>, <code>infiltration</code>, <code>inflow</code>, <code>storage</code>, <code>surface_outflow</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.lid_usage.drain_outflow(...)</code></td></tr><tr><td><code>link</code></td><td><code>capacity</code>, <code>depth</code>, <code>flow</code>, <code>pollutant_concentration</code>, <code>setting</code>, <code>velocity</code>, <code>volume</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.link.capacity(...)</code></td></tr><tr><td><code>node</code></td><td><code>depth</code>, <code>flooding</code>, <code>head</code>, <code>lateral_inflow</code>, <code>overflow</code>, <code>pollutant_concentration</code>, <code>total_inflow</code>, <code>volume</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.node.depth(...)</code></td></tr><tr><td><code>orifice</code></td><td><code>flow</code>, <code>setting</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.orifice.flow(...)</code></td></tr><tr><td><code>outlet</code></td><td><code>flow</code>, <code>setting</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.outlet.flow(...)</code></td></tr><tr><td><code>pump</code></td><td><code>energy</code>, <code>flow</code>, <code>setting</code>, <code>status</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.pump.energy(...)</code></td></tr><tr><td><code>rain_gage</code></td><td><code>rainfall</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.rain_gage.rainfall(...)</code></td></tr><tr><td><code>street</code></td><td><code>spread</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.street.spread(...)</code></td></tr><tr><td><code>subcatchment</code></td><td><code>evaporation</code>, <code>groundwater_elevation</code>, <code>groundwater_flow</code>, <code>infiltration</code>, <code>pollutant_concentration</code>, <code>rainfall</code>, <code>runoff</code>, <code>snow_depth</code>, <code>soil_moisture</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.subcatchment.evaporation(...)</code></td></tr><tr><td><code>system</code></td><td><code>air_temperature</code>, <code>direct_inflow</code>, <code>dry_weather_inflow</code>, <code>evaporation</code>, <code>evaporation_loss</code>, <code>flooding</code>, <code>groundwater_inflow</code>, <code>infiltration</code>, <code>outflow</code>, <code>rainfall</code>, <code>rdii_inflow</code>, <code>runoff</code>, <code>snow_depth</code>, <code>total_lateral_inflow</code>, <code>volume</code></td><td>System-wide series; <code>ids</code> is not needed</td><td><code>m.plot_timeseries.system.air_temperature(...)</code></td></tr><tr><td><code>system_result</code></td><td><code>air_temperature</code>, <code>direct_inflow</code>, <code>dry_weather_inflow</code>, <code>evaporation</code>, <code>flooding</code>, <code>groundwater_inflow</code>, <code>infiltration</code>, <code>outfall_flow</code>, <code>pollutant_loading</code>, <code>rainfall</code>, <code>rdii_inflow</code>, <code>runoff</code>, <code>snow_depth</code>, <code>storage_volume</code>, <code>total_lateral_inflow</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.system_result.air_temperature(...)</code></td></tr><tr><td><code>weir</code></td><td><code>flow</code>, <code>setting</code></td><td><code>ids=None</code>, one ID string, or a list of ID strings</td><td><code>m.plot_timeseries.weir.flow(...)</code></td></tr></tbody></table>
+<h4>Time-series examples</h4>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.run()
+m.plot_timeseries.link.flow([&#x27;C1&#x27;, &#x27;C2&#x27;])
+m.plot_timeseries.node.depth(&#x27;J1&#x27;, title=&#x27;Node depth&#x27;)
+m.plot_timeseries.link.flow(&#x27;C1&#x27;, time_format=&#x27;clock&#x27;)
+m.plot_timeseries.system.runoff(time_format=&#x27;elapsed&#x27;)</code></pre>
+<figure class='notebook-code'><figcaption>Code cell 1</figcaption><pre><button class="copy" type="button">Copy</button><code class="language-python"># Result-based plotting examples need an executed model.
+m.run()
+fig, ax = m.plot_timeseries.link.flow(
+    ids=[&#x27;P001&#x27;, &#x27;P005&#x27;],
+    title=&#x27;Conduit flow&#x27;,
+    y_axis_title=&#x27;Flow&#x27;,
+    show=False,
+    save_path=output_dir / &#x27;notebook_timeseries_example.png&#x27;,
+)
+plt.close(fig)</code></pre></figure>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set: Time &amp; Map | swmmx Documentation</title>
+  <meta name="description" content="Professional documentation for the swmmx Python package.">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/swmmx_logo.png" alt=""> <span>swmmx Documentation</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+    <nav class="toplinks">
+      <a href="https://mgeranmehr.github.io/">Main site</a>
+      <a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a>
+      <a href="https://pypi.org/project/swmmx/">PyPI</a>
+    </nav>
+  </header>
+  <div class="shell">
+    <aside class="sidebar">
+      <label class="search-label" for="search">Search docs</label>
+      <input id="search" class="search" type="search" placeholder="Search pages and headings">
+      <div id="search-results" class="search-results"></div>
+      <nav><a class="" href="index.html">Home</a>
+<a class="" href="installation.html">Installation</a>
+<a class="" href="quickstart.html">Quick Start</a>
+<a class="" href="creating-models.html">Creating Models</a>
+<a class="" href="time-helpers.html">Time Helpers</a>
+<a class="" href="getting-parameters.html">Getting Parameters</a>
+<a class="" href="get-patterns.html">Get: Patterns</a>
+<a class="" href="get-options.html">Get: Options</a>
+<a class="" href="get-hydrology.html">Get: Hydrology</a>
+<a class="" href="get-nodes.html">Get: Nodes</a>
+<a class="" href="get-links.html">Get: Links</a>
+<a class="" href="get-hydraulic-quality.html">Get: Hydraulic & Quality</a>
+<a class="" href="get-time-results.html">Get: Time & Results</a>
+<a class="" href="setting-parameters.html">Setting Parameters</a>
+<a class="" href="set-patterns.html">Set: Patterns</a>
+<a class="" href="set-options.html">Set: Options</a>
+<a class="" href="set-hydrology.html">Set: Hydrology</a>
+<a class="" href="set-nodes.html">Set: Nodes</a>
+<a class="" href="set-links.html">Set: Links</a>
+<a class="" href="set-hydraulic-quality.html">Set: Hydraulic & Quality</a>
+<a class="active" href="set-time-map.html">Set: Time & Map</a>
+<a class="" href="counting.html">Counting Objects</a>
+<a class="" href="add-remove.html">Add & Remove</a>
+<a class="" href="add-reference.html">Add Reference</a>
+<a class="" href="remove-reference.html">Remove Reference</a>
+<a class="" href="running-simulations.html">Running Simulations</a>
+<a class="" href="plotting.html">Plotting</a>
+<a class="" href="plot-layout.html">Plot: Layout</a>
+<a class="" href="plot-timeseries.html">Plot: Time Series</a>
+<a class="" href="plot-profiles.html">Plot: Profiles</a>
+<a class="" href="plot-errors.html">Plot: Errors</a>
+<a class="" href="importing-data.html">Importing Data</a>
+<a class="" href="exporting-data.html">Exporting Data</a>
+<a class="" href="validation.html">Validation</a>
+<a class="" href="api-catalog.html">API Catalog</a>
+<a class="" href="examples.html">Examples Gallery</a>
+<a class="" href="comparison.html">Comparison</a>
+<a class="" href="faq.html">FAQ</a>
+<a class="" href="disclaimer.html">Disclaimer</a>
+<a class="" href="changelog.html">Changelog</a></nav>
+    </aside>
+    <main id="content" class="content"><section class='notebook-reference'><h2>Setter Reference: Time, Map Data, Summaries, and Results</h2>
+<p class='muted'>Rendered from <a href='https://github.com/mgeranmehr/swmmx_dev/blob/main/examples/12_all_set_functions.ipynb'>12_all_set_functions.ipynb</a>.</p>
+<h3>Time, curves, controls, and inflows</h3>
+<h4><code>time_series</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.time_series.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.time_series.datetime(value, ids=None)</code></td><td>user</td><td>datetime</td><td>One structured <code>datetime</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.time_series.description(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.time_series.filename(value, ids=None)</code></td><td>ref</td><td>path</td><td><code>path</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.time_series.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.time_series.values(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.time_series.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.time_series.datetime(value, ids=None)
+m.set.time_series.description(value, ids=None)
+m.set.time_series.filename(value, ids=None)
+m.set.time_series.id(value, ids=None)
+m.set.time_series.values(value, ids=None)</code></pre>
+<h4><code>time_pattern</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.time_pattern.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.time_pattern.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.time_pattern.multipliers(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.time_pattern.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.time_pattern.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.time_pattern.id(value, ids=None)
+m.set.time_pattern.multipliers(value, ids=None)
+m.set.time_pattern.type(value, ids=None)</code></pre>
+<h4><code>curve</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.curve.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.curve.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.curve.points(value, ids=None)</code></td><td>user</td><td>tuple/list</td><td>One structured <code>tuple/list</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.curve.type(value, ids=None)</code></td><td>user</td><td>enum</td><td><code>enum</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.curve.x(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.curve.y(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.curve.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.curve.id(value, ids=None)
+m.set.curve.points(value, ids=None)
+m.set.curve.type(value, ids=None)
+m.set.curve.x(value, ids=None)
+m.set.curve.y(value, ids=None)</code></pre>
+<h4><code>control_rule</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.control_rule.action_log(value, ids=None)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.control_rule.actions(value, ids=None)</code></td><td>user/derived</td><td>expression/table</td><td>One structured <code>expression/table</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.control_rule.conditions(value, ids=None)</code></td><td>user/derived</td><td>expression/table</td><td>One structured <code>expression/table</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.control_rule.count(value, ids=None)</code></td><td>derived</td><td>integer</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.control_rule.enabled(value, ids=None)</code></td><td>user</td><td>bool</td><td><code>bool</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.control_rule.id(value, ids=None)</code></td><td>user</td><td>str</td><td><code>str</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.control_rule.priority(value, ids=None)</code></td><td>user</td><td>integer/float</td><td><code>integer/float</code> scalar, or 1D vector/Series matching selected IDs</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.control_rule.text(value, ids=None)</code></td><td>user</td><td>str/list</td><td>One structured <code>str/list</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.control_rule.action_log(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.control_rule.actions(value, ids=None)
+m.set.control_rule.conditions(value, ids=None)
+m.set.control_rule.count(value, ids=None)  # read-only: raises ReadOnlyParameterError
+m.set.control_rule.enabled(value, ids=None)
+m.set.control_rule.id(value, ids=None)
+m.set.control_rule.priority(value, ids=None)
+m.set.control_rule.text(value, ids=None)</code></pre>
+<h4><code>external_inflow</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.external_inflow.baseline(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.external_inflow.constituent(value, ids=None)</code></td><td>ref/user</td><td>str/enum</td><td>One structured <code>str/enum</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.external_inflow.node(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.external_inflow.pattern(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.external_inflow.scale_factor(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.external_inflow.time_series(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.external_inflow.type(value, ids=None)</code></td><td>user</td><td>enum</td><td>One structured <code>enum</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.external_inflow.units_factor(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.external_inflow.baseline(value, ids=None)
+m.set.external_inflow.constituent(value, ids=None)
+m.set.external_inflow.node(value, ids=None)
+m.set.external_inflow.pattern(value, ids=None)
+m.set.external_inflow.scale_factor(value, ids=None)
+m.set.external_inflow.time_series(value, ids=None)
+m.set.external_inflow.type(value, ids=None)
+m.set.external_inflow.units_factor(value, ids=None)</code></pre>
+<h4><code>dry_weather_flow</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.dry_weather_flow.average_value(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.dry_weather_flow.constituent(value, ids=None)</code></td><td>ref/user</td><td>str/enum</td><td>One structured <code>str/enum</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.dry_weather_flow.daily_pattern(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.dry_weather_flow.hourly_pattern(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.dry_weather_flow.monthly_pattern(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.dry_weather_flow.node(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.dry_weather_flow.weekend_pattern(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.dry_weather_flow.average_value(value, ids=None)
+m.set.dry_weather_flow.constituent(value, ids=None)
+m.set.dry_weather_flow.daily_pattern(value, ids=None)
+m.set.dry_weather_flow.hourly_pattern(value, ids=None)
+m.set.dry_weather_flow.monthly_pattern(value, ids=None)
+m.set.dry_weather_flow.node(value, ids=None)
+m.set.dry_weather_flow.weekend_pattern(value, ids=None)</code></pre>
+<h4><code>rdii</code></h4>
+<p><strong>Kind:</strong> Object collection</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.rdii.node(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.rdii.sewer_area(value, ids=None)</code></td><td>user</td><td>float</td><td>One structured <code>float</code> value per selected ID</td><td>Writable; scalar inputs broadcast across selected IDs</td></tr><tr><td><code>m.set.rdii.unit_hydrograph(value, ids=None)</code></td><td>ref</td><td>str</td><td>One structured <code>str</code> value per selected ID</td><td>Writable reference; target IDs are validated where possible</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.rdii.node(value, ids=None)
+m.set.rdii.sewer_area(value, ids=None)
+m.set.rdii.unit_hydrograph(value, ids=None)</code></pre>
+<h4><code>interface_file</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.interface_file.hotstart(value)</code></td><td>ref</td><td>path</td><td>One model-level <code>path</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.interface_file.inflow(value)</code></td><td>ref</td><td>path</td><td>One model-level <code>path</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.interface_file.outflow(value)</code></td><td>ref</td><td>path</td><td>One model-level <code>path</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.interface_file.rainfall(value)</code></td><td>ref</td><td>path</td><td>One model-level <code>path</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.interface_file.rdii(value)</code></td><td>ref</td><td>path</td><td>One model-level <code>path</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.interface_file.runoff(value)</code></td><td>ref</td><td>path</td><td>One model-level <code>path</code> value</td><td>Writable reference; target IDs are validated where possible</td></tr><tr><td><code>m.set.interface_file.save_file(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.interface_file.use_file(value)</code></td><td>user</td><td>bool</td><td>One model-level <code>bool</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.interface_file.hotstart(value)
+m.set.interface_file.inflow(value)
+m.set.interface_file.outflow(value)
+m.set.interface_file.rainfall(value)
+m.set.interface_file.rdii(value)
+m.set.interface_file.runoff(value)
+m.set.interface_file.save_file(value)
+m.set.interface_file.use_file(value)</code></pre>
+<h3>Map data, summaries, and system results</h3>
+<h4><code>coordinate</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.coordinate.labels(value)</code></td><td>user</td><td>coordinates</td><td>One model-level <code>coordinates</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.coordinate.link_vertices(value)</code></td><td>user</td><td>coordinates</td><td>One model-level <code>coordinates</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.coordinate.map_dimensions(value)</code></td><td>user/derived</td><td>coordinates</td><td>One model-level <code>coordinates</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.coordinate.map_units(value)</code></td><td>user</td><td>enum/str</td><td>One model-level <code>enum/str</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.coordinate.node_coordinates(value)</code></td><td>user</td><td>coordinates</td><td>One model-level <code>coordinates</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.coordinate.polygons(value)</code></td><td>user</td><td>coordinates</td><td>One model-level <code>coordinates</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.coordinate.subcatchment_coordinates(value)</code></td><td>user</td><td>coordinates</td><td>One model-level <code>coordinates</code> value</td><td>Writable model-level value</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.coordinate.labels(value)
+m.set.coordinate.link_vertices(value)
+m.set.coordinate.map_dimensions(value)
+m.set.coordinate.map_units(value)
+m.set.coordinate.node_coordinates(value)
+m.set.coordinate.polygons(value)
+m.set.coordinate.subcatchment_coordinates(value)</code></pre>
+<h4><code>summary</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.summary.conduit_surcharge(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.counts(value)</code></td><td>derived</td><td>table/dict</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr><tr><td><code>m.set.summary.flow_routing_continuity(value)</code></td><td>result</td><td>table/dict</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.lid_performance(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.link_flow(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.link_velocity(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.model(value)</code></td><td>derived/result</td><td>table/dict</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>mixed</code> parameter</td></tr><tr><td><code>m.set.summary.node_depth(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.node_flooding(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.node_inflow(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.node_surcharge(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.options(value)</code></td><td>derived/user</td><td>table/dict</td><td>One model-level <code>table/dict</code> value</td><td>Writable model-level value</td></tr><tr><td><code>m.set.summary.outfall_loading(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.pump_operation(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.quality_routing_continuity(value)</code></td><td>result</td><td>table/dict</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.runoff_continuity(value)</code></td><td>result</td><td>table/dict</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.storage_volume(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.subcatchment_runoff(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.subcatchment_washoff(value)</code></td><td>result</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.summary.validation_issues(value)</code></td><td>derived</td><td>table</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>derived</code> parameter</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.summary.conduit_surcharge(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.counts(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.flow_routing_continuity(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.lid_performance(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.link_flow(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.link_velocity(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.model(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.node_depth(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.node_flooding(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.node_inflow(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.node_surcharge(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.options(value)
+m.set.summary.outfall_loading(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.pump_operation(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.quality_routing_continuity(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.runoff_continuity(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.storage_volume(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.subcatchment_runoff(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.subcatchment_washoff(value)  # read-only: raises ReadOnlyParameterError
+m.set.summary.validation_issues(value)  # read-only: raises ReadOnlyParameterError</code></pre>
+<h4><code>system_result</code></h4>
+<p><strong>Kind:</strong> Model-level category</p>
+<table><thead><tr><th>Setter</th><th>Source</th><th>Declared type</th><th>Value input</th><th>Behavior</th></tr></thead><tbody><tr><td><code>m.set.system_result.air_temperature(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.direct_inflow(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.dry_weather_inflow(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.evaporation(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.flooding(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.groundwater_inflow(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.infiltration(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.outfall_flow(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.pollutant_loading(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.rainfall(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.rdii_inflow(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.runoff(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.snow_depth(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.storage_volume(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr><tr><td><code>m.set.system_result.total_lateral_inflow(value)</code></td><td>result</td><td>float</td><td>Read-only; setter raises <code>ReadOnlyParameterError</code></td><td>Read-only <code>result</code> parameter</td></tr></tbody></table>
+<p>Copy-ready call list:</p>
+<pre><button class="copy" type="button">Copy</button><code class="language-python">m.set.system_result.air_temperature(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.direct_inflow(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.dry_weather_inflow(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.evaporation(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.flooding(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.groundwater_inflow(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.infiltration(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.outfall_flow(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.pollutant_loading(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.rainfall(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.rdii_inflow(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.runoff(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.snow_depth(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.storage_volume(value)  # read-only: raises ReadOnlyParameterError
+m.set.system_result.total_lateral_inflow(value)  # read-only: raises ReadOnlyParameterError</code></pre>
+</section></main>
+  </div>
+  <footer class="footer">
+    <span>swmmx Documentation</span>
+    <span><a href="https://mgeranmehr.github.io/">Main personal website</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev">GitHub</a></span>
+    <span><a href="https://github.com/mgeranmehr/swmmx_dev/issues">Issues</a></span>
+  </footer>
+  <script src="assets/docs.js"></script>
+</body>
+</html>

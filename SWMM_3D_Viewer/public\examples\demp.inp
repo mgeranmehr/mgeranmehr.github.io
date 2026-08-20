@@ -1,0 +1,128 @@
+[TITLE]
+;; SWMM 3D Viewer Demonstration Network
+
+[OPTIONS]
+FLOW_UNITS           CFS
+INFILTRATION         HORTON
+FLOW_ROUTING         DYNWAVE
+START_DATE           08/01/2026
+START_TIME           00:00:00
+END_DATE             08/01/2026
+END_TIME             06:00:00
+REPORT_STEP          00:05:00
+ROUTING_STEP         00:00:15
+
+[RAINGAGES]
+RG1                  INTENSITY 0:05 1.0 TIMESERIES DesignStorm
+
+[SUBCATCHMENTS]
+;;Name   Rain Gage  Outlet  Area   %Imperv Width  %Slope CurbLen
+S1       RG1        J1      4.80   62      310    1.7    0
+S2       RG1        J2      3.20   48      260    2.1    0
+S3       RG1        J4      5.10   71      340    1.4    0
+
+[SUBAREAS]
+S1       0.015 0.15 0.05 0.20 25 OUTLET
+S2       0.015 0.20 0.05 0.25 30 OUTLET
+S3       0.014 0.16 0.04 0.20 25 OUTLET
+
+[INFILTRATION]
+S1       3.0 0.5 4.0 7.0 0
+S2       3.5 0.6 4.0 7.0 0
+S3       2.7 0.4 4.0 7.0 0
+
+[JUNCTIONS]
+;;Name   Elevation MaxDepth InitDepth Surcharge PondedArea
+J1       96.0      8.0      0         0         0
+J2       93.4      8.5      0         0         0
+J3       90.8      9.0      0         0         0
+J4       94.7      8.0      0         0         0
+J5       91.9      9.0      0         0         0
+
+[STORAGE]
+;;Name   Elevation MaxDepth InitDepth Shape      Coeff Expon Constant
+ST1      88.3      12.0     0         FUNCTIONAL 1000  0     0
+
+[OUTFALLS]
+;;Name   Elevation Type  Stage Data Gated
+OF1      85.0      FREE             NO
+
+[CONDUITS]
+;;Name   From To   Length Roughness InOffset OutOffset InitFlow MaxFlow
+C1       J1   J2   420    0.013     0        0         0        0
+C2       J2   J3   360    0.013     0        0         0        0
+C3       J4   J5   330    0.013     0        0         0        0
+C4       J5   J3   290    0.013     0        0         0        0
+C5       J3   ST1  410    0.014     0        0         0        0
+C6       ST1  OF1  520    0.015     1.0      0         0        0
+
+[PUMPS]
+P1       ST1  J5   PumpCurve OFF 0 0
+
+[WEIRS]
+W1       J3   OF1  TRANSVERSE 4.5 3.2 NO 0 0
+
+[XSECTIONS]
+;;Link   Shape       Geom1 Geom2 Geom3 Geom4 Barrels
+C1       CIRCULAR    2.0   0     0     0     1
+C2       CIRCULAR    2.5   0     0     0     1
+C3       CIRCULAR    1.8   0     0     0     1
+C4       CIRCULAR    2.2   0     0     0     1
+C5       CIRCULAR    3.0   0     0     0     1
+C6       CIRCULAR    3.5   0     0     0     1
+W1       RECT_OPEN   5.0   1.0   0     0     1
+
+[CURVES]
+PumpCurve PUMP1 0 14
+PumpCurve        2 12
+PumpCurve        5 8
+PumpCurve        8 2
+
+[TIMESERIES]
+DesignStorm 08/01/2026 00:00 0.0
+DesignStorm             00:30 0.2
+DesignStorm             01:00 1.4
+DesignStorm             01:30 2.1
+DesignStorm             02:00 0.8
+DesignStorm             02:30 0.1
+
+[COORDINATES]
+J1       120  480
+J2       430  390
+J3       710  300
+J4       210  120
+J5       490  175
+ST1      940  280
+OF1      1270 210
+
+[VERTICES]
+C1       255  455
+C1       345  420
+C2       565  360
+C3       315  125
+C4       610  220
+C5       820  285
+C6       1090 250
+
+[POLYGONS]
+S1       20   570
+S1       365  575
+S1       390  355
+S1       80   340
+S2       60   330
+S2       430  330
+S2       430  40
+S2       40   35
+S3       450  520
+S3       820  520
+S3       850  100
+S3       440  45
+
+[REPORT]
+INPUT NO
+CONTROLS YES
+SUBCATCHMENTS ALL
+NODES ALL
+LINKS ALL
+
+[END]

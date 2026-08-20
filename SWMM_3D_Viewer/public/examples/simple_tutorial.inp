@@ -1,0 +1,117 @@
+[TITLE]
+;; Simple Storm Drain Tutorial
+;; A basic storm drain network: 1 subcatchment draining to J1,
+;; then J1->J2->J3->J4 via conduits, J4 drains to outfall Out1.
+;; All pipes are 8-inch circular. Dynamic wave routing.
+;; 5-year 1-hour design storm (1.5 inch total rainfall).
+
+[OPTIONS]
+FLOW_UNITS           CFS
+INFILTRATION         HORTON
+FLOW_ROUTING         DYNWAVE
+LINK_OFFSETS         DEPTH
+FORCE_MAIN_EQUATION  H-W
+START_DATE           06/15/2024
+START_TIME           00:00:00
+REPORT_START_DATE    06/15/2024
+REPORT_START_TIME    00:00:00
+END_DATE             06/15/2024
+END_TIME             06:00:00
+REPORT_STEP          00:05:00
+WET_STEP             00:05:00
+DRY_STEP             01:00:00
+ROUTING_STEP         00:00:30
+ALLOW_PONDING        NO
+INERTIAL_DAMPING     PARTIAL
+VARIABLE_STEP        0.75
+MIN_SURFAREA         12.566
+
+[EVAPORATION]
+CONSTANT     0.0
+
+[RAINGAGES]
+;; 5-year 1-hour design storm, 1.5 inches total, SCS Type II distribution
+;; Name    Form   Intvl  SCF    Source
+RG1        INTENSITY  0:05  1.0  TIMESERIES  DesignStorm
+
+[SUBCATCHMENTS]
+;; Name   Raingage  Outlet  Area   %Imperv  Width  Slope  CurbLen
+S1       RG1       J1      5      50       200    0.5    0
+
+[SUBAREAS]
+;; Subcat  N-Imperv  N-Perv  S-Imperv  S-Perv  PctZero  RouteTo
+S1        0.01      0.10    0.05      0.10    25       OUTLET
+
+[INFILTRATION]
+;; Subcat  MaxRate  MinRate  Decay  DryTime  MaxInfil
+S1        3.0      0.5      4      7        0
+
+[JUNCTIONS]
+;; Name  InvertEl  MaxDepth  InitDepth  SurDepth  Aponded
+J1       100.0     4         0          0         0
+J2       98.0      4         0          0         0
+J3       96.0      4         0          0         0
+J4       94.0      4         0          0         0
+
+[OUTFALLS]
+;; Name  InvertEl  Type  StageData  Gated
+Out1     92.0      FREE              NO
+
+[CONDUITS]
+;; Name  FromNode  ToNode  Length  Roughness  InOffset  OutOffset  InitFlow  MaxFlow
+C1       J1        J2      400     0.013      0         0          0         0
+C2       J2        J3      400     0.013      0         0          0         0
+C3       J3        J4      400     0.013      0         0          0         0
+C4       J4        Out1    300     0.013      0         0          0         0
+
+[XSECTIONS]
+;; Link  Shape     Geom1  Geom2  Geom3  Geom4  Barrels
+C1      CIRCULAR  0.667  0      0      0      1
+C2      CIRCULAR  0.667  0      0      0      1
+C3      CIRCULAR  0.667  0      0      0      1
+C4      CIRCULAR  0.667  0      0      0      1
+
+[TIMESERIES]
+;; SCS Type II distribution for 5-year 1-hour storm, 1.5 in total
+;; Name     Time   Value (in/hr intensity)
+DesignStorm  0:00  0.00
+DesignStorm  0:05  0.60
+DesignStorm  0:10  0.90
+DesignStorm  0:15  1.20
+DesignStorm  0:20  1.80
+DesignStorm  0:25  3.60
+DesignStorm  0:30  6.00
+DesignStorm  0:35  3.00
+DesignStorm  0:40  1.80
+DesignStorm  0:45  1.20
+DesignStorm  0:50  0.90
+DesignStorm  0:55  0.60
+DesignStorm  1:00  0.00
+
+[REPORT]
+INPUT      NO
+CONTROLS   NO
+SUBCATCHMENTS ALL
+NODES ALL
+LINKS ALL
+
+[COORDINATES]
+;; Node  X-Coord   Y-Coord
+J1       1000      5000
+J2       2000      5000
+J3       3000      5000
+J4       4000      5000
+Out1     5000      5000
+
+[VERTICES]
+
+[MAP]
+DIMENSIONS  500  4500  5500  5500
+UNITS  None
+
+[POLYGONS]
+;; Subcat  X-Coord   Y-Coord
+S1        500       5500
+S1        1500      5500
+S1        1500      6500
+S1        500       6500

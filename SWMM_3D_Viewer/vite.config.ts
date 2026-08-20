@@ -1,13 +1,7 @@
 import { defineConfig } from "vite";
 
-const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const isProjectPage =
-  process.env.GITHUB_ACTIONS === "true" &&
-  repositoryName &&
-  !repositoryName.endsWith(".github.io");
-
 export default defineConfig({
-  base: isProjectPage ? `/${repositoryName}/` : "/",
+  base: "/SWMM_3D_Viewer/",
   build: {
     target: "es2022",
     sourcemap: true,
